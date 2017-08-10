@@ -1,0 +1,10 @@
+#first-bar {
+    height: 90px;
+}
+#second-bar {
+    background-color: #03447b;
+    text-transform: uppercase;
+}
+#second-bar .navbar-nav > li > a {
+    color: #fff;
+}

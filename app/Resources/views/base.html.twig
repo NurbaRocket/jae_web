@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        
-        {% block stylesheets %}        
+        <title>{% block title %}Welcome!!!{% endblock %}</title>
+
+        {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.css') }}">
             <link rel="stylesheet" href="{{ asset('css/font-awesome/font-awesome.css') }}">
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         {% endblock %}
-        
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
@@ -17,13 +17,85 @@
         <header>
             <div class="container">
                 <div class="row">
-                    
+                    <nav id="first-bar">
+
+                    </nav>
+                    <nav id="second-bar" class="navbar navbar-default">
+                        <div class="container">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Компания
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Структура холдинга</a></li>
+                                        <li><a href="#">Энергокомпании</a></li>
+                                        <li><a href="#">Устав о холдинге</a></li>
+                                        <li><a href="#">Вакансии</a></li>
+                                        <li><a href="#">Руководство</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Акционерам и инвесторам
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Реализуемые проекты</a></li>
+                                        <li><a href="#">Финансовые отчеты</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Нормативная база
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Законы</a></li>
+                                        <li><a href="#">Указы</a></li>
+                                        <li><a href="#">Постановления</a></li>
+                                        <li><a href="#">Программы, стратегии</a></li>
+                                        <li><a href="#">Распоряжения</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Пресс-центр
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Новости</a></li>
+                                        <li><a href="#">Фотогаллерея</a></li>
+                                        <li><a href="#">Пресс а о нас</a></li>
+                                        <li><a href="#">Медия мероприятия</a></li>
+                                        <li><a href="#">Вопросы и ответы</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Закупки</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Контакты
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Контакты</a></li>
+                                        <li><a href="#">Телефоны дежурных диспетчеров РЭС</a></li>
+                                        <li><a href="#">Электронная приемная</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </header>
-        
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
         {% endblock %}
-        
+
         {% block javascripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="{{ asset('js/main.js') }}"></script>
