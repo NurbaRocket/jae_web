@@ -1,0 +1,388 @@
+-
+    title: Компания
+    title_kg: Компания
+    url: /company
+    position: 0
+    content: null
+    metaTitle: null
+    metaKeywords: null
+    metaDescription: null
+    children:
+        -
+            title: Структура холдинга
+            title_kg: Холдингдин түзүмү
+            url: /holding-structure
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Энергокомпании
+            title_kg: Туунду компаниялар
+            url: /companies
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Энергохолдинг жөнүндө жобо
+            title_kg: Устав о холдинге
+            url: /holding-charter
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Вакансии
+            title_kg: Бош кызмат орундар
+            url: /vacancies
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Руководство
+            title_kg: Руководство
+            url: /guide
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+-
+    title: Акционерам и инвесторам
+    title_kg: Акционерлерге жана инвесторлорго
+    url: /shareholders-investors
+    position: 1
+    content: null
+    metaTitle: null
+    metaKeywords: null
+    metaDescription: null
+    children:
+        -
+            title: Реализуемые проекты
+            title_kg: Ишке ашырылган долбоорлор
+            url: /projects
+            position: 99999
+            content: >
+                <h3>ИНФОРМАЦИЯ ПО РЕАЛИЗУЕМЫМ ПРОЕКТАМ В ЭНЕРГЕТИЧЕСКОЙ ОБЛАСТИ</h3>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><p>№</p></td>
+                            <td><p>Наименование проектов</p></td>
+                            <td><p>Источник финансирования</p></td>
+                            <td><p>Общая сумма финансирования</p></td>
+                            <td><p>Ожидаемый результат</p></td>
+                            <td><p>Текущий статус проекта</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>1</p></td>
+                            <td><p>Оздоровление локальной сети города Бишкек</p></td>
+                            <td rowspan="2"><p>Германский банк развития KfW</p></td>
+                            <td><p>10,425 евро</p></td>
+                            <td rowspan="2"><p>Поставка, установка и монтаж 110&nbsp;136 единиц электронных приборов учета (78&nbsp;702 единиц однофазных ПУ и 31&nbsp;434 единиц трехфазных ПУ), кабелей 35 кВ и 10 кВ, самонесущих изолированных проводов 0,4 кВ, кабелей АВВГ и вакуумных выключателей 35 кВ.</p>
+                            </td>
+                            <td rowspan="2"><p>В процессе реализации</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>2</p></td>
+                            <td><p>Повышение эффективности электрораспределительных сетей</p></td>
+                            <td><p>23,215 евро</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>3</p></td>
+                            <td><p>Строительство линии электропередачи 500 кВ &laquo;Датка-Кемин&raquo; и подстанции 500 кВ &laquo;Кемин&raquo;</p></td>
+                            <td><p>Экспортно-импортный банк КНР</p></td>
+                            <td><p>379,795 млн. долл. США</p></td>
+                            <td><p>Строительство ВЛ 500 кВ &laquo;Датка&ndash;Кемин&raquo; протяженностью 405 км и ПС 500 кВ &laquo;Кемин&raquo; мощностью автотрансформатора 3х167 МВА, перезаводка существующих ВЛ 220 кВ &ndash; 42 км, поставка автотрансформатора 200 МВА для ПС Ала-Арча, строительство 2-й очереди ПС 500 кВ &laquo;Датка&raquo;, реконструкция системы диспетчерской и технологической связи, релейной защиты и противоаварийной автоматики севера Кыргызстана</p>
+                            </td>
+                            <td><p>Проект завершен</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>4</p></td>
+                            <td><p>Улучшение электроснабжения г. Бишкек и г. Ош</p></td>
+                            <td><p>Исламский банк развития</p></td>
+                            <td><p>16,25 млн. долл. США</p></td>
+                            <td><p>Реконструкция подстанций &laquo;Ала-Арча&raquo;, &laquo;Кызыл-Аскер&raquo; и &laquo;Восточная&raquo; в г. Бишкек, реконструкция подстанции &laquo;Кара-Суу&raquo; в Ошской области и строительство ВЛ 220 кВ (Заводка второй цепи ВЛ 220 кВ &laquo;Фрунзенская &ndash;Ала-Арча&raquo;) протяженностью 20 км.</p>
+                            </td>
+                            <td><p>В процессе реализации</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>5</p></td>
+                            <td><p>Развитие сектора энергетики</p></td>
+                            <td><p>Азиатский банк развития</p></td>
+                            <td><p>44,8 млн. долл. США</p></td>
+                            <td><p>Внедрение автоматизированной системы контроля и учета данных (АСКУЭ), коммуникация и система диспетчерского контроля и сбора данных (СДКСД), модернизация58 подстанций,&nbsp; исследование по созданию расчетного центра, развитие потенциала корпоративного и финансового управления для ОАО &laquo;НЭС Кыргызстана&raquo;.</p>
+                            </td>
+                            <td><p>В процессе реализации&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>6</p></td>
+                            <td><p>Реабилитация сектора энергетики</p></td>
+                            <td><p>Азиатский банк развития</p></td>
+                            <td><p>55,0 млн. долл. США</p></td>
+                            <td><p>Реабилитация Токтогульской ГЭС (Фаза 1), Создание расчетного центра, проведение исследования состояния и безопасности плотин Нарынского каскада ГЭС, общественная информационная программа.</p>
+                            </td>
+                            <td><p>В процессе реализации&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>7</p></td>
+                            <td><p>Реконструкция Ат-Башинской ГЭС</p></td>
+                            <td><p>Правительство Швейцарской Конфедерации</p></td>
+                            <td><p>19,82 млн. швейц. франков (22,2 млн. долл. США)</p></td>
+                            <td><p>Замена основного силового оборудования с увеличением установленной мощности ГЭС до 10 %.&nbsp;&nbsp;&nbsp;</p></td>
+                            <td><p>В процессе реализации&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>8</p></td>
+                            <td><p>Модернизация ТЭЦ г. Бишкек</p></td>
+                            <td><p>Экспортно-импортный банк КНР</p></td>
+                            <td><p>386,0 млн. долл. США</p></td>
+                            <td><p>Демонтаж котлоагрегатов № 1-8 и турбоагрегатов № 1-4, с установкой 2 угольных котлоагрегатов сверхвысокого давления, производительностью пара по 550 т/ч и 2 турбоагрегатов с теплофикационным отбором по 150 МВт.</p>
+                            </td>
+                            <td><p>В процессе реализации&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>9</p></td>
+                            <td><p>CASA-1000</p></td>
+                            <td><p>Всемирный банк</p>
+                            <p>&nbsp;</p>
+                            <p>Европейский инвестиционный банк</p>
+                            <p>&nbsp;</p>
+                            <p>Исламский банк развития</p></td>
+                            <td><p>45 млн. долларов США</p>
+                            <p>&nbsp;</p>
+                            <p>70 млн. евро</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>50 млн. долларов США</p></td>
+                            <td><p>Строительство линии электропередачи 500 кВ протяженностью 477 км. От ПС &laquo;Датка&raquo; (КР) до ПС &laquo;Худжанд&raquo; (РТ).</p></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><p>10</p></td>
+                            <td><p>Ввод в эксплуатацию второго гидроагрегата&nbsp;</p>
+
+                            <p>Камбаратинской ГЭС-2</p>
+                            </td>
+                            <td><p>Евразийский банк развития</p>
+                            </td>
+                            <td><p>138 млн. долл. США</p>
+                            </td>
+                            <td><p>Строительство второго гидроагрегата и ОРУ-500 кВКамбаратинской ГЭС-2 мощностью 120 МВт.</p></td>
+                            <td><p>&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>11</p></td>
+                            <td><p>Реабилитация Токтогульской ГЭС Фаза 2</p>
+                            <p>&nbsp;</p>
+                            </td>
+                            <td><p>Азиатский банк развития</p></td>
+                            <td><p>250 млн. долл. США</p></td>
+                            <td><p>Замена гидроагрегатов № 2 и 4Токтогульской ГЭС с соответствующим вспомогательным оборудованием, проведение восстановительных работ на затворах и других гидротехнических сооружениях станции, улучшения бизнес процессов и внедрения системы планирования ресурсов предприятия (ПРП, англ-ERP), разработка комплексного плана развития энергосектораКР,&nbsp; проведение инвентаризации и переоценки стоимости активов всех энергокомпаний.</p>
+                            </td>
+                            <td><p>&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>12</p></td>
+                            <td><p>Улучшение электроснабжения Аркинского массива Баткенской области</p></td>
+                            <td><p>Исламский банк развития</p></td>
+                            <td><p>16,25 млн. долл. США</p></td>
+                            <td><p>Строительство ВЛ 110 кВпротяженностью&nbsp;51 км от ВЛ 110 кВ &laquo;Айгульташ-Самат&raquo; до подстанции &laquo;Арка&raquo;, подстанции 110/35/10 кВ &laquo;Раззакова&raquo; и реконструкция подстанции 110/35/10 кВ &laquo;Арка&raquo;.</p>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><p>13</p></td>
+                            <td><p>Повышение подотчетности и надежности электроснабжения</p></td>
+                            <td><p>Всемирный банк</p></td>
+                            <td><p>25 млн. долл. США</p></td>
+                            <td><p>Строительство 3-х ПС среднего напряжения в г. Бишкек, установка 20&nbsp;000 единиц приборов учета АСКУЭ для крупных потребителей Чуйской области, внедрение и системы корпоративного управления.</p>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                  </table>
+
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Финаносвые отчеты
+            title_kg: Финансылык отчёттор
+            url: /reports
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+-
+    title: Нормативная база
+    title_kg: Нормативдик база
+    url: /normative
+    position: 3
+    content: null
+    metaTitle: null
+    metaKeywords: null
+    metaDescription: null
+    children:
+        -
+            title: Законы
+            title_kg: Мыйзамдар
+            url: /the-law
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Указы
+            title_kg: Указдар
+            url: /orders
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Постановления
+            title_kg: Токтомдор
+            url: /stagnation
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Программы, стратегии
+            title_kg: Программалар, стратегиялар
+            url: /pograms-strategies
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Распоряжения
+            title_kg: Жобоолор
+            url: /distribution
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+-
+    title: Проесс-центр
+    title_kg: Проесс-борбор
+    url: /press-center
+    position: 99999
+    content: null
+    metaTitle: null
+    metaKeywords: null
+    metaDescription: null
+    children:
+        -
+            title: Новости
+            title_kg: Жанылыктар
+            url: /news
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Фотогалереи
+            title_kg: Фотогалереялар
+            url: /gallery
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Пресса о нас
+            title_kg: Пресса биз жөнүндө
+            url: /about-us
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Медия мероприятия
+            title_kg: Медия иш-чаралар
+            url: /media
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Вопросы и ответы
+            title_kg: Суроо-жооптор
+            url: /faq
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+-
+    title: Закупки
+    title_kg: Тандамдар
+    url: /buyings
+    position: 99999
+    content: null
+    metaTitle: null
+    metaKeywords: null
+    metaDescription: null
+-
+    title: Контакты
+    title_kg: Байланыштар
+    url: /contacts-tree
+    position: 99999
+    content: null
+    metaTitle: null
+    metaKeywords: null
+    metaDescription: null
+    children:
+        -
+            title: Контакты
+            title_kg: Байланыштар
+            url: /contacts
+            position: 99999
+            content: >
+                 <p><strong>Адрес:</strong>&nbsp;720055, г.&nbsp;Бишкек,&nbsp;ул.&nbsp;Ахунбаева, 119,</p>
+                 <p><strong>факс:</strong>&nbsp;<a href="tel:%2B996%20%28312%29%20560899" target="_blank">+996 (312) 560899</a>,</p>
+                 <p><strong>приемные:</strong>&nbsp;<a href="tel:%2B996%20%28312%29%20561822" target="_blank">+996 (312) 561822</a>, 561922,</p>
+                 <p><strong>pr-эксперт:</strong>&nbsp;<a href="tel:%2B996%20%28312%29%20591932" target="_blank">+996 (312) 561932</a>,</p>
+                 <p><strong>канцелярия:</strong>&nbsp;+996 (312) 562220,&nbsp;</p>
+                 <p><strong>e-mail</strong>:&nbsp;<a href="mailto:minenergopromkg@gmail.com" target="_blank">e</a><a href="mailto:nergyholding.kg@gmail.com" target="_blank">nergyholding.kg@gmail.com</a>&nbsp;</p>
+                 <p><strong>Часы работы:</strong></p>
+                 <p><strong>с 9:00 до 18:00</strong></p>
+                 <p><strong>Обед с 12:30 до 13:30&nbsp;</strong></p>
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Телефоны дежурных диспетчеров РЭС
+            title_kg: Сапаттуу тейлөө борборлорунун телефондору
+            url: /phones
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null
+        -
+            title: Электронная приемная
+            title_kg: Электрондук кабылдама
+            url: /feedback
+            position: 99999
+            content: null
+            metaTitle: null
+            metaKeywords: null
+            metaDescription: null

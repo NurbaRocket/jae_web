@@ -1,0 +1,19 @@
+services:
+
+    gedmo.listener.translatable:
+        class: Gedmo\Translatable\TranslatableListener
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+            - [ setDefaultLocale, [ %locale% ] ]
+            - [ setTranslationFallback, [ false ] ]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    energo.extension.listener:
+        class: AppBundle\Listener\DoctrineExtensionListener
+        calls:
+            - [ setContainer, [ "@service_container" ] ]
+        tags:
+            # translatable sets locale after router processing
+            - { name: kernel.event_listener, event: kernel.request, method: onLateKernelRequest, priority: -10 }
+

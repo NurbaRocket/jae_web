@@ -2,6 +2,8 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
+    locale: kg_KG
+    locales: ['ru_RU', 'kg_KG']
 
 services:
     # default configuration for services in *this* file
@@ -33,3 +35,46 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+        # Doctrine Extension listeners to handle behaviors
+
+    #energo.settings:
+    #    class: AppBundle\Entity\Settings
+    #    arguments: [@service_container]
+
+    # Doctrine Extension listeners to handle behaviors
+
+    energo.admin.pageTree:
+        class: AppBundle\Admin\PageTreeAdmin
+        arguments: [~, AppBundle\Entity\PageTree, AppBundle:PageTreeAdmin, 'title']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: PageTree }
+        public: true
+
+    energo.admin.article:
+        class: AppBundle\Admin\BlogAdmin
+        arguments: [~, AppBundle\Entity\Article, AppBundle:BlogAdmin, 'title']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: Article }
+        public: true
+
+    form.type.translatable:
+        class: AppBundle\Form\TranslatableType
+        arguments: ['@doctrine.orm.default_entity_manager', '@validator', '%locales%', '%locale%' ]
+        tags:
+            - { name: form.type, alias: translatable }
+
+    gedmo.listener.translatable:
+        class: Gedmo\Translatable\TranslatableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ '@annotation_reader' ] ]
+            - [ setDefaultLocale, [ 'ru_RU' ] ]
+            - [ setTranslationFallback, [ true ] ]
+
+    energo.manager.pageTree:
+        class: AppBundle\Manager\PageTreeManager
+        arguments: [ '@doctrine.orm.default_entity_manager', 'AppBundle\Entity\PageTree' ]
+        calls:
+            - [ setRepositoryLocale, ["@service_container"] ]
+

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {% if page.title == "Энергокомпании" %}
+        {% include 'page/block_list_page.html.twig' %}
+    {% else %}
+        {% include 'page/default.html.twig' %}
+    {% endif %}
+{% endblock %}

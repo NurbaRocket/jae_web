@@ -6,11 +6,11 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: kg_KG
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: [ru, kg] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -37,6 +37,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+        - 'SonataFormatterBundle:Form:formatter.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -54,11 +56,21 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #path: '%database_path%'
-
+        types:
+            json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            ApplicationSonataMediaBundle: ~
+            SonataMediaBundle: ~
+            gedmo_tree:
+                type: annotation
+                prefix: Gedmo\Tree\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                alias: GedmoTree # (optional) it will default to the name set for the mapping
+                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -67,3 +79,148 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+liip_imagine:
+    controller:
+        filter_action: 'SonataMediaBundle:Media:liipImagineFilter'
+    filter_sets:
+        admin:
+            quality: 75
+            filters:
+                thumbnail: { size: [170, 130], mode: inset }
+                background: { size: [170, 130], color: '#eee' }
+                default_icon: { size: [96, 96], color: '#eee' }
+        ads_small:
+            quality: 75
+            filters:
+                thumbnail: { size: [170, 130], mode: inset }
+                background: { size: [170, 130], color: '#eee' }
+                default_icon: { size: [96, 96], color: '#eee' }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: archantyrael@gmail.com
+        sender_name: Srb Nzy
+
+a2lix_translation_form:
+    locale_provider: default
+    locales: [ru_RU, kg_KG]
+    default_locale: ru_RU
+    required_locales: [kg_KG]
+    templating: "A2lixTranslationFormBundle::default.html.twig"
+
+stof_doctrine_extensions:
+    default_locale: ru_RU
+    orm:
+        default:
+            tree: true
+
+sonata_admin:
+    templates:
+        #edit: 'admin/base_edit.html.twig'
+        #layout: admin/layout.html.twig
+
+#sonata_translation:
+#    locales: [ru, kg]
+#    default_locale: %locale%
+    # here enable the types you need
+#    gedmo:
+#        enabled: true
+#    knplabs:
+#        enabled: true
+    #phpcr:
+    #    enabled: true
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text: # used to if you plan to use Sonata user routes
+
+sonata_formatter:
+    default_formatter: text
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig #keep this commented unless you are using media bundle.
+
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        twig:
+            service: sonata.formatter.text.twigengine
+            extensions: [] # Twig formatter cannot have extensions
+
+sonata_media:
+    class:
+        media: Application\Sonata\MediaBundle\Entity\Media
+        gallery: Application\Sonata\MediaBundle\Entity\Gallery
+        gallery_has_media: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+    default_context: default
+    db_driver: doctrine_orm
+    contexts:
+        default:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                icon:  { width: 20, height: 20, quality: 70}
+                small: { width: 180, height: 180, quality: 70}
+                big:   { width: 500, height: 500, quality: 70}
+        ads:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                thumb: { width: 170, height: 130, quality: 70}
+                normal: { width: 500, quality: 70}
+    cdn:
+        server:
+            path: /uploads/media
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false
+    providers:
+        file:
+            thumbnail:  sonata.media.thumbnail.liip_imagine
+        youtube:
+            thumbnail:  sonata.media.thumbnail.liip_imagine
+        dailymotion:
+            thumbnail:  sonata.media.thumbnail.liip_imagine
+        image:
+            service:    sonata.media.provider.image
+            resizer:    sonata.media.resizer.simple
+            filesystem: sonata.media.filesystem.local
+            cdn:        sonata.media.cdn.server
+            generator:  sonata.media.generator.default
+            thumbnail:  sonata.media.thumbnail.liip_imagine
+            allowed_extensions: ['jpg', 'png', 'jpeg']
+            allowed_mime_types: ['image/pjpeg', 'image/jpeg', 'image/png', 'image/x-png']
+

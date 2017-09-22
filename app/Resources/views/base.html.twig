@@ -1,113 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!!!{% endblock %}</title>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!!!{% endblock %}</title>
+    <base href="{{ url('app_energo_show') }}">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome/font-awesome.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    {% endblock %}
 
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/font-awesome/font-awesome.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-        {% endblock %}
-
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}
-        <header>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}
+    <div id="wrapper">
+        <div class="topbar">
             <div class="container">
-                <div id="first-bar" class="row">
-                    <div id="brand-title" class="col-lg-4">
-                        <h3>ЖАЛАЛАБАТЭЛЕКТРО</h3>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-1">
+                            <a class="navbar-brand pull-left" href="#">
+                                <img src="img/logo.png" alt="Национальный Энергохолдинг"/>
+                            </a>
+                        </div>
+                        <div id="brand-title" class="col-lg-3">
+                            <h3 class="title">НАЦИОНАЛЬНЫЙ ЭНЕРГОХОЛДИНГ</h3>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="navbar-form navbar-right">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Найти на сайте..."
+                                               aria-label="Найти на сайте...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <form class="navbar-form navbar-right">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Найти на сайте...">
-                            </div>
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-
                 </div>
             </div>
-            <nav id="second-bar" class="navbar navbar-default">
-                <div class="container">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Компания
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Структура холдинга</a></li>
-                                <li><a href="#">Энергокомпании</a></li>
-                                <li><a href="#">Устав о холдинге</a></li>
-                                <li><a href="#">Вакансии</a></li>
-                                <li><a href="#">Руководство</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Акционерам и инвесторам
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Реализуемые проекты</a></li>
-                                <li><a href="#">Финансовые отчеты</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Нормативная база
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Законы</a></li>
-                                <li><a href="#">Указы</a></li>
-                                <li><a href="#">Постановления</a></li>
-                                <li><a href="#">Программы, стратегии</a></li>
-                                <li><a href="#">Распоряжения</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Пресс-центр
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Новости</a></li>
-                                <li><a href="#">Фотогаллерея</a></li>
-                                <li><a href="#">Пресс а о нас</a></li>
-                                <li><a href="#">Медия мероприятия</a></li>
-                                <li><a href="#">Вопросы и ответы</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Закупки</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Контакты
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Контакты</a></li>
-                                <li><a href="#">Телефоны дежурных диспетчеров РЭС</a></li>
-                                <li><a href="#">Электронная приемная</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <div class="container">
-            {% block content %}
-            {% endblock %}
         </div>
-        {% endblock %}
+    </div>
+    {# navigation menu #}
+    {{ render(controller('AppBundle:energo:menu')) }}
 
-        {% block javascripts %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="{{ asset('js/main.js') }}"></script>
-        {% endblock %}
-    </body>
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget">
+                        <h5 class="widgetheading">Our Contact</h5>
+                        <address>
+                            <strong>Ultimate company Inc</strong><br>
+                            JC Main Road, Near Silnile tower<br>
+                            Pin-21542 NewYork US.
+                        </address>
+                        <p>
+                            <i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
+                            <i class="icon-envelope-alt"></i> email@domainname.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+</body>
 </html>

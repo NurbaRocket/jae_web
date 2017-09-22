@@ -14,7 +14,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Summary of set up
 * Configuration
-* Dependencies
+* Installation
 * Database configuration
 * How to run tests
 * Deployment instructions
@@ -29,3 +29,22 @@ This README would normally document whatever steps are necessary to get your app
 
 * Repo owner or admin
 * Other community or team contact
+
+### Installation
+
+composer update
+
+# Установка бандлов для пространства имен Application
+php bin/console sonata:easy-extends:generate SonataPageBundle --dest=src
+php bin/console sonata:easy-extends:generate SonataMediaBundle --dest=src
+php bin/console sonata:easy-extends:generate SonataNotificationBundle --dest=src
+
+# Создание таблиц
+php bin/console doctrine:schema:update
+
+Предзаполнение данными
+php bin/console sonata:page:create-site --enabled=true --name=localhost --locale=- --host=localhost --relativePath=/ --enabledFrom=now --enabledTo="+10 years" --default=true
+php bin/console sonata:page:update-core-routes --site=all
+php bin/console sonata:page:create-snapshots --site=all
+
+php bin/console doctrine:fixtures:load
