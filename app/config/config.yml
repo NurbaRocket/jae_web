@@ -40,6 +40,9 @@ twig:
     form_themes:
         - 'SonataFormatterBundle:Form:formatter.html.twig'
 
+    globals:
+        settings: "@energo.settings"
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -202,7 +205,7 @@ sonata_media:
                 normal: { width: 500, quality: 70}
     cdn:
         server:
-            path: /uploads/media
+            path: /uploads/mediaw
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media

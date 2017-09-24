@@ -69,7 +69,7 @@ class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface
     {
 
         $yaml = new Parser();
-        $items = $yaml->parse(file_get_contents(__DIR__ . '/../Data/pageTree.yml'));
+        $items = $yaml->parse(file_get_contents(__DIR__ . '/../Data/category.yml'));
         if ($items) {
             foreach ($items as $item) {
                 $this->persistPageTree($item, $manager);

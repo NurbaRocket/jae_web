@@ -15,6 +15,7 @@ class EnergoController extends Controller
 {
     
     /**
+     * @Route("/{_locale}")
      * @Route("/")
      * @Template("energo/index.html.twig")
      */
@@ -25,6 +26,8 @@ class EnergoController extends Controller
             'title' => 'Добро пожаловать!'
         );
     }
+
+
 
     /**
      * @Route("/{_locale}/category")

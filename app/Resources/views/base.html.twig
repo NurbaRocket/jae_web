@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Welcome!!!{% endblock %}</title>
+    <title>{% block title %}{{ settings.webSite.siteName }}{% endblock %}</title>
     <base href="{{ url('app_energo_show') }}">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.css') }}">
@@ -27,7 +27,12 @@
                             </a>
                         </div>
                         <div id="brand-title" class="col-lg-3">
-                            <h3 class="title">НАЦИОНАЛЬНЫЙ ЭНЕРГОХОЛДИНГ</h3>
+                            <h3 class="title">{{ settings.website.siteName }}</h3>
+                        </div>
+                        <div class="col-lg-2">
+                            <ul>
+                                <li
+                            </ul>
                         </div>
                         <div class="col-lg-6">
                             <form class="navbar-form navbar-right">

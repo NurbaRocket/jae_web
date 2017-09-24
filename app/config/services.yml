@@ -35,11 +35,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
-        # Doctrine Extension listeners to handle behaviors
-
-    #energo.settings:
-    #    class: AppBundle\Entity\Settings
-    #    arguments: [@service_container]
+    # Doctrine Extension listeners to handle behaviors
 
     # Doctrine Extension listeners to handle behaviors
 
@@ -78,3 +74,9 @@ services:
         calls:
             - [ setRepositoryLocale, ["@service_container"] ]
 
+    energo.settings:
+        class: AppBundle\Entity\Settings
+        arguments: ['@service_container']
+#    energo.settings:
+#        class: AppBundle\Entity\Settings
+#        arguments: [@service_container]

@@ -36,7 +36,7 @@ composer update
 
 # Установка бандлов для пространства имен Application
 php bin/console sonata:easy-extends:generate SonataPageBundle --dest=src
-php bin/console sonata:easy-extends:generate SonataMediaBundle --dest=src
+    php bin/console sonata:easy-extends:generate SonataMediaBundle --dest=src
 php bin/console sonata:easy-extends:generate SonataNotificationBundle --dest=src
 
 # Создание таблиц

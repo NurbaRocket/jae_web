@@ -1,0 +1,6 @@
+<Files ~ "\.(php|pl)$">
+	order allow,deny
+	deny from all
+</Files>
+RemoveHandler .php .phtml .php3 .php4 .php5 .pl
+RemoveType .php .phtml .php3 .php4 .php5 .pl

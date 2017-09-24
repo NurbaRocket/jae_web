@@ -16,14 +16,14 @@ class WebSiteSetting
      *
      * @ORM\Column(name="storeName", type="string", length=255, nullable=true)
      */
-    private $storeName;
+    private $siteName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="storeEmail", type="string", length=255, nullable=true)
      */
-    private $storeEmail;
+    private $siteEmail;
 
     /**
      * @var string
@@ -33,12 +33,12 @@ class WebSiteSetting
     private $googleAnalyticsId;
 
     /**
-     * @param string $storeName
+     * @param string $siteName
      * @return WebSiteSetting
      */
-    public function setStoreName($storeName)
+    public function setSiteName($siteName)
     {
-        $this->storeName = $storeName;
+        $this->siteName = $siteName;
 
         return $this;
     }
@@ -46,18 +46,18 @@ class WebSiteSetting
     /**
      * @return string
      */
-    public function getStoreName()
+    public function getSiteName()
     {
-        return $this->storeName;
+        return $this->siteName;
     }
 
     /**
-     * @param string $storeEmail
+     * @param string $siteEmail
      * @return WebSiteSetting
      */
-    public function setStoreEmail($storeEmail)
+    public function setSiteEmail($siteEmail)
     {
-        $this->storeEmail = $storeEmail;
+        $this->siteEmail = $siteEmail;
 
         return $this;
     }
@@ -65,9 +65,9 @@ class WebSiteSetting
     /**
      * @return string
      */
-    public function getStoreEmail()
+    public function getSiteEmail()
     {
-        return $this->storeEmail;
+        return $this->siteEmail;
     }
 
     /**

@@ -20,8 +20,8 @@ class LoadSettings implements FixtureInterface, OrderedFixtureInterface
     {
         $webSiteSettings = new WebSiteSetting();
         $webSiteSettings
-            ->setStoreName('Demo Store')
-            ->setStoreEmail('test@test.com')
+            ->setSiteName('ОАО "Жалалабатэлектро"')
+            ->setSiteEmail('test@test.com')
         ;
         $setting = new Setting();
         $setting->setName('webSite');
@@ -29,7 +29,7 @@ class LoadSettings implements FixtureInterface, OrderedFixtureInterface
         $manager->persist($setting);
 
         $seoSettings = new SEOSetting();
-        $seoSettings->setMetaTitle('Demo Store Fashion');
+        $seoSettings->setMetaTitle('Открытое Акционерное Общество «Жалалабатэлектро»');
         $setting = new Setting();
         $setting->setName('seo');
         $setting->setValue($seoSettings);
