@@ -23,7 +23,7 @@
                         </a>
                         {{ children|raw }}
                     {% else %}
-                        <a href="#">{{ page.title }}</a>
+                        <a href="{{ helper.pageUrl(page)}}">{{ page.title }}</a>
                     {% endif %}
                 </li>
             {% endfor %}

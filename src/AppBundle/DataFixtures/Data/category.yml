@@ -1,44 +1,6 @@
-- 
-   id: 1
-   title: Пресс служба
-   title_kg: Пресс кызмат
-   url: press-slujba
-   content: null
-   metaDescription: 
-   children:
-      -
-         id: 5
-         title: Новости
-         title_kg: Жаңылыктар
-         url: janylyktar
-         content:
-         metaDescription:
-      -
-         id: 6
-         title: Телесюжеты
-         title: Телесюжеттер
-         title_kg: 1
-         url: telesujets
-         content: null
-         metaDescription: 
-      -
-         id: 7
-         title: Интервью
-         title_kg: Маектер
-         url: maek
-         content: null
-         metaDescription: 
-      -
-         id: 8
-         title: Фотогалерея
-         title_kg: Фотогалерея
-         url: photo-galleries
-         content: null
-         metaDescription: 
-
-- 
+-
    id: 2
-   title: Кардарларга
+   title: Клиентам
    title_kg: Кардарларга
    url: kardarlarga
    content: null
@@ -87,7 +49,44 @@
          title_kg: Акционердик чогулуш
          url: aksioner-chogulush
          content: null
-         metaDescription: 
+         metaDescription:
+-
+   id: 1
+   title: Пресс служба
+   title_kg: Пресс кызмат
+   url: press-slujba
+   content: null
+   metaDescription:
+   children:
+      -
+         id: 5
+         title: Новости
+         title_kg: Жаңылыктар
+         url: janylyktar
+         content:
+         metaDescription:
+      -
+         id: 6
+         title: Телесюжеты
+         title: Телесюжеттер
+         title_kg: 1
+         url: telesujets
+         content: null
+         metaDescription:
+      -
+         id: 7
+         title: Интервью
+         title_kg: Маектер
+         url: maek
+         content: null
+         metaDescription:
+      -
+         id: 8
+         title: Фотогалерея
+         title_kg: Фотогалерея
+         url: photo-galleries
+         content: null
+         metaDescription: null
 -
    id: 4
    title: Тендеры

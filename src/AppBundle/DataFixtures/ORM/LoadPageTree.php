@@ -33,9 +33,9 @@ class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface
             //->setPosition($item['position'])
             ->setContent($item['content'])
             ->setMetaDescription($item['metaDescription'])
-            ->setTranslatableLocale('ru_RU')
-            ->addTranslation(new PageTreeTranslation('kg_KG', 'title', $item['title_kg']))
-            //->addTranslation(new PageTreeTranslation('kg_KG', 'content', $item['content']))
+            ->setTranslatableLocale('ru')
+            ->addTranslation(new PageTreeTranslation('kg', 'title', $item['title_kg']))
+            //->addTranslation(new PageTreeTranslation('kg', 'content', $item['content']))
         ;
         if ($parent) {
             $p->setParent($parent);

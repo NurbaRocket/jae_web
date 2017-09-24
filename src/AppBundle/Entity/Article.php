@@ -29,6 +29,19 @@ class Article implements Translatable
     */
    private $title;
 
+    /**
+     * @var String
+     * @ORM\Column(name="url", type="string", length=255, unique=true, nullable=true)
+     */
+    private $url;
+
+    /**
+     * @var String image
+     *
+     * @ORM\Column(name="image", type="string")
+     */
+    private $image;
+
    /**
     * @var String text
     *
@@ -105,6 +118,37 @@ class Article implements Translatable
     {
         return $this->title;
     }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @return String
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param String $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
 
     /**
      * Set tags

@@ -1,0 +1,67 @@
+#first-bar {
+    height: 70px;
+}
+#brand-title h3 {
+    padding: 4px;
+}
+#first-bar .navbar-form {
+    margin: 20px;
+}
+.navbar-form .input-group > .form-control {
+    height: 46px;
+}
+
+#second-bar .dropdown-menu,
+#second-bar {
+    background-color: #03447b;
+}
+#second-bar .navbar-nav > .open > a,
+#second-bar .navbar-nav > .open > a:hover,
+#second-bar .navbar-nav > .open > a:focus,
+#second-bar .dropdown-menu > li > a:hover,
+#second-bar .dropdown-menu > li > a:focus {
+    background-color: #023763;
+}
+#second-bar .navbar-nav > li >  a {
+    text-transform: uppercase;
+}
+#second-bar .dropdown-menu > li > a,
+#second-bar .navbar-nav > li > a {
+    color: #fff;
+}
+
+#second-bar .navbar-nav > li {
+    border-right: 1px solid #2f5677;
+}
+#second-bar .navbar-nav > li:last-child {
+    border-right: none;
+}
+
+.breadcrumb {
+    background: none;
+    text-transform: uppercase;
+}
+
+.breadcrumb a {
+    font-style: oblique;
+    color: #fff;
+}
+
+.breadcrumb > .active {
+    color: #ccc;
+}
+
+#inner-headline-list {
+    background-image: url(../images/inner-headline.jpg);
+}
+
+footer #fish {
+    background-color: #1c1c1c;
+    color: #fff;
+    height: 55px;
+}
+
+footer .container h5 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

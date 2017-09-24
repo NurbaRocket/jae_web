@@ -1,0 +1,37 @@
+<div id="wrapper">
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-1">
+                        <a class="navbar-brand pull-left" href="#">
+                            <img src="images/logo.png" class="img-responsive"/>
+                        </a>
+                    </div>
+                    <div id="brand-title" class="col-lg-5">
+                        <h3 class="title">{{ settings.website.siteName }}</h3>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <ul class="pull-left pagination">
+                            <li><a href="{{ url('app_energo_show', {_locale: 'ru'}) }}">Рус</a></li>
+                            <li><a href="{{ url('app_energo_show', {_locale: 'kg'}) }}">Кыр</a></li>
+                        </ul>
+                        <form class="navbar-form navbar-right">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="{% trans %}Найти на сайте...{% endtrans %}"
+                                           aria-label="{% trans %}Найти на сайте...{% endtrans %}">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

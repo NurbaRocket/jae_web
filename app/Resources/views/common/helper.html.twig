@@ -1,7 +1,7 @@
 
 {% macro pageUrl(item, forceHttp) %}
 {% spaceless %}
-    {% if not item.url %}
+    {% if item.url %}
         {{ url('url_show', {'url': item.url, 'forceHttp': forceHttp|default(false)}) }}
     {% else %}
         {{ url('app_energo_page', {'id': item.id, 'forceHttp': forceHttp|default(false)}) }}

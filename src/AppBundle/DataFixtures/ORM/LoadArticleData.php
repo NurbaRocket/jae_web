@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Article;
+use Symfony\Component\Yaml\Parser;
 
 class LoadArticleData implements FixtureInterface, OrderedFixtureInterface
 {
@@ -14,17 +15,28 @@ class LoadArticleData implements FixtureInterface, OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $article = new Article();
-
-        $article
-            //->setTranslatableLocale('ru_ru')
-            ->setTitle('First Article')
-            ->setContent('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.')
-            ->setStatus('public')
-            ->setCreateTime(new \DateTime())
-            ->setUpdateTime(new \DateTime());
-        $manager->persist($article);
-
+        $yaml = new Parser();
+        $items = $yaml->parse(file_get_contents(__DIR__ . '/../Data/articles.yml'));
+        if ($items) {
+            foreach ($items as $item) {
+                $a = new Article();
+                try {
+                    $imagePath = str_replace('\"', "", $item['img']['path']);
+                    $a
+                        ->setTitle($item['title'])
+                        ->setUrl($item['url'])
+                        ->setImage($imagePath)
+                        ->setContent($item['content'])
+                        ->setStatus('public')
+                        ->setCreateTime(new \DateTime($item['created_at']))
+                        ->setUpdateTime(new \DateTime($item['created_at']));
+                    ;
+                } catch (\Exception $ex) {
+                    throw $ex;
+                }
+                $manager->persist($a);
+            }
+        }
         $manager->flush();
     }
 

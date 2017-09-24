@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}{{ title }} - {{ settings.webSite.siteName }}{% endblock %}
 {% block content %}
     {% if page.title == "Энергокомпании" %}
         {% include 'page/block_list_page.html.twig' %}

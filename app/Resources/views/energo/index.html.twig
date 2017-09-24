@@ -19,56 +19,19 @@
     <section id="content">
         <div class="container">
             <div class="row">
-                <div class="skill-home">
-                    <div class="skill-home-solid clearfix">
-                        <div class="col-md-4 text-center">
-                            <div class="box-content">
-                                <div class="box-area">
-                                    <h3>Электронная приемная</h3>
-                                    <p>Lorem ipsum dolor sitamet, consec tetur adipisicing elit. Dolores quae porro</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <div class="box-content focus">
-                                <div class="box-area">
-                                    <h3>Календарь событий</h3>
-                                    <p>Lorem ipsum dolor sitamet, consec tetur adipisicing elit. Dolores quae porro</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <div class="box-content">
-                                <div class="box-area">
-                                    <h3>Плановые отключения</h3>
-                                    <p>Lorem ipsum dolor sitamet, consec tetur adipisicing elit. Dolores quae porro</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% include 'energo/skill_home.html.twig' %}
                 <div id="news" class="row service-v1 margin-bottom-40">
+                {% for row in articles %}
                     <div class="col-md-4 md-margin-bottom-40">
                         <div class="well">
-                            <img class="img-responsive" src="img/service1.jpg" alt="">
-                            <h4>Название новости, рекомендуемой длины не больше двух строк</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti consequuntur possimus</p>
+                            <a href="{{ url('app_energo_article', {id: row.id}) }}">
+                                <img class="img-responsive" src="{{ asset('uploads/media/' ~ row.image ) }}" alt="">
+                            </a>
+                             <a href="{{ url('app_energo_article', {id: row.id}) }}"> <h4>{{ row.title }}</h4></a>
+                            {{ row.content|striptags|truncate(200) }}
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="well">
-                            <img class="img-responsive" src="img/service2.jpg" alt="">
-                            <h3>Responsive</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti consequuntur possimus</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 md-margin-bottom-40">
-                        <div class="well">
-                            <img class="img-responsive" src="img/service3.jpg" alt="">
-                            <h3>Multi Purpouse</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti consequuntur possimus</p>
-                        </div>
-                    </div>
+                {% endfor %}
                     <div class="col-md-12 aligncenter">
                         <a href="#" class="btn btn-default">ВСЕ НОВОСТИ</a>
                     </div>

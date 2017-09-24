@@ -22,7 +22,14 @@ class EnergoController extends Controller
     
     public function showAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('AppBundle:Article')->findBy(
+            array(),
+            array('createTime' => 'DESC'),
+            3
+        );
         return array(
+            'articles' => $articles,
             'title' => 'Добро пожаловать!'
         );
     }
@@ -30,7 +37,7 @@ class EnergoController extends Controller
 
 
     /**
-     * @Route("/{_locale}/category")
+     * @Route("//category")
      * @Template("common/topmenu.html.twig")
      */
     public function menuAction()
@@ -56,15 +63,15 @@ class EnergoController extends Controller
      * @Method("GET")
      * @Template("energo/page.html.twig")
      */
-    public function pageAction(Request $request, $id)
+    public function pageAction($_locale, $id)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var  $page PageTree */
         $page = $em->getRepository('AppBundle:PageTree')->findOneBy(array('id' => $id));
-        $page->setTranslatableLocale($request->getLocale());
         if (!$page) {
             throw $this->createNotFoundException();
         }
+        $page->setTranslatableLocale($_locale);
         return array(
             'title'=> $page->getTitle(),
             'page' => $page,
@@ -94,17 +101,17 @@ class EnergoController extends Controller
 
 
     /**
-     * @Route("/{url}", name="url_show")
+     * @Route("/{_locale}/{url}", name="url_show")
      * @param $url
      * @Method("GET")
      * @Template()
      * @return Response
      * @throws NotFoundHttpException
      */
-    public function fallbackAction($url, Request $request)
+    public function fallbackAction($_locale, $url, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url = '/' . trim(urldecode($url), '/');
+        $url =  trim(urldecode($url), '/');
         $page = $em->getRepository('AppBundle:PageTree')->findOneBy(
             array(
                 'url' => $url,
@@ -115,19 +122,20 @@ class EnergoController extends Controller
             return $this->forward('AppBundle:Energo:page',
                 array(
                     'id' => $page->getId(),
+                    '_locale' => $_locale,
                 ),
                 $request->query->all()
             );
         }
 
-        $page = $em->getRepository('AppBundle:PageTree')->findOneBy(
+        $page = $em->getRepository('AppBundle:Article')->findOneBy(
             array(
                 'url' => $url,
                 //'status' => true
             )
         );
         if (!empty($page)) {
-            $this->container->get('request')->attributes->set('_controller', 'AppBundle:Energo:page');
+            $this->container->get('request')->attributes->set('_controller', 'AppBundle:Energo:article');
             $this->container->get('request')->attributes->set('id', $page->getId());
             return $this->container->get('http_kernel')->handle($this->container->get('request'));
         }

@@ -3,6 +3,7 @@
 }
 #brand-title h3 {
     padding: 4px;
+    text-transform: uppercase;
 }
 #first-bar .navbar-form {
     margin: 20px;
@@ -53,6 +54,11 @@
 
 #inner-headline-list {
     background-image: url(../images/inner-headline.jpg);
+}
+
+#news h4 {
+    word-wrap: normal;
+    overflow: hidden;
 }
 
 footer #fish {
