@@ -278,6 +278,8 @@ class Article implements Translatable
     public function setPageTree(PageTree $pageTree)
     {
         $this->pageTree = $pageTree;
+
+        return $this;
     }
 
     public function getPageTree()

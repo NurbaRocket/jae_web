@@ -11,7 +11,15 @@
 .navbar-form .input-group > .form-control {
     height: 46px;
 }
-
+#locale-switch > .active > a, 
+#locale-switch > .active > span, 
+#locale-switch > .active > a:hover, 
+#locale-switch > .active > span:hover, 
+#locale-switch > .active > a:focus, 
+#locale-switch > .active > span:focus {
+    background-color: #dc8e08;
+    border-color: #825507;
+}
 #second-bar .dropdown-menu,
 #second-bar {
     background-color: #03447b;
@@ -56,9 +64,8 @@
     background-image: url(../images/inner-headline.jpg);
 }
 
-#news h4 {
-    word-wrap: normal;
-    overflow: hidden;
+#call-to-action-2 h4 {
+    color: #fff;
 }
 
 footer #fish {

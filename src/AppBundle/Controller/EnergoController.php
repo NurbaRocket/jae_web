@@ -63,7 +63,7 @@ class EnergoController extends Controller
      * @Method("GET")
      * @Template("energo/page.html.twig")
      */
-    public function pageAction($_locale, $id)
+    public function pageAction(Request $request, $_locale, $id)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var  $page PageTree */
@@ -72,16 +72,35 @@ class EnergoController extends Controller
             throw $this->createNotFoundException();
         }
         $page->setTranslatableLocale($_locale);
-        return array(
+
+        $params =  array(
             'title'=> $page->getTitle(),
             'page' => $page,
         );
+        if ($page->getPageType() == 'news_page') {
+            $paginatorOptions = array(
+                'defaultSortFieldName' => 'a.createTime',
+                'defaultSortDirection' => 'desc'
+            );
+            $queryBuilder = $em->getRepository('AppBundle:Article')->createQueryBuilder('a');
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $queryBuilder,
+                $request->query->get('page', 1),
+                15,
+                $paginatorOptions
+            );
+            $params['pagination'] = $pagination;
+            $params['categories'] = $em->getRepository('AppBundle:PageTree')->findBy(array('pageType' => 'news_page'));
+        }
+
+        return $params;
     }
 
     /**
      * @Route("/{_locale}/article/{id}/")
      * @Method("GET")
-     * @Template("energo/page.html.twig")
+     * @Template("energo/article.html.twig")
      */
     public function articleAction($id)
     {
@@ -101,7 +120,8 @@ class EnergoController extends Controller
 
 
     /**
-     * @Route("/{_locale}/{url}", name="url_show")
+     * @Route("/{url}")
+     * @Route("/page/{_locale}/{url}", name="url_show")
      * @param $url
      * @Method("GET")
      * @Template()

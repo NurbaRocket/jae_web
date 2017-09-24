@@ -4,7 +4,7 @@
    title_kg: Кардарларга
    url: kardarlarga
    content: null
-   metaDescription: 
+   pageType: default_page
    children:
       -
          id: 9
@@ -12,7 +12,7 @@
          title_kg: Тарифтер
          url: tarifs
          content: null
-         metaDescription: 
+         pageType: default_page
       -
          id: 10
          title: Места приема платежей
@@ -20,43 +20,43 @@
          url: tolom-kabyl-aluu
          content: >
             Жалал-Абад шаары, Нагима Айтматова көчөсү №8 болжол "Бакыт" телеграфы. Жалал-Абад шаары, Нагима Айтматова көчөсү №3. Жалал-Абад шаа...
-         metaDescription: 
+         pageType: default_page
       -
          id: 11
          title: Телефоны
          title_kg: Телефондор
          url: phones
          content: null
-         metaDescription: 
+         pageType: default_page
 - 
    id: 3
    title: Акционеры
    title_kg: Акционерлер
    url: aksionerler
    content: null
-   metaDescription: 
+   pageType: default_page
    children:
       -
          id: 12
          title: Отчет
          title_kg: Отчет
-         url: Otchet
+         url: otchet
          content: null
-         metaDescription: 
+         pageType: default_page
       -
          id: 13
          title: Акционерное собрание
          title_kg: Акционердик чогулуш
          url: aksioner-chogulush
          content: null
-         metaDescription:
+         pageType: default_page
 -
    id: 1
    title: Пресс служба
    title_kg: Пресс кызмат
    url: press-slujba
    content: null
-   metaDescription:
+   pageType: default_page
    children:
       -
          id: 5
@@ -64,43 +64,42 @@
          title_kg: Жаңылыктар
          url: janylyktar
          content:
-         metaDescription:
+         pageType: news_page
       -
          id: 6
          title: Телесюжеты
-         title: Телесюжеттер
-         title_kg: 1
+         title_kg: Телесюжеттер
          url: telesujets
          content: null
-         metaDescription:
+         pageType: news_page
       -
          id: 7
          title: Интервью
          title_kg: Маектер
          url: maek
          content: null
-         metaDescription:
+         pageType: news_page
       -
          id: 8
          title: Фотогалерея
          title_kg: Фотогалерея
          url: photo-galleries
          content: null
-         metaDescription: null
+         pageType: gallery_page
 -
    id: 4
    title: Тендеры
    title_kg: Тендерлер
    url: tender
    content: null
-   metaDescription:
+   pageType: default_page
 -
    id: 4
    title: О нас
    title_kg: Биз жөнүндө
    url: about
    content: null
-   metaDescription: 
+   pageType: default_page
    children:
       -
          id: 14
@@ -108,7 +107,7 @@
          title_kg: Компания түзүмү
          url: stuktura
          content: null
-         metaDescription: 
+         pageType: default_page
       -
          id: 15
          title: О компании
@@ -126,4 +125,4 @@
             <p>Кыргызская Республика,</p>
             <p>г. Жалал-Абад, ул.Ленина 159</p>
             <p>тел: 03722 5 01 23<p></p>
-         metaDescription: 
+         pageType: default_page

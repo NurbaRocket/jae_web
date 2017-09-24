@@ -26,14 +26,17 @@
                         <div class="well">
                             <a href="{{ url('app_energo_article', {id: row.id}) }}">
                                 <img class="img-responsive" src="{{ asset('uploads/media/' ~ row.image ) }}" alt="">
-                            </a>
+                            </A>
+                            <div class="info-blocks-in">
+                                <p>{% trans %}Опубликовано:{% endtrans %} {{ row.createTime|date("d.m.Y") }}</p>
+                            </div>
                              <a href="{{ url('app_energo_article', {id: row.id}) }}"> <h4>{{ row.title }}</h4></a>
                             {{ row.content|striptags|truncate(200) }}
                         </div>
                     </div>
                 {% endfor %}
                     <div class="col-md-12 aligncenter">
-                        <a href="#" class="btn btn-default">ВСЕ НОВОСТИ</a>
+                        <a href="{{ url('url_show', {'url': 'janylyktar'}) }}" class="btn btn-default">ВСЕ НОВОСТИ</a>
                     </div>
                 </div>
             </div>

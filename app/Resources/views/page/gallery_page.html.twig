@@ -1,0 +1,23 @@
+<section id="inner-headline-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">{{ page.title|trans }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url('app_energo_show') }}">{% trans %}Домой{% endtrans %}</a></li>
+                <li class="breadcrumb-item active">{{ page.title }}</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            {{ page.content|raw }}
+        </div>
+    </div>
+</section>

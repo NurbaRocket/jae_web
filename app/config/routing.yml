@@ -2,6 +2,9 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
@@ -41,3 +44,7 @@ fos_user_register:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+frontend:
+    resource: "@AppBundle/Controller/EnergoController.php"
+    type: "annotation"

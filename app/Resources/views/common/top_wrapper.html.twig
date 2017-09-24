@@ -13,9 +13,14 @@
                     </div>
 
                     <div class="col-lg-5">
-                        <ul class="pull-left pagination">
-                            <li><a href="{{ url('app_energo_show', {_locale: 'ru'}) }}">Рус</a></li>
-                            <li><a href="{{ url('app_energo_show', {_locale: 'kg'}) }}">Кыр</a></li>
+                        <ul id="locale-switch" class="pull-left pagination">
+                            {% if  app.request.locale == 'ru' %}
+                                <li class="active"><a>Рус</a></li>
+                                <li><a href="{{ url('app_energo_show', {_locale: 'kg'}) }}">Кыр</a></li>
+                            {% elseif app.request.locale == 'kg' %}
+                                <li><a href="{{ url('app_energo_show', {_locale: 'ru'}) }}">Рус</a></li>
+                                <li class="active"><a>Кыр</a></li>
+                            {% endif %}
                         </ul>
                         <form class="navbar-form navbar-right">
                             <div class="form-group">

@@ -35,6 +35,11 @@ class PageTree implements Translatable, \Serializable
     private $title;
 
     /**
+     * @ORM\Column(name="pageType", type="string", length=64)
+     */
+    private $pageType;
+
+    /**
      * @var
      * @Gedmo\Locale
      */
@@ -108,6 +113,7 @@ class PageTree implements Translatable, \Serializable
     public function __construct()
     {
         $this->translations = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function setTranslatableLocale($locale)
@@ -143,6 +149,11 @@ class PageTree implements Translatable, \Serializable
     public function getTranslations()
     {
         return $this->translations;
+    }
+
+    public function getArticles()
+    {
+        return $this->articles;
     }
 
     public function getId()
@@ -187,6 +198,25 @@ class PageTree implements Translatable, \Serializable
     public function getLevel()
     {
         return $this->level;
+    }
+
+    /**
+     * @return String
+     */
+    public function getPageType()
+    {
+        return $this->pageType;
+    }
+
+    /**
+     * @param $pageType
+     * @return $this
+     */
+    public function setPageType($pageType)
+    {
+        $this->pageType = $pageType;
+
+        return $this;
     }
 
     /**

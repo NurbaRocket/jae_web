@@ -77,6 +77,3 @@ services:
     energo.settings:
         class: AppBundle\Entity\Settings
         arguments: ['@service_container']
-#    energo.settings:
-#        class: AppBundle\Entity\Settings
-#        arguments: [@service_container]
