@@ -7,7 +7,8 @@
         </div>
         <div class="article">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('app_energo_show') }}">{% trans %}Домой{% endtrans %}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('app_energo_show') }}">{% trans %}Домой{% endtrans %}</a>
+                </li>
                 <li class="breadcrumb-item active">{{ page.title }}</li>
             </ol>
         </div>
@@ -17,34 +18,37 @@
 <section id="content">
     <div class="container">
         <div class="article">
-            <div class="col-lg-9">
+            <div class="col-lg-8">
                 {% for article in pagination %}
-                <div class="col-lg-12">
-                    <div class="well">
-                        <a href="{{ url('app_energo_article', {id: article.id}) }}"> <h4>{{ article.title }}</h4></a>
-                        <a href="{{ url('app_energo_article', {id: article.id}) }}">
-                             <img class="img-responsive" src="{{ asset('uploads/media/' ~ article.image ) }}" alt="">
-                        </a>
-                        {{ article.content|raw }}
-                        <div class="info-blocks-in">
-                             <i>{% trans %}Опубликовано:{% endtrans %} {{ article.createTime|date("d.m.Y") }}</i>
+                    <div class="col-lg-12">
+                        <div class="well">
+                            <a href="{{ url('app_energo_article', {id: article.id}) }}"><h4>{{ article.title }}</h4></a>
+                            <a href="{{ url('app_energo_article', {id: article.id}) }}">
+                                <img class="img-responsive" src="{{ asset('uploads/media/' ~ article.image ) }}" alt="">
+                            </a>
+                            {{ article.content|raw }}
+                            <div class="info-blocks-in">
+                                <i>{% trans %}Опубликовано:{% endtrans %} {{ article.createTime|date("d.m.Y") }}</i>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
                 {{ knp_pagination_render(pagination) }}
             </div>
-            <div class="col-lg-3">
-                 <h3>{% trans %}Категории{% endtrans %}</h3>
-                 <ul class="list-group">
-                     {% for row in categories %}
-                          <li class="list-group-item">
-                              <a href="{{ url('url_show', {id: row.url}) }}">
-                                  {{ row.title }}
-                              </a>
-                          </li>
-                     {% endfor %}
-                 </ul>
+            <div class="bar-block col-lg-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bar-block">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 section-title secondary">{% trans %}Категории новостей{% endtrans %}</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bar-content">
+                        <ul class="bar-list">
+                            <li></li>
+                            {% for row in categories %}
+                                <li class="cat-item cat-item-12">
+                                    <a href="{{ url('url_show', {url: row.url}) }}"> {{ row.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

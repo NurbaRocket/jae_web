@@ -35,6 +35,7 @@ class LoadArticleData extends AbstractFixture implements FixtureInterface, Order
                         ->setUpdateTime(new \DateTime($item['created_at']));
                     ;
                 } catch (\Exception $ex) {
+                    var_dump($item['item']);
                     throw $ex;
                 }
                 $manager->persist($a);

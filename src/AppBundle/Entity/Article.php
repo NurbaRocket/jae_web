@@ -25,7 +25,7 @@ class Article implements Translatable
    /**
     * @var String title
     *
-    * @ORM\Column(name="title", type="string", length=100)
+    * @ORM\Column(name="title", type="string", length=225)
     */
    private $title;
 
