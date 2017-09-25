@@ -5,12 +5,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 aligncenter">
-                    <h4>ОАО "ЖАЛАЛАБАДЭЛЕКТРО"</h4>
-
+                    <h4>ОАО "ЖАЛАЛАБАТЭЛЕКТРО"</h4>
                     <h3>ОПЫТ. РАЗВИТИЕ. ИННОВАЦИИ.</h3>
-
                     <p>Только вместе мы добьемся поставленных целей</p>
-                    <a href="#" class="btn btn-default">О КОМПАНИИ</a>
+                    <a href="{{ url('url_show', {url: 'about-jae'}) }}" class="btn btn-primary">О КОМПАНИИ</a>
                 </div>
             </div>
         </div>
@@ -23,14 +21,15 @@
                     {% for row in articles %}
                         <div class="col-md-4 md-margin-bottom-40">
                             <div class="well">
-                                <a href="{{ url('app_energo_article', {id: row.id}) }}">
-                                    <img class="img-responsive" src="{{ asset('uploads/media/' ~ row.image ) }}" alt="">
-                                </A>
+                                <img class="img-responsive" src="{{ asset('uploads/media/' ~ row.image ) }}" alt="">
                                 <div class="info-blocks-in">
                                     <p>{% trans %}Опубликовано:{% endtrans %} {{ row.createTime|date("d.m.Y") }}</p>
                                 </div>
                                 <a href="{{ url('app_energo_article', {id: row.id}) }}"> <h4>{{ row.title }}</h4></a>
-                                {{ row.content|striptags|truncate(200) }}
+                                {{ row.content|striptags|truncate(200)|raw }}
+                                <div class="more pull-left">
+                                    <a href="{{ url('url_show', {url: row.url}) }}">{% trans %}Подробнее...{% endtrans %}</a>
+                                </div>
                             </div>
                         </div>
                     {% endfor %}
@@ -44,7 +43,7 @@
     </section>
     <section id="companies" class="sec-grey">
         <div class="container">
-            <div class="row section-title">
+            <div class="section-title">
                 {% trans %}Энергокомпании{% endtrans %}
             </div>
             <div class="row">

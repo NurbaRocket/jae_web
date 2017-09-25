@@ -71,8 +71,6 @@ class EnergoController extends Controller
         if (!$page) {
             throw $this->createNotFoundException();
         }
-        $page->setTranslatableLocale($_locale);
-
         $params =  array(
             'title'=> $page->getTitle(),
             'page' => $page,
@@ -121,7 +119,7 @@ class EnergoController extends Controller
 
     /**
      * @Route("/{url}")
-     * @Route("/page/{_locale}/{url}", name="url_show")
+     * @Route("/show/{_locale}/{url}", name="url_show")
      * @param $url
      * @Method("GET")
      * @Template()
@@ -155,9 +153,17 @@ class EnergoController extends Controller
             )
         );
         if (!empty($page)) {
-            $this->container->get('request')->attributes->set('_controller', 'AppBundle:Energo:article');
+            return $this->forward('AppBundle:Energo:article',
+                array(
+                    'id' => $page->getId(),
+                    '_locale' => $_locale
+                ),
+                $request->query->all()
+            );
+            /*$this->container->get('request')->attributes->set('_controller', 'AppBundle:Energo:article');
             $this->container->get('request')->attributes->set('id', $page->getId());
             return $this->container->get('http_kernel')->handle($this->container->get('request'));
+            */
         }
 
         throw $this->createNotFoundException();

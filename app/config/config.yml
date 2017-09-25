@@ -6,7 +6,8 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: kg
+    locale: ru
+    locales: [ru, kg]
     router.class: KeenSteps\EcommerceBundle\Routing\Router
 
 framework:
@@ -75,6 +76,11 @@ doctrine:
                 dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
                 alias: GedmoTree # (optional) it will default to the name set for the mapping
                 is_bundle: false
+            translatable:
+                type: annotation
+                alias: Gedmo
+                prefix: Gedmo\Translatable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity/MappedSuperclass"
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -124,16 +130,17 @@ fos_user:
 
 a2lix_translation_form:
     locale_provider: default
-    locales: [ru_RU, kg_KG]
-    default_locale: ru_RU
+    locales: '%locales%'
+    default_locale: ru
     required_locales: [kg_KG]
     templating: "A2lixTranslationFormBundle::default.html.twig"
 
 stof_doctrine_extensions:
-    default_locale: ru_RU
+    default_locale: ru
     orm:
         default:
             tree: true
+            translatable: true
 
 sonata_admin:
     templates:

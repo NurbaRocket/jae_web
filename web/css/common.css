@@ -75,7 +75,7 @@
 #shortcut {
     background-color: #F2F2F2;
     position: relative;
-    padding: 50px 0 0px 0;
+    padding-top: 30px;
 }
 
 #shortcut .content:hover h4 {
@@ -122,16 +122,13 @@
     color: #333333;
 }
 #shortcut .link:hover .item-cont {
-    /*border-bottom: @size solid transparent;*/
     background-image: linear-gradient(to right, #023a68 0%, #1674d1 100%);
     background-origin: border-box;
-    /*background-size: 100% 0px, 0px 100%, 100% @size, 0px 100%;*/
     background-position: top left, top right, bottom right, bottom left;
     background-repeat: no-repeat;
-    padding-top: 5px;
+
 }
 #shortcut .link:hover .content {
-    padding: 30px 15px;
     background: #023a68;
     background: -moz-linear-gradient(left, #023a68 0%, #1674d1 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, #023a68), color-stop(100%, #1674d1));
@@ -203,6 +200,7 @@ footer #fish {
 }
 
 footer .container h5 {
+    text-transform: uppercase;
     padding-top: 10px;
     padding-bottom: 10px;
 }

@@ -2,8 +2,6 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
-    locale: kg
-    locales: ['ru', 'kg']
 
 services:
     # default configuration for services in *this* file
@@ -55,18 +53,9 @@ services:
 
     form.type.translatable:
         class: AppBundle\Form\TranslatableType
-        arguments: ['@doctrine.orm.default_entity_manager', '@validator', '%locales%', '%locale%' ]
+        arguments: [ '@doctrine.orm.default_entity_manager', '@validator', '%locales%', '%locale%' ]
         tags:
             - { name: form.type, alias: translatable }
-
-    gedmo.listener.translatable:
-        class: Gedmo\Translatable\TranslatableListener
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-        calls:
-            - [ setAnnotationReader, [ '@annotation_reader' ] ]
-            - [ setDefaultLocale, [ 'ru' ] ]
-            - [ setTranslationFallback, [ true ] ]
 
     energo.manager.pageTree:
         class: AppBundle\Manager\PageTreeManager

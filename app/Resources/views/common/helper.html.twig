@@ -21,7 +21,7 @@
         {% set dropdown = _self.render_topmenu(subPage, repository) %}
         {% set itemContent %}
         <li {% if dropdown %}class="dropdown-submenu"{% endif %}>
-            <a {% if repository.childCount(subPage) %}tabindex="-1"{% endif %} href="{{ _self.pageUrl(subPage) }}">{{ subPage.title|trans }}</a>
+            <a {% if repository.childCount(subPage) %}tabindex="-1"{% endif %} href="{{ _self.pageUrl(subPage) }}">{{ subPage.title }}</a>
             {{ dropdown }}
         </li>
         {% endset %}

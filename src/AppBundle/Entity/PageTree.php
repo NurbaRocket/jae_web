@@ -151,6 +151,26 @@ class PageTree implements Translatable, \Serializable
         return $this->translations;
     }
 
+    public function findTranslation($locale, $field)
+    {
+        $id = $this->id;
+        $existingTranslation = $this->translations ? $this->translations->filter(
+            function($object) use ($locale, $field, $id) {
+                return ($object && ($object->getLocale() === $locale) && ($object->getField() === $field));
+            })->first() : null;
+        return $existingTranslation;
+    }
+
+    /**
+     * Remove translation
+     *
+     * @param PageTreeTranslation $translation
+     */
+    public function removeTranslation(PageTreeTranslation $translation)
+    {
+        $this->translations->removeElement($translation);
+    }
+
     public function getArticles()
     {
         return $this->articles;

@@ -26,12 +26,12 @@ class PageTreeAdmin extends AbstractTreeAdmin
     {
         $formMapper
             ->with('Content', array('class' => 'col-md-9'))
-                ->add('title', TranslationsType::class)
-                /*->add('title', TranslationType::class, [
+                ->add('title', null)
+                /*->add('title', TranslatableType::class, [
                     'widget' => TextType::class,
                     'personal_translation' => PageTreeTranslation::class,
                     'property_path' => 'translations'
-                ])*/
+                ])/**/
                 ->add('content', CKEditorType::class, array(
                     'required' => false,
                 ))

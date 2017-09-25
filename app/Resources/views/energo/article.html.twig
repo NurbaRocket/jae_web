@@ -18,9 +18,8 @@
                 <div class="col-lg-9">
                     <img class="img-responsive" src="{{ asset('uploads/media/' ~ page.image ) }}" alt="">
                     {{ page.content|raw }}
-
                     <div class="info-blocks-in">
-                        <p>{% trans %}Опубликовано:{% endtrans %} {{ page.createTimedate("d.m.Y") }}</p>
+                        <p>{% trans %}Опубликовано:{% endtrans %} {{ page.createTime|date("d.m.Y") }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3">
