@@ -4,7 +4,7 @@ Note: Licence under Creative Commons Attribution 3.0
 -------------------------------------------------------*/
 @import url('font-awesome.css');
 @import url('animate.css');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Saira:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic');
 
 body {
     /*font-family: 'Open Sans', sans-serif;*/
@@ -13,6 +13,10 @@ body {
     font-weight: 300;
     line-height: 1.6em;
     color: #656565;
+}
+
+a {
+    color: #03447B;
 }
 
 a:active {
@@ -28,14 +32,14 @@ h1, h2 {
     line-height: 1.1em;
     color: #333;
     margin-bottom: 20px;
-    font-family: 'Saira', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 h3, h4, h5, h6 {
     line-height: 1.1em;
     color: #333;
     margin-bottom: 20px;
-    font-family: 'Saira', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 input, button, select, textarea {
@@ -230,7 +234,7 @@ header .navbar-nav > li > a {
 
 header .nav .caret {
     border-bottom-color: #a51451;
-    border-top-color: #03447b;
+    border-top-color: #eee;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -440,7 +444,7 @@ select.selectmenu {
 }
 
 /* typography */
-h1 {
+#content h1 {
     text-align: center;
     margin-bottom: -20px !important;
 }
@@ -813,7 +817,7 @@ section.hero-text h1 {
 /* page headline */
 
 #inner-headline {
-    background-color: #264158;
+    background-color: #223446;
     position: relative;
     margin: 0;
     padding: 0;
@@ -1006,7 +1010,7 @@ form#commentform textarea {
 }
 
 #call-to-action-2 {
-    background-color: #03447b;
+    background-color: #223446;
     padding: 50px 0;
 }
 
@@ -1022,7 +1026,7 @@ form#commentform textarea {
 }
 
 #call-to-action-2 .btn-primary {
-    border-color: #FFFFFF;
+    border-color: #49b2e8;
     background: transparent;
     margin-top: 50px;
     color: #fff;

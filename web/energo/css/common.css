@@ -1,6 +1,7 @@
 #first-bar {
     height: 70px;
 }
+#brand-title h4,
 #brand-title h3 {
     padding: 4px;
     text-transform: uppercase;
@@ -8,22 +9,42 @@
 #first-bar .navbar-form {
     margin: 20px;
 }
-.navbar-form .input-group > .form-control {
-    height: 46px;
+
+.navbar-brand {
+    max-width: 60px;
 }
-#locale-switch > .active > a,
-#locale-switch > .active > span,
-#locale-switch > .active > a:hover,
-#locale-switch > .active > span:hover,
-#locale-switch > .active > a:focus,
-#locale-switch > .active > span:focus {
+
+.navbar-form .form-group,
+.navbar-form .input-group {
+    width: 100%;
+}
+
+.navbar-form,
+#locale-switch {
+    margin: 20px 0;
+}
+#locale-switch > a {
+    padding: 5px 10px;
+    display: inline-block;
+    min-width: 45px;
+    text-align: center;
+}
+#locale-switch > a.active,
+#locale-switch > a:hover {
     background-color: #dc8e08;
-    border-color: #825507;
+    color: #fff;
 }
+
+
 #second-bar .dropdown-menu,
 #second-bar {
     background-color: #03447b;
+    font-size: 16px;
 }
+#second-bar .dropdown-menu {
+    border-bottom: 2px solid #fbad1a;
+}
+
 #second-bar .navbar-nav > .open > a,
 #second-bar .navbar-nav > .open > a:hover,
 #second-bar .navbar-nav > .open > a:focus,
@@ -68,6 +89,10 @@
     background-image: url(../img/banner.jpg);
     background-size: cover;
 }
+
+#call-to-action-2 h1,
+#call-to-action-2 h2,
+#call-to-action-2 h3,
 #call-to-action-2 h4 {
     color: #fff;
 }
@@ -106,7 +131,7 @@
     background: linear-gradient(to right, #dddddd 0%, #eaeaea 100%);
 }
 #shortcut .reception {
-    background-image: url(../images/reception.png);
+    background-image: url(../img/reception.png);
     background-position: right bottom;
     background-repeat: no-repeat;
     opacity: 0.15;
@@ -116,6 +141,19 @@
     width: 100%;
     height: 105px;
 }
+
+#shortcut .calendar {
+    background-image: url(../img/calendar.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    width: 100%;
+    height: 105px;
+}
+
 #shortcut .desc {
     font-size: 12px;
     width: 80%;
@@ -186,6 +224,9 @@
 
 #companies .content{
     padding: 8px 3px;
+}
+.section-grey {
+    background-color: #f2f2f2;
 }
 .section-title {
     color: #03447B;

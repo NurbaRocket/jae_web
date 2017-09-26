@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-md-12 aligncenter">
                     <h4>ОАО "ЖАЛАЛАБАТЭЛЕКТРО"</h4>
-                    <h3>ОПЫТ. РАЗВИТИЕ. ИННОВАЦИИ.</h3>
+                    <h1>ОПЫТ. РАЗВИТИЕ. ИННОВАЦИИ.</h1>
                     <p>Только вместе мы добьемся поставленных целей</p>
-                    <a href="{{ url('url_show', {url: 'about-jae'}) }}" class="btn btn-primary">О КОМПАНИИ</a>
+                    <a href="{{ url('url_show', {url: 'about-jae'}) }}" class="btn btn-lg btn-primary">О КОМПАНИИ</a>
                 </div>
             </div>
         </div>
@@ -20,61 +20,73 @@
                 <div id="news" class="row service-v1 margin-bottom-40">
                     {% for row in articles %}
                         <div class="col-md-4 md-margin-bottom-40">
-                            <div class="well">
+                            <div class="article-box">
                                 <img class="img-responsive" src="{{ asset('uploads/media/' ~ row.image ) }}" alt="">
                                 <div class="info-blocks-in">
                                     <p>{% trans %}Опубликовано:{% endtrans %} {{ row.createTime|date("d.m.Y") }}</p>
                                 </div>
                                 <a href="{{ url('app_energo_article', {id: row.id}) }}"> <h4>{{ row.title|truncate(50) }}</h4></a>
                                 {{ row.content|striptags|truncate(200)|raw }}
-                                <div class="more">
-                                    <a href="{{ url('url_show', {url: row.url}) }}">{% trans %}Подробнее...{% endtrans %}</a>
-                                </div>
+                            </div>
+                            <div class="more">
+                                <a href="{{ url('url_show', {url: row.url}) }}">{% trans %}Подробнее...{% endtrans %}</a>
                             </div>
                         </div>
                     {% endfor %}
                     <div class="col-md-12 aligncenter">
-                        <a href="{{ url('url_show', {'url': 'janylyktar'}) }}" class="btn btn-default all-news">ВСЕ НОВОСТИ</a>
+                        <a id="all-news" href="{{ url('url_show', {'url': 'janylyktar'}) }}" class="btn btn-default btn-lg">ВСЕ НОВОСТИ</a>
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
-    <section id="companies" class="sec-grey">
+    <section id="companies" class="section-grey">
         <div class="container">
-            <div class="section-title">
-                {% trans %}Энергокомпании{% endtrans %}
-            </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="content">
-                        <a href="http://severelectro.kg/"><img src="{{ asset('images/severelectro.jpg') }}"></a>
-                    </div>
+                <div class="section-title">
+                    {% trans %}Энергокомпании{% endtrans %}
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="content">
-                        <a href="http://www.teploseti.kg/"><img src="{{ asset('images/teplo.jpg') }}"></a>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a href="http://severelectro.kg/"><img class="img-responsive" src="{{ asset('images/severelectro.jpg') }}"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="content">
-                        <a href="http://vostokelectro.kg/"><img src="{{ asset('images/vostok.jpg') }}"></a>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a href="http://www.teploseti.kg/"><img class="img-responsive" src="{{ asset('images/teplo.jpg') }}"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="content">
-                        <a href="http://www.energo-es.kg/"><img src="{{ asset('images/estations.jpg') }}"></a>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a href="http://vostokelectro.kg/"><img class="img-responsive" src="{{ asset('images/vostok.jpg') }}"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="content">
-                        <a href="http://oshelectro.kg/"><img src="{{ asset('images/oshelectro.jpg') }}"></a>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a href="http://www.energo-es.kg/"><img class="img-responsive" src="{{ asset('images/estations.jpg') }}"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="content">
-                        <a href="http://nesk.kg/"><img src="{{ asset('images/nesk.jpg') }}"></a>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a href="http://oshelectro.kg/"><img class="img-responsive" src="{{ asset('images/oshelectro.jpg') }}"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a href="http://nesk.kg/"><img class="img-responsive" src="{{ asset('images/nesk.jpg') }}"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a href="http://www.chakanges.kg/"><img class="img-responsive" src="{{ asset('images/chakan.jpg') }}"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a class="img-responsive" href="http://jae.kg/"><img class="img-responsive" src="{{ asset('images/jae.jpg') }}"></a>
+                        </div>
                     </div>
                 </div>
             </div>

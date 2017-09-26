@@ -149,7 +149,7 @@ class EnergoController extends Controller
         $page = $em->getRepository('AppBundle:Article')->findOneBy(
             array(
                 'url' => $url,
-                //'status' => true
+                'status' => 'public'
             )
         );
         if (!empty($page)) {
