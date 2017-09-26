@@ -13,17 +13,5 @@ use AppBundle\Repository\TranslatableRepository;
  */
 class PageTreeRepository extends ClosureTreeRepository
 {
-    use TranslatableRepository;
 
-    /**
-     * Returns all posts
-     *
-     * @return array
-     */
-    public function findAll()
-    {
-        $qb = $this->createQueryBuilder('post');
-
-        return $this->getResult($qb, 'kg');
-    }
 }

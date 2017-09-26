@@ -13,5 +13,5 @@ use AppBundle\Repository\TranslatableRepository;
  */
 class ArticleRepository extends EntityRepository
 {
-    use TranslatableRepository;
+
 }

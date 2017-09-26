@@ -119,7 +119,7 @@ class EnergoController extends Controller
 
     /**
      * @Route("/{url}")
-     * @Route("/show/{_locale}/{url}", name="url_show")
+     * @Route("/{_locale}/{url}", name="url_show", requirements={"_locale": "[a-zA-Z]{2}"} )
      * @param $url
      * @Method("GET")
      * @Template()
