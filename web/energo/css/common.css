@@ -52,9 +52,6 @@
 #second-bar .dropdown-menu > li > a:focus {
     background-color: #023763;
 }
-#second-bar .navbar-nav > li >  a {
-    text-transform: uppercase;
-}
 #second-bar .dropdown-menu > li > a,
 #second-bar .navbar-nav > li > a {
     color: #fff;
@@ -231,7 +228,7 @@
 .section-title {
     color: #03447B;
     font-size: 22px;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 @media (max-width: 768px) {
     .section-title {

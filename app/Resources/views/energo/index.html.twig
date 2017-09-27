@@ -45,17 +45,17 @@
         <div class="container">
             <div class="row">
                 <div class="section-title">
-                    {% trans %}Энергокомпании{% endtrans %}
+                    <h3>{% trans %}Энергокомпании{% endtrans %}</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                         <div class="content">
-                            <a href="http://severelectro.kg/"><img class="img-responsive" src="{{ asset('images/severelectro.jpg') }}"></a>
+                            <a href="http://www.teploseti.kg/"><img class="img-responsive" src="{{ asset('images/teplo.jpg') }}"></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                         <div class="content">
-                            <a href="http://www.teploseti.kg/"><img class="img-responsive" src="{{ asset('images/teplo.jpg') }}"></a>
+                            <a href="http://severelectro.kg/"><img class="img-responsive" src="{{ asset('images/severelectro.jpg') }}"></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
@@ -88,8 +88,53 @@
                             <a class="img-responsive" href="http://jae.kg/"><img class="img-responsive" src="{{ asset('images/jae.jpg') }}"></a>
                         </div>
                     </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="content">
+                            <a class="img-responsive" href="http://www.regulatortek.kg/"><img class="img-responsive" src="{{ asset('images/regulatortek.jpg') }}"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+<section id="info-graphics">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h3>{% trans %}Жалалабатэлектро в цифрах{% endtrans %}</h3>
+            </div>
+            <div id="main-slider" class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="uploads/media/slide1.jpg" alt="" />
+                        <div class="flex-caption">
+                        </div>
+                    </li>
+                    <li>
+                        <img src="uploads/media/slide2.jpg" alt="" />
+                        <div class="flex-caption">
+                        </div>
+                    </li>
+                    <li>
+                        <img src="uploads/media/slide3.jpg" alt="" />
+                        <div class="flex-caption">
+                        </div>
+                    </li>
+                    <li>
+                        <img src="uploads/media/slide4.jpg" alt="" />
+                        <div class="flex-caption">
+                        </div>
+                    </li>
+                </ul>
+        </div>
+    </div>
+
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('energo/js/jquery.flexslider.js') }}"></script>
+    <script src="{{ asset('energo/js/animate.js') }}"></script>
+    <script src="{{ asset('energo/js/custom.js') }}"></script>
 {% endblock %}
