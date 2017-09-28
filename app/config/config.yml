@@ -90,6 +90,13 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            tree: true
+            translatable: true
+
 liip_imagine:
     controller:
         filter_action: 'SonataMediaBundle:Media:liipImagineFilter'
@@ -128,35 +135,25 @@ fos_user:
         address: archantyrael@gmail.com
         sender_name: Srb Nzy
 
-a2lix_translation_form:
-    locale_provider: default
-    locales: '%locales%'
-    default_locale: ru
-    required_locales: [kg_KG]
-    templating: "A2lixTranslationFormBundle::default.html.twig"
-
-stof_doctrine_extensions:
-    default_locale: ru
-    orm:
-        default:
-            tree: true
-            translatable: true
-
 sonata_admin:
     templates:
         #edit: 'admin/base_edit.html.twig'
-        #layout: admin/layout.html.twig
+        layout: admin/layout.html.twig
 
-#sonata_translation:
-#    locales: [ru, kg]
-#    default_locale: %locale%
+sonata_translation:
+    locales: [ru, kg]
+    default_locale: %locale%
     # here enable the types you need
-#    gedmo:
-#        enabled: true
-#    knplabs:
-#        enabled: true
-    #phpcr:
-    #    enabled: true
+    gedmo:
+        enabled: true
+    knplabs:
+        enabled: false
+
+assetic:
+    debug: '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
 
 sonata_block:
     default_contexts: [cms]

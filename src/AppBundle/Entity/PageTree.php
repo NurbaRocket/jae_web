@@ -2,8 +2,9 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\PageTreeTranslation;
-#use Sonata\TranslationBundle\Traits\Gedmo\PersonalTranslatableTrait;
+use AppBundle\Entity\Translation\PageTreeTranslation;
+use Sonata\TranslationBundle\Traits\Gedmo\PersonalTranslatableTrait;
+use Sonata\TranslationBundle\Model\Gedmo\TranslatableInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Translatable\Translatable;
@@ -14,12 +15,13 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @Gedmo\Tree(type="closure")
  * @Gedmo\TreeClosure(class="AppBundle\Entity\PageTreeClosure")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\PageTreeTranslation")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translation\PageTreeTranslation")
  * @ORM\Table(name="pagetree")
  * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\ClosureTreeRepository")
  */
-class PageTree implements Translatable, \Serializable
+class PageTree implements Translatable, \Serializable, TranslatableInterface
 {
+    use PersonalTranslatableTrait;
 
     /**
      * @ORM\Column(name="id", type="integer")
@@ -29,7 +31,7 @@ class PageTree implements Translatable, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(name="title", type="string", length=64)
+     * @ORM\Column(name="title", type="string", length=100)
      * @Gedmo\Translatable
      */
     private $title;
@@ -38,12 +40,6 @@ class PageTree implements Translatable, \Serializable
      * @ORM\Column(name="pageType", type="string", length=64)
      */
     private $pageType;
-
-    /**
-     * @var
-     * @Gedmo\Locale
-     */
-    private $locale;
 
     /**
      * This parameter is optional for the closure strategy
@@ -103,7 +99,7 @@ class PageTree implements Translatable, \Serializable
 
     /**
      * @ORM\OneToMany(
-     *   targetEntity="AppBundle\Entity\PageTreeTranslation",
+     *   targetEntity="AppBundle\Entity\Translation\PageTreeTranslation",
      *   mappedBy="object",
      *   cascade={"persist", "remove"}
      * )
@@ -123,34 +119,6 @@ class PageTree implements Translatable, \Serializable
         return $this;
     }
 
-    /**
-     * method used when values is set throught a type collection (add new throught the data-prototype)
-     *
-     * @param $at
-     * @return $this
-     */
-    public function setTranslations($at)
-    {
-        foreach ($at as $t) {
-            $this->addTranslation($t);
-        }
-        return $this;
-    }
-
-    public function addTranslation(PageTreeTranslation $t)
-    {
-        if (!$this->translations->contains($t)) {
-            $this->translations[] = $t;
-            $t->setObject($this);
-        }
-        return $this;
-    }
-
-    public function getTranslations()
-    {
-        return $this->translations;
-    }
-
     public function findTranslation($locale, $field)
     {
         $id = $this->id;
@@ -158,6 +126,7 @@ class PageTree implements Translatable, \Serializable
             function($object) use ($locale, $field, $id) {
                 return ($object && ($object->getLocale() === $locale) && ($object->getField() === $field));
             })->first() : null;
+        $existingTranslation = $existingTranslation ?: new PageTreeTranslation($locale, $field, $this->$field);
         return $existingTranslation;
     }
 

@@ -21,7 +21,7 @@ class LoadSettings implements FixtureInterface, OrderedFixtureInterface
         $webSiteSettings = new WebSiteSetting();
         $webSiteSettings
             ->setSiteName('ОАО "Жалалабатэлектро"')
-            ->setSiteEmail('jalalabatelectro@mail.ru')
+            ->setSiteEmail('support@jae.kg')
         ;
         $setting = new Setting();
         $setting->setName('webSite');

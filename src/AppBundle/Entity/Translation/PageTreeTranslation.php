@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Translation;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
+use Sonata\TranslationBundle\Model\Gedmo\AbstractPersonalTranslation;
 
 /**
  * @ORM\Table(name="pagetree_translations",

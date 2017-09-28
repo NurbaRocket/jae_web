@@ -1,7 +1,12 @@
+{# app/Resources/views/admin/layout.html.twig #}
 {% extends 'SonataAdminBundle::standard_layout.html.twig' %}
 
 {% block stylesheets %}
     {{  parent() }}
-
-
+    {#<link rel="stylesheet" href="{{ asset('bundles/sonatatranslation/css/sonata-translation.css') }}" />#}
+    {% stylesheets
+    '@SonataTranslationBundle/Resources/public/css/sonata-translation.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 {% endblock %}

@@ -7,7 +7,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
-
+use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\TranslationBundle\Filter\TranslationFieldFilter;
 
 class BlogAdmin extends AbstractAdmin
 {
@@ -28,6 +29,11 @@ class BlogAdmin extends AbstractAdmin
         ->add('status', null, array(
           'label' => 'label.blog.admin.status'
         ))
+        ->add('pageTree', ModelType::class, array(
+            'label' => 'label.blog.admin.pageTree',
+            'required' => false,
+            'class' => 'AppBundle\Entity\PageTree',
+        ))
         ->add('createTime', null, array(
           'label' => 'label.blog.admin.create_time'
         ))
@@ -40,7 +46,7 @@ class BlogAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('title', null, array (
+        $datagridMapper->add('title', TranslationFieldFilter::class, array (
           'label' => 'label.blog.admin.article_title'
         ));
     }

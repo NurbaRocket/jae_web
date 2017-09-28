@@ -77,6 +77,8 @@ jQuery(document).ready(function($) {
     });
 	
     $('#main-slider').flexslider({
-
+        animation: "slide",
+        pauseOnHover : true,
+        pauseOnAction : false
     });
 });

@@ -5,14 +5,10 @@ use RedCode\TreeBundle\Admin\AbstractTreeAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use AppBundle\Entity\PageTreeTranslation;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use AppBundle\Form\TranslatableType;
-use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Sonata\TranslationBundle\Filter\TranslationFieldFilter;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Form\Type\ModelType;
-
 
 class PageTreeAdmin extends AbstractTreeAdmin
 {
@@ -27,14 +23,7 @@ class PageTreeAdmin extends AbstractTreeAdmin
         $formMapper
             ->with('Content', array('class' => 'col-md-9'))
                 ->add('title', null)
-                /*->add('title', TranslatableType::class, [
-                    'widget' => TextType::class,
-                    'personal_translation' => PageTreeTranslation::class,
-                    'property_path' => 'translations'
-                ])/**/
-                ->add('content', CKEditorType::class, array(
-                    'required' => false,
-                ))
+                ->add('content', CKEditorType::class, array('required' => false))
             ->end()
             ->with('Meta data', array('class' => 'col-md-3'))
                 ->add('url', null,  array(
@@ -67,7 +56,7 @@ class PageTreeAdmin extends AbstractTreeAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title')
+            ->add('title', TranslationFieldFilter::class)
         ;
     }
 }

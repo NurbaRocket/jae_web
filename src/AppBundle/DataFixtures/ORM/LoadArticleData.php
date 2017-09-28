@@ -7,6 +7,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Article;
+use AppBundle\Entity\Translation\ArticleTranslation;
 use Symfony\Component\Yaml\Parser;
 
 class LoadArticleData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
@@ -32,8 +33,12 @@ class LoadArticleData extends AbstractFixture implements FixtureInterface, Order
                         ->setStatus('public')
                         ->setPageTree($p)
                         ->setCreateTime(new \DateTime($item['created_at']))
-                        ->setUpdateTime(new \DateTime($item['created_at']));
+                        ->setUpdateTime(new \DateTime($item['created_at']))
+                        ->setTranslatableLocale('ru')
+                        ->addTranslation(new ArticleTranslation('kg', 'title', $item['title']))
+                        ->addTranslation(new ArticleTranslation('kg', 'content', $item['content']))
                     ;
+
                 } catch (\Exception $ex) {
                     var_dump($item['item']);
                     throw $ex;

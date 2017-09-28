@@ -1,5 +1,47 @@
 -
-   id: 2
+   title: Компания
+   title_kg: Компания
+   url: company
+   content: null
+   pageType: default_page
+   children:
+      -
+         title: Структура холдинга
+         title_kg: Холдингдин түзүмү
+         url: holding-structure
+         pageType: default_page
+         content: null
+         metaTitle: null
+         metaKeywords: null
+         metaDescription: null
+      -
+         title: Энергокомпании
+         title_kg: Туунду компаниялар
+         url: companies
+         pageType: default_page
+         content: null
+         metaTitle: null
+         metaKeywords: null
+         metaDescription: null
+      -
+         title: Устав о холдинге
+         title_kg: Энергохолдинг жөнүндө жобо
+         url: holding-charter
+         pageType: default_page
+         content: null
+         metaTitle: null
+         metaKeywords: null
+         metaDescription: null
+      -
+         title: Вакансии
+         title_kg: Бош кызмат орундар
+         url: vacancies
+         pageType: default_page
+         content: null
+         metaTitle: null
+         metaKeywords: null
+         metaDescription: null
+-
    title: Клиентам
    title_kg: Кардарларга
    url: kardarlarga
@@ -7,14 +49,12 @@
    pageType: default_page
    children:
       -
-         id: 9
          title: Тарифы
          title_kg: Тарифтер
          url: tarifs
          content: null
          pageType: default_page
       -
-         id: 10
          title: Места приема платежей
          title_kg: Төлөм кабыл алуучу жайлар
          url: tolom-kabyl-aluu
@@ -22,14 +62,12 @@
             Жалал-Абад шаары, Нагима Айтматова көчөсү №8 болжол "Бакыт" телеграфы. Жалал-Абад шаары, Нагима Айтматова көчөсү №3. Жалал-Абад шаа...
          pageType: default_page
       -
-         id: 11
          title: Телефоны
          title_kg: Телефондор
          url: phones
          content: null
          pageType: default_page
 - 
-   id: 3
    title: Акционеры
    title_kg: Акционерлер
    url: aksionerler
@@ -37,21 +75,18 @@
    pageType: default_page
    children:
       -
-         id: 12
          title: Отчет
          title_kg: Отчет
          url: otchet
          content: null
          pageType: default_page
       -
-         id: 13
          title: Акционерное собрание
          title_kg: Акционердик чогулуш
          url: aksioner-chogulush
          content: null
          pageType: default_page
 -
-   id: 1
    title: Пресс служба
    title_kg: Пресс кызмат
    url: press-slujba
@@ -59,42 +94,36 @@
    pageType: default_page
    children:
       -
-         id: 5
          title: Новости
          title_kg: Жаңылыктар
          url: janylyktar
          content:
          pageType: news_page
       -
-         id: 6
          title: Телесюжеты
          title_kg: Телесюжеттер
          url: telesujets
          content: null
          pageType: news_page
       -
-         id: 7
          title: Интервью
          title_kg: Маектер
          url: maek
          content: null
          pageType: news_page
       -
-         id: 8
          title: Фотогалерея
          title_kg: Фотогалерея
          url: photo-galleries
          content: null
          pageType: gallery_page
 -
-   id: 4
    title: Тендеры
    title_kg: Тендерлер
    url: tender
    content: null
    pageType: default_page
 -
-   id: 4
    title: О нас
    title_kg: Биз жөнүндө
    url: about
@@ -102,14 +131,12 @@
    pageType: default_page
    children:
       -
-         id: 14
          title: Структура
          title_kg: Компания түзүмү
          url: stuktura
          content: null
          pageType: default_page
       -
-         id: 15
          title: О компании
          title_kg: Компания жөнүндө
          url: about-jae

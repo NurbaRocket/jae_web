@@ -51,18 +51,6 @@ services:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: Article }
         public: true
 
-    form.type.translatable:
-        class: AppBundle\Form\TranslatableType
-        arguments: [ '@doctrine.orm.default_entity_manager', '@validator', '%locales%', '%locale%' ]
-        tags:
-            - { name: form.type, alias: translatable }
-
-    energo.manager.pageTree:
-        class: AppBundle\Manager\PageTreeManager
-        arguments: [ '@doctrine.orm.default_entity_manager', 'AppBundle\Entity\PageTree' ]
-        calls:
-            - [ setRepositoryLocale, ["@service_container"] ]
-
     energo.settings:
         class: AppBundle\Entity\Settings
         arguments: ['@service_container']

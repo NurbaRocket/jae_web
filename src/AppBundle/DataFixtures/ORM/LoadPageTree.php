@@ -8,7 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use AppBundle\Entity\PageTree;
-use AppBundle\Entity\PageTreeTranslation;
+use AppBundle\Entity\Translation\PageTreeTranslation;
 use Symfony\Component\Yaml\Parser;
 
 class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface
@@ -34,6 +34,7 @@ class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface
             ->setContent($item['content'])
             ->setTranslatableLocale('ru')
             ->addTranslation(new PageTreeTranslation('kg', 'title', $item['title_kg']))
+            //->addTranslation(new PageTreeTranslation('kg', 'content', $item['content_kg']))
         ;
         if ($parent) {
             $p->setParent($parent);

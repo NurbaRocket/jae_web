@@ -2,19 +2,26 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Translation\ArticleTranslation;
 use Gedmo\Translatable\Translatable;
+use Sonata\TranslationBundle\Model\Gedmo\TranslatableInterface;
+use Sonata\TranslationBundle\Traits\Gedmo\PersonalTranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Article
  *
  * @ORM\Table(name="article")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translation\ArticleTranslation")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleRepository")
  */
 
-class Article implements Translatable
+class Article implements Translatable, TranslatableInterface
 {
+    use PersonalTranslatableTrait;
+
    /**
     * @ORM\Column(type="integer")
     * @ORM\Id
@@ -26,6 +33,7 @@ class Article implements Translatable
     * @var String title
     *
     * @ORM\Column(name="title", type="string", length=225)
+    * @Gedmo\Translatable
     */
    private $title;
 
@@ -46,6 +54,7 @@ class Article implements Translatable
     * @var String text
     *
     * @ORM\Column(name="content", type="text")
+    * @Gedmo\Translatable
     */
    private $content;
 
@@ -84,6 +93,28 @@ class Article implements Translatable
      * @ORM\ManyToOne(targetEntity="PageTree", inversedBy="articles")
      */
     private $pageTree;
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="AppBundle\Entity\Translation\ArticleTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    protected $translations;
+
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+        $this->tags = new ArrayCollection();
+    }
+
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
 
     /**
      * Get id
@@ -244,11 +275,6 @@ class Article implements Translatable
     public function getUpdateTime()
     {
         return $this->updateTime;
-    }
-
-    public function __construct()
-    {
-        $this->tags = new ArrayCollection();
     }
 
     /**
