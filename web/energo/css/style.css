@@ -1019,6 +1019,7 @@ form#commentform textarea {
 }
 
 #call-to-action-2 .btn-primary {
+    text-transform: uppercase;
     border-color: #49b2e8;
     background: transparent;
     margin-top: 50px;

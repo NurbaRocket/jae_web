@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% import 'common/helper.html.twig' as helper %}
 
 {% block title %}{{ title }} - {{ settings.webSite.siteName }}{% endblock %}
 {% block content %}
@@ -9,6 +10,13 @@
                     <h2 class="pageTitle">{{ page.title|trans }}</h2>
                 </div>
             </div>
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('main_page') }}">{% trans %}Домой{% endtrans %}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ helper.pageUrl(page.pageTree) }}">{{ page.pageTree.title }}</a></li>
+                    <li class="breadcrumb-item active">{{ page.title }}</li>
+                </ol>
+            </div>
         </div>
     </section>
 
@@ -16,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    <img class="img-responsive" src="{{ asset('uploads/media/' ~ page.image ) }}" alt="">
+                    {% media page.media, 'big' with {'class': 'img-responsive'} %}
                     {{ page.content|raw }}
                     <div class="info-blocks-in">
                         <p>{% trans %}Опубликовано:{% endtrans %} {{ page.createTime|date("d.m.Y") }}</p>

@@ -4,35 +4,35 @@
         <body>
             <trans-unit id="1">
                 <source>Домой</source>
-                <target>Башкы бет</target>
+                <target>Главная страница</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>Найти на сайте...</source>
-                <target>Сайтта издөө...</target>
+                <target>Найти на сайте...</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>Будьте с нами всегда в свете!</source>
-                <target>Биз менен дайыма жарыкта болуңуз!</target>
+                <target>Будьте с нами всегда в свете!</target>
             </trans-unit>
             <trans-unit id="4">
                 <source>Только вместе мы добьемся поставленных целей</source>
-                <target>Бирдикте гана койгон максатыбызга жетебиз</target>
+                <target>Только вместе мы добьемся поставленных целей</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>Все новости</source>
-                <target>Жаңылыктардын баары</target>
+                <target>Все новости</target>
             </trans-unit>
             <trans-unit id="6">
                 <source>Подробнее...</source>
-                <target>Баарын окуу...</target>
+                <target>Подробнее..</target>
             </trans-unit>
             <trans-unit id="7">
                 <source>О компании</source>
-                <target>Компания жөнүнөндө</target>
+                <target>О компании</target>
             </trans-unit>
             <trans-unit id="8">
                 <source>Опубликовано:</source>
-                <target>Жайгаштырылган убакты:</target>
+                <target>Опубликовано:</target>
             </trans-unit>
         </body>
     </file>

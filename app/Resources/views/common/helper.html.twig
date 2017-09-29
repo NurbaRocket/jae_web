@@ -4,9 +4,19 @@
     {% if item.url %}
         {{ url('url_show', {'url': item.url}) }}
     {% else %}
-        {{ url('app_energo_page', {'id': item.id}) }}
+        {{ url('page_tree_show', {'id': item.id}) }}
     {% endif %}
 {% endspaceless %}
+{% endmacro %}
+
+{% macro articleUrl(item, forceHttp) %}
+    {% spaceless %}
+        {% if item.url %}
+            {{ url('url_show', {'url': item.url}) }}
+        {% else %}
+            {{ url('article_show', {'id': item.id}) }}
+        {% endif %}
+    {% endspaceless %}
 {% endmacro %}
 
 {% macro breadcrumb_pageTree(pageTree) %}

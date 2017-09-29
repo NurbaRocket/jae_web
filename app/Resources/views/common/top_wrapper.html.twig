@@ -25,9 +25,9 @@
                         <div id="locale-switch" class="pull-rigth">
                             {% if  app.request.locale == 'ru' %}
                                 <a class="active">Рус</a>
-                                <a href="{{ url('app_energo_show', {_locale: 'kg'}) }}">Кыр</a>
+                                <a href="{{ url('main_page', {_locale: 'kg'}) }}">Кыр</a>
                             {% elseif app.request.locale == 'kg' %}
-                                <a href="{{ url('app_energo_show', {_locale: 'ru'}) }}">Рус</a>
+                                <a href="{{ url('main_page', {_locale: 'ru'}) }}">Рус</a>
                                 <a class="active">Кыр</a>
                             {% endif %}
                         </div>

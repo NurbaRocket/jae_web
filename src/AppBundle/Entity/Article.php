@@ -44,11 +44,14 @@ class Article implements Translatable, TranslatableInterface
     private $url;
 
     /**
-     * @var String image
-     *
-     * @ORM\Column(name="image", type="string")
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     * <many-to-one field="image"  target-entity="Application\Sonata\MediaBundle\Entity\Media">
+     *   <cascade><cascade-all/></cascade>
+     * </many-to-one>
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
+     * @ORM\JoinColumn(name="media_id", referencedColumnName="id", onDelete="CASCADE")
      */
-    private $image;
+    private $media;
 
    /**
     * @var String text
@@ -163,23 +166,24 @@ class Article implements Translatable, TranslatableInterface
     }
 
     /**
-     * @return String
+     * @return \Application\Sonata\MediaBundle\Entity\Media
      */
-    public function getImage()
+    public function getMedia()
     {
-        return $this->image;
+        return $this->media;
     }
 
     /**
-     * @param String $image
+     * @param \Application\Sonata\MediaBundle\Entity\Media $media
+     *
+     * @return $this
      */
-    public function setImage($image)
+    public function setMedia($media)
     {
-        $this->image = $image;
+        $this->media = $media;
 
         return $this;
     }
-
 
     /**
      * Set tags

@@ -5,6 +5,7 @@ use RedCode\TreeBundle\Admin\AbstractTreeAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Sonata\TranslationBundle\Filter\TranslationFieldFilter;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
@@ -23,7 +24,9 @@ class PageTreeAdmin extends AbstractTreeAdmin
         $formMapper
             ->with('Content', array('class' => 'col-md-9'))
                 ->add('title', null)
-                ->add('content', CKEditorType::class, array('required' => false))
+                ->add('content', CKEditorType::class, array(
+                    'required' => false
+                ))
             ->end()
             ->with('Meta data', array('class' => 'col-md-3'))
                 ->add('url', null,  array(
@@ -32,6 +35,13 @@ class PageTreeAdmin extends AbstractTreeAdmin
                 ->add('parent', ModelType::class, array(
                     'required' => false,
                     'class' => 'AppBundle\Entity\PageTree',
+                ))
+                ->add('pageType', ChoiceType::class, array(
+                    'choices' => array(
+                        'default_page' => 'default_page',
+                        'news_page' => 'gallery_page',
+                        'gallery_page' => 'gallery_page',
+                    )
                 ))
                 ->add('metaTitle', TextareaType::class,  array(
                     'required' => false,

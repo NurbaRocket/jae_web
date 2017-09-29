@@ -41,6 +41,7 @@ twig:
     strict_variables: '%kernel.debug%'
     form_themes:
         - 'SonataFormatterBundle:Form:formatter.html.twig'
+        - 'SonataMediaBundle:Form:media_widgets.html.twig'
 
     globals:
         settings: "@energo.settings"
@@ -101,16 +102,18 @@ liip_imagine:
     controller:
         filter_action: 'SonataMediaBundle:Media:liipImagineFilter'
     filter_sets:
+        default_small:
+            quality: 75
+            filters:
+                thumbnail: { size: [100, 70], mode: outbound }
+        default_big:
+            quality: 75
+            filters:
+                thumbnail: { size: [500, 70], mode: outbound }
         admin:
             quality: 75
             filters:
                 thumbnail: { size: [170, 130], mode: inset }
-        ads_small:
-            quality: 75
-            filters:
-                thumbnail: { size: [170, 130], mode: inset }
-                background: { size: [170, 130], color: '#eee' }
-                default_icon: { size: [96, 96], color: '#eee' }
         article_pic:
             quality: 75
             filters:
@@ -167,6 +170,10 @@ sonata_block:
 
 sonata_formatter:
     default_formatter: text
+    ckeditor:
+        templates:
+            browser: 'SonataFormatterBundle:Ckeditor:browser.html.twig'
+            upload: 'SonataFormatterBundle:Ckeditor:upload.html.twig'
     formatters:
         markdown:
             service: sonata.formatter.text.markdown
@@ -212,18 +219,21 @@ sonata_media:
             providers:
                 - sonata.media.provider.image
             formats:
-                icon:  { width: 20, height: 20, quality: 70}
                 small: { width: 180, height: 180, quality: 70}
+                middle: { width: 300, height: 300, quality: 70}
                 big:   { width: 500, height: 500, quality: 70}
-        ads:
+        news:
             providers:
+                - sonata.media.provider.youtube
                 - sonata.media.provider.image
             formats:
-                thumb: { width: 170, height: 130, quality: 70}
-                normal: { width: 500, quality: 70}
+                small: { width: 150 , quality: 95}
+                box: { width: 150, height: 150, quality: 70}
+                big: { width: 700 , quality: 90}
+
     cdn:
         server:
-            path: /uploads/mediaw
+            path: /energo/web/uploads/media
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
@@ -237,11 +247,21 @@ sonata_media:
             thumbnail:  sonata.media.thumbnail.liip_imagine
         image:
             service:    sonata.media.provider.image
-            resizer:    sonata.media.resizer.simple
-            filesystem: sonata.media.filesystem.local
-            cdn:        sonata.media.cdn.server
-            generator:  sonata.media.generator.default
-            thumbnail:  sonata.media.thumbnail.liip_imagine
-            allowed_extensions: ['jpg', 'png', 'jpeg']
-            allowed_mime_types: ['image/pjpeg', 'image/jpeg', 'image/png', 'image/x-png']
 
+ivory_ck_editor:
+    default_config: default
+    configs:
+        default:
+            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            # Display images by default when clicking the image dialog browse button
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            # Upload file as image when sending a file from the image dialog
+            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: my-context # Optional, to upload in a custom context

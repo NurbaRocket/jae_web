@@ -85,8 +85,8 @@
 }
 
 #call-to-action-2 {
-    /*background-image: url(../img/banner.jpg);
-    background-size: cover;*/
+    background-image: url(../img/banner.jpg);
+    background-size: cover;
 }
 
 #call-to-action-2 h1,
@@ -96,21 +96,21 @@
     color: #fff;
 }
 
-#shortcut {
+#shortcuts {
     background-color: #F2F2F2;
     position: relative;
     padding-top: 30px;
 }
 
-#shortcut .content:hover h4 {
+#shortcuts .content:hover h4 {
     color: #fbad1a;
 }
 
-#shortcut .content:hover  p {
+#shortcuts .content:hover  p {
     color: #fff;
 }
 
-#shortcut .item-cont {
+#shortcuts .item-content {
     /*border-bottom: @size solid transparent;*/
     background-image: linear-gradient(to right, #023a68 0%, #1674d1 100%);
     background-origin: border-box;
@@ -119,7 +119,7 @@
     background-repeat: no-repeat;
     padding-bottom: 5px;
 }
-#shortcut .content {
+#shortcuts .content {
     padding: 30px 15px;
     background: #dddddd;
     background: -moz-linear-gradient(left, #dddddd 0%, #eaeaea 100%);
@@ -129,7 +129,7 @@
     background: -ms-linear-gradient(left, #dddddd 0%, #eaeaea 100%);
     background: linear-gradient(to right, #dddddd 0%, #eaeaea 100%);
 }
-#shortcut .reception {
+#shortcuts .reception {
     background-image: url(../img/reception.png);
     background-position: right bottom;
     background-repeat: no-repeat;
@@ -141,7 +141,7 @@
     height: 105px;
 }
 
-#shortcut .calendar {
+#shortcuts .calendar {
     background-image: url(../img/calendar.png);
     background-position: right bottom;
     background-repeat: no-repeat;
@@ -153,19 +153,19 @@
     height: 105px;
 }
 
-#shortcut .desc {
+#shortcuts .desc {
     font-size: 12px;
     width: 80%;
     color: #333333;
 }
-#shortcut .link:hover .item-cont {
+#shortcuts .link:hover .item-content {
     background-image: linear-gradient(to right, #023a68 0%, #1674d1 100%);
     background-origin: border-box;
     background-position: top left, top right, bottom right, bottom left;
     background-repeat: no-repeat;
 
 }
-#shortcut .link:hover .content {
+#shortcuts .link:hover .content {
     background: #023a68;
     background: -moz-linear-gradient(left, #023a68 0%, #1674d1 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, #023a68), color-stop(100%, #1674d1));

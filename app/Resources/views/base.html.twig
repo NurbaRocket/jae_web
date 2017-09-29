@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}Официальный сайт компании {{ settings.webSite.siteName }} {% endblock %}</title>
-    <base href="{{ url('app_energo_show') }}">
+    <base href="{{ url('main_page') }}">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('energo/' ~ 'css/bootstrap/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('energo/' ~ 'css/font-awesome/font-awesome.css') }}">
@@ -20,7 +20,7 @@
     {# top bar #}
     {% include 'common/top_wrapper.html.twig' %}
     {# navigation menu #}
-    {{ render(controller('AppBundle:energo:menu')) }}
+    {{ render(controller('AppBundle:frontend:menu')) }}
 
     {% block content %}
     {% endblock %}
