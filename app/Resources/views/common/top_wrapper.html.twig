@@ -2,23 +2,27 @@
     <div class="topbar">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-lg-1 col-sm-3">
-                        <a class="navbar-brand" href="http://energo.gov.kg">
-                            <img src="{{ asset('images/energoholding_logo.png') }}" class="img-responsive"/>
-                        </a>
-                    </div>
-                    <div class="col-lg-1 col-sm-3">
-                        <a class="navbar-brand" href="#">
-                            <img src="{{ asset('images/logo.png') }}" class="img-responsive"/>
-                        </a>
-                    </div>
-                    <div id="brand-title" class="col-lg-4 col-sm-6 hide-for-small">
-                        <h4 class="title">{{ settings.website.siteName }} </br>{% trans %}свет и тепло в вашем доме{% endtrans %}</h4>
-                    </div>
 
+                    <div class="col-lg-7">
+                        <div class="col-lg-5">
+                            <a href="http://energo.gov.kg">
+                                <img src="{{ asset('images/logoholding.png') }}" class="img-responsive"/>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-7">
+                            <a href="#">
+                                <div class="navbar-brand">
+                                    <img src="{{ asset('images/logo.png') }}" class="img-responsive"/>
+                                </div>
+                                <div id="brand-title" class="col-lg-9">
+                                    <h4 class="title">{{ settings.website.siteName }}</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                     <div class="col-lg-2 col-sm-4">
-                        <div id="locale-switch" class="btn-group">
+                        <div id="locale-switch" class="pull-rigth">
                             {% if  app.request.locale == 'ru' %}
                                 <a class="active">Рус</a>
                                 <a href="{{ url('app_energo_show', {_locale: 'kg'}) }}">Кыр</a>
@@ -28,7 +32,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-8">
+                    <div class="col-lg-3 col-sm-8">
                         <form class="navbar-form">
                             <div class="form-group">
                                 <div class="input-group">
@@ -42,7 +46,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+
             </div>
         </div>
     </div>

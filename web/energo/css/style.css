@@ -7,12 +7,10 @@ Note: Licence under Creative Commons Attribution 3.0
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic');
 
 body {
-    /*font-family: 'Open Sans', sans-serif;*/
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.6em;
-    color: #656565;
 }
 
 a {
@@ -170,7 +168,6 @@ header .navbar {
 
 .home-page header .navbar-default {
     background: #1b1b1b;
-    /* position: absolute; */
     width: 100%;
 }
 

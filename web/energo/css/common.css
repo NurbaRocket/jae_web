@@ -1,17 +1,19 @@
 #first-bar {
     height: 70px;
 }
-#brand-title h4,
-#brand-title h3 {
-    padding: 4px;
+
+#brand-title .title {
     text-transform: uppercase;
+    font-weight: 600;
+    margin: 25px 0;
+    color: #000;
 }
 #first-bar .navbar-form {
     margin: 20px;
 }
 
-.navbar-brand {
-    max-width: 60px;
+.navbar-brand img {
+    max-width: 70px;
 }
 
 .navbar-form .form-group,
@@ -83,8 +85,8 @@
 }
 
 #call-to-action-2 {
-    background-image: url(../img/banner.jpg);
-    background-size: cover;
+    /*background-image: url(../img/banner.jpg);
+    background-size: cover;*/
 }
 
 #call-to-action-2 h1,
@@ -222,8 +224,11 @@
 #companies .content{
     padding: 8px 3px;
 }
+#companies .content img {
+    height: 85px;
+}
 .section-grey {
-    background-color: #f2f2f2;
+    background-color: #eee;
 }
 .section-title {
     color: #03447B;

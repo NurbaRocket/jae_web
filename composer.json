@@ -4,6 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
+            "Jae\\": "src/Jae",
             "Application\\": "src/Application",
             "AppBundle\\": "src/AppBundle"
         },
