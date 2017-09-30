@@ -25,9 +25,11 @@
                     <div class="col-lg-12">
                         <div class="well">
                             <a href="{{ helper.articleUrl(article) }}"><h4>{{ article.title }}</h4></a>
+                            <div class="thumbnail">
                             <a href="{{ helper.articleUrl(article) }}">
                                 {% media article.media, 'big' with {'class': 'img-responsive'} %}
                             </a>
+                            </div>
                             {{ article.content|raw }}
                             <div class="info-blocks-in">
                                 <i>{% trans %}Опубликовано:{% endtrans %} {{ article.createTime|date("d.m.Y") }}</i>

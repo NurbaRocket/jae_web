@@ -34,6 +34,22 @@
                 <source>Опубликовано:</source>
                 <target>Опубликовано:</target>
             </trans-unit>
+            <trans-unit id="9">
+                <source>Плановые отключения</source>
+                <target>Плановые отключения</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Баланс абонента</source>
+                <target>Баланс абонента</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Электронная приемная</source>
+                <target>Электронная приемная</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Жалалабатэлектро в цифрах</source>
+                <target>Жалалабатэлектро в цифрах</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

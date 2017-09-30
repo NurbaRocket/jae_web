@@ -16,16 +16,16 @@
     {% include 'energo/skill_home.html.twig' %}
     <section id="content">
         <div class="container">
-            <div class="row">
-                <div id="news" class="row service-v1 margin-bottom-40">
+            <div id="news" class="row">
+                <div class="service-v1 margin-bottom-40">
                     {% for row in articles %}
                         <div class="col-md-4 md-margin-bottom-40">
                             <div class="article-box">
-                                {% media row.media, 'big' with {'class': 'img-responsive'} %}
+                                <div class=" thumbnail">{% media row.media, 'big' with {'class': 'img-responsive'} %}</div>
                                 <div class="info-blocks-in">
                                     <p>{% trans %}Опубликовано:{% endtrans %} {{ row.createTime|date("d.m.Y") }}</p>
                                 </div>
-                                <a href="{{ url('article_show', {id: row.id}) }}"> <h4>{{ row.title|truncate(50) }}</h4></a>
+                                <a href="{{ url('url_show', {url: row.url}) }}"> <h4>{{ row.title|truncate(50) }}</h4></a>
                                 {{ row.content|striptags|truncate(200)|raw }}
                             </div>
                             <div class="more">
@@ -33,9 +33,9 @@
                             </div>
                         </div>
                     {% endfor %}
-                    <div class="col-md-12 aligncenter">
-                        <a id="all-news" href="{{ url('url_show', {'url': 'janylyktar'}) }}" class="btn btn-default btn-lg">{% trans %}Все новости{% endtrans %}</a>
-                    </div>
+                </div>
+                <div class="col-md-12 aligncenter">
+                    <a id="all-news" href="{{ url('url_show', {url: 'janylyktar'}) }}" class="btn btn-default btn-lg">{% trans %}Все новости{% endtrans %}</a>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                         <div class="content">
-                            <a class="img-responsive" href="http://www.energo.gov.kg/"><img class="img-responsive" src="{{ asset('images/logoholding.png') }}"></a>
+                            <a href="http://www.energo.gov.kg/"><img class="img-responsive" src="{{ asset('images/logoholding.png') }}"></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                         <div class="content">
-                            <a class="img-responsive" href="http://www.regulatortek.kg/"><img class="img-responsive" src="{{ asset('images/regulatortek.jpg') }}"></a>
+                            <a href="http://www.regulatortek.kg/"><img class="img-responsive" src="{{ asset('images/regulatortek.jpg') }}"></a>
                         </div>
                     </div>
                 </div>

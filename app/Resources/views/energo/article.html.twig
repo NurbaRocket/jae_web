@@ -24,8 +24,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    {% media page.media, 'big' with {'class': 'img-responsive'} %}
-                    {{ page.content|raw }}
+                    <div class="thumbnail">
+                        {% media page.media, 'big' with {'class': 'img-responsive'} %}
+                    </div>
+                    <div class="article-body">
+                        {{ page.content|raw }}
+                    </div>
                     <div class="info-blocks-in">
                         <p>{% trans %}Опубликовано:{% endtrans %} {{ page.createTime|date("d.m.Y") }}</p>
                     </div>

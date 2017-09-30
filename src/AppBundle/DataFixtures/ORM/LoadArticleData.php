@@ -52,7 +52,7 @@ class LoadArticleData extends AbstractFixture implements FixtureInterface, Order
             foreach ($items as $item) {
 
                 try {
-                    $fileName = str_replace('\"', "", $item['img']['path']);
+                    $fileName = $item['img'];
 
                     /** @var Media $media */
                     if ($this->hasReference($fileName)) {
@@ -84,7 +84,7 @@ class LoadArticleData extends AbstractFixture implements FixtureInterface, Order
                     ;
 
                 } catch (\Exception $ex) {
-                    var_dump($item['item']);
+                    var_dump($item['title']);
                     throw $ex;
                 }
                 $manager->persist($a);

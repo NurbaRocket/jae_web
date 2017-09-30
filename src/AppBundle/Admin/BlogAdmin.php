@@ -12,6 +12,12 @@ use Sonata\TranslationBundle\Filter\TranslationFieldFilter;
 
 class BlogAdmin extends AbstractAdmin
 {
+    protected $datagridValues = array(
+        '_page' => 1,
+        '_sort_order' => 'DESC',
+        '_sort_by' => 'createTime',
+    );
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

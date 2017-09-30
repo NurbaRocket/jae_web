@@ -220,6 +220,9 @@
     color: #03447B;
     border-color: #03447B;
 }
+#news .more {
+    margin: 10px 0;
+}
 
 #companies .content{
     padding: 8px 3px;

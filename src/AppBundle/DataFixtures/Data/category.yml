@@ -19,7 +19,52 @@
          title_kg: Туунду компаниялар
          url: companies
          pageType: default_page
-         content: null
+         content: >
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://www.teploseti.kg/">ОАО «Бишкектеплосеть»</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://severelectro.kg/">ОАО «Северэлектро»</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://www.energo.gov.kg/">Национальный энергохолдинг</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://www.energo-es.kg/">ОАО «Электрические станции»</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://oshelectro.kg/">ОАО «Ошэлектро»</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://nesk.kg/">ОАО «НЭСК»</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://www.chakanges.kg/">Чакан ГЭС</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                  <a href="http://www.regulatortek.kg">ОАО "Кыргызский энергетический расчетный центр"</a>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content">
+                   <a href="http://vostokelectro.kg/">ОАО «Востокэлектро»</a>
+               </div>
+            </div>
          metaTitle: null
          metaKeywords: null
          metaDescription: null
@@ -29,36 +74,36 @@
          url: managers
          pageType: default_page
          content: >
-            <h2>Маматканов Кеңешбек Апсалиевич</h2>
+            <h3>Маматканов Кеңешбек Апсалиевич</h3>
             <p>&ldquo;Жалалабатэлектро&rdquo; ААКнын башкы деректири</p>
             <p>жеке маселелер боюнча кабыл алат</p>
             <p>Жума 15:00 17:00</p>
             <p>Ишемби 15:00 17:00</p>
             <p>&nbsp;</p>
-            <h2>Паизов Азамат Мамазакирович</h2>
+            <h3>Паизов Азамат Мамазакирович</h3>
             <p>&ldquo;Жалалабатэлектро&rdquo; ААКнын башкы деректиринин 1-орун басары</p>
             <p>Жеке маселелер боюнча кабыл алат</p>
             <p>Шейшемби 15:00 17:00</p>
             <p>Бейшемби 15:00 17:00</p>
             <p>&nbsp;</p>
-            <h2>Алдосов Рысбай Шайбекович</h2>
+            <h3>Алдосов Рысбай Шайбекович</h3>
             <p>&ldquo;Жалалабатэлектро&rdquo; ААКнын башкы деректиринин коммерциялык маселелер боюнча орун басары</p>
             <p>Жеке маселелер боюнча кабыл алат</p>
             <p>Шейшемби 15:00 17:00</p>
             <p>Бейшемби 15:00 17:00</p>
             <p>&nbsp;</p>
-            <h2>Раймахунов Кубаныч Джолчуевич</h2>
+            <h3>Раймахунов Кубаныч Джолчуевич</h3>
             <p>&ldquo;Жалалабатэлектро&rdquo; ААКнын башкы деректиринин экономика жана каржы боюнча орун басары</p>
             <p>Жеке маселелер боюнча кабыл алат</p>
             <p>Шейшемби 15:00 17:00</p>
             <p>Бейшемби 15:00 17:00</p>
          content_kg: >
-            <h2>Маматканов Кеңешбек Апсалиевич</h2>
+            <h3>Маматканов Кеңешбек Апсалиевич</h3>
             <p>Генеральный директор ОАО &ldquo;Жалалабатэлектро&rdquo;</p>
             <p>Прием по личным вопросам</p>
             <p>Пятница 15:00 17:00</p>
             <p>Суббота 15:00 17:00</p>
-            <h2>Паизов Азамат Мамазакирович</h2>
+            <h3>Паизов Азамат Мамазакирович</h3>
             <p>Первый заместитель генерального директора ОАО &ldquo;Жалалабатэлектро&rdquo;</p>
             <p>Прием по личным вопросам</p>
             <p>Вторник 15:00 17:00</p>
@@ -68,7 +113,7 @@
             <p>Прием по личным вопросам</p>
             <p>Вторник 15:00 17:00</p>
             <p>Четверг 15:00 17:00</p>
-            <h2>Раймахунов Кубаныч Джолчуевич</h2>
+            <h3>Раймахунов Кубаныч Джолчуевич</h3>
             <p>Заместитель генерального директора ОАО &ldquo;Жалалабатэлектро&rdquo; по экономике и финансам</p>
             <p>Прием по личным вопросам</p>
             <p>Вторник 15:00 17:00</p>
@@ -157,8 +202,8 @@
          pageType: news_page
       -
          title: Отключения
-         title_kg: өчөрүүлөр
-         url: Otkluchenia
+         title_kg: Өчүрүүлөр
+         url: otkluchenia
          content:
          pageType: news_page
       -
@@ -180,6 +225,12 @@
    content: null
    pageType: default_page
    children:
+      -
+         title: Контакты
+         title_kg: Байланыштар
+         url: contacts
+         pageType: default_page
+         content: null
       -
          title: О компании
          title_kg: Компания жөнүндө

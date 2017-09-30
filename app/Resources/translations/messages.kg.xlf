@@ -32,7 +32,23 @@
             </trans-unit>
             <trans-unit id="8">
                 <source>Опубликовано:</source>
-                <target>Жайгаштырылган убакты:</target>
+                <target>Жарыяланган убактысы:</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Плановые отключения</source>
+                <target>Пландык өчүрүүлөр</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Баланс абонента</source>
+                <target>Абонентин балансы</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Электронная приемная</source>
+                <target>Электрондук кабылдама</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Жалалабатэлектро в цифрах</source>
+                <target>Жалалабатэлектро тамгалар менен</target>
             </trans-unit>
         </body>
     </file>
