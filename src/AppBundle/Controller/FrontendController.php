@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\PageTree;
-use Doctrine\ORM\Query\Expr as Expr;
+use AppBundle\Entity\Article;
 
 class FrontendController extends Controller
 {
@@ -58,6 +58,18 @@ class FrontendController extends Controller
     }
 
     /**
+     * @Template("common/article_sidebar.html.twig")
+     */
+    public function articleSidebarAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $params = array();
+        $params['categories'] = $em->getRepository('AppBundle:PageTree')->findBy(array('pageType' => 'news_page'));
+
+        return $params;
+    }
+
+    /**
      * @Route("/{_locale}/page/{id}/", name="page_tree_show")
      * @Method("GET")
      * @Template("energo/page.html.twig")
@@ -80,8 +92,8 @@ class FrontendController extends Controller
                 'defaultSortDirection' => 'desc'
             );
             $queryBuilder = $em->getRepository('AppBundle:Article')->createQueryBuilder('a')
-                //->add('where', new Expr\Comparison(\'a\'.page_tree_id', 'pid''?1'))
-                //->setParameter('pid', $page->getId())
+                ->where('a.pageTree = :pid')
+                ->setParameter('pid', $page)
             ;
             $paginator = $this->get('knp_paginator');
             $pagination = $paginator->paginate(
@@ -91,7 +103,7 @@ class FrontendController extends Controller
                 $paginatorOptions
             );
             $params['pagination'] = $pagination;
-            $params['categories'] = $em->getRepository('AppBundle:PageTree')->findBy(array('pageType' => 'news_page'));
+
         }
 
         return $params;
@@ -105,7 +117,7 @@ class FrontendController extends Controller
     public function articleAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        /** @var  $page PageTree */
+        /** @var  $page Article */
 
         $page = $em->getRepository('AppBundle:Article')->findOneBy(array('id' => $id));
 
@@ -132,6 +144,7 @@ class FrontendController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $url =  trim(urldecode($url), '/');
+        /** @var $page PageTree */
         $page = $em->getRepository('AppBundle:PageTree')->findOneBy(
             array(
                 'url' => $url,
@@ -139,33 +152,24 @@ class FrontendController extends Controller
             )
         );
         if (!empty($page)) {
-            return $this->forward('AppBundle:Frontend:page',
-                array(
-                    'id' => $page->getId(),
-                    '_locale' => $_locale,
-                ),
-                $request->query->all()
-            );
+            $request->attributes->set('_controller', 'AppBundle:Frontend:page');
+            $request->attributes->set('id', $page->getId());
+            $request->attributes->set('_locale', $_locale);
+            return $this->get('http_kernel')->handle($request);
         }
 
-        $page = $em->getRepository('AppBundle:Article')->findOneBy(
+        /** @var $article Article */
+        $article = $em->getRepository('AppBundle:Article')->findOneBy(
             array(
                 'url' => $url,
                 'status' => 'public'
             )
         );
-        if (!empty($page)) {
-            return $this->forward('AppBundle:Frontend:article',
-                array(
-                    'id' => $page->getId(),
-                    '_locale' => $_locale
-                ),
-                $request->query->all()
-            );
-            /*$this->container->get('request')->attributes->set('_controller', 'AppBundle:Frontend:article');
-            $this->container->get('request')->attributes->set('id', $page->getId());
-            return $this->container->get('http_kernel')->handle($this->container->get('request'));
-            */
+        if (!empty($article)) {
+            $request->attributes->set('_controller', 'AppBundle:Frontend:article');
+            $request->attributes->set('id', $article->getId());
+            $request->attributes->set('_locale', $_locale);
+            return $this->get('http_kernel')->handle($request);
         }
 
         throw $this->createNotFoundException();

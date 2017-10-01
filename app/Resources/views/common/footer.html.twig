@@ -6,7 +6,7 @@
                     <img class="img-responsive" src="{{ asset('images/logo.png') }}" />
                 </div>
                 <div class="col-xs-9">
-                    <a href="#"><h5>{{ settings.website.siteName }}</h5></a>
+                    <a href="{{ app.request.basePath() }}"><h5>{{ settings.website.siteName }}</h5></a>
                     <address>
                         <strong>{{ settings.website.siteName }}</strong><br>
                         Жалал-Абад ш, ул Ленина 11 <br>
