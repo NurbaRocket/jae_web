@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Translation\ArticleTranslation;
 use Gedmo\Translatable\Translatable;
 use Sonata\TranslationBundle\Model\Gedmo\TranslatableInterface;
 use Sonata\TranslationBundle\Traits\Gedmo\PersonalTranslatableTrait;
@@ -65,7 +64,7 @@ class Article implements Translatable, TranslatableInterface
    /**
     * @var String tags
     *
-    * @ORM\Column(name="tags", type="string", length=100)
+    * @ORM\Column(name="tags", type="string", length=100, nullable=true)
     */
    private $tags;
 
@@ -81,14 +80,14 @@ class Article implements Translatable, TranslatableInterface
    /**
     * @var \DateTime createTime
     *
-    * @ORM\Column(name="createTime", type="date", length=100)
+    * @ORM\Column(name="createTime", type="datetime", length=100)
     */
    private $createTime;
 
    /**
     * @var \DateTime updateTime
     *
-    * @ORM\Column(name="updateTime", type="date", length=100)
+    * @ORM\Column(name="updateTime", type="datetime", length=100)
     */
    private $updateTime;
 
@@ -109,7 +108,6 @@ class Article implements Translatable, TranslatableInterface
     public function __construct()
     {
         $this->translations = new ArrayCollection();
-        $this->tags = new ArrayCollection();
     }
 
     public function setTranslatableLocale($locale)

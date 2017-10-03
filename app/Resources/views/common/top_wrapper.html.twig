@@ -5,13 +5,13 @@
 
                     <div class="col-lg-7">
                         <div class="col-lg-5">
-                            <a href="http://energo.gov.kg">
+                            <a target="_blank" href="http://energo.gov.kg">
                                 <img src="{{ asset('images/logoholding.png') }}" class="img-responsive"/>
                             </a>
                         </div>
 
                         <div class="col-lg-7">
-                            <a href="{{ app.request.basePath() }}">
+                            <a href="{{ url('main_page') }}">
                                 <div class="navbar-brand">
                                     <img src="{{ asset('images/logo.png') }}" class="img-responsive"/>
                                 </div>
@@ -25,7 +25,7 @@
                         <div id="locale-switch" class="pull-rigth">
                             {% if  app.request.locale == 'ru' %}
                                 <a class="active">Рус</a>
-                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'kg'})) }}">Кыр</a>
+                                <a href="{{ url(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'kg'})) }}">Кыр</a>
                             {% elseif app.request.locale == 'kg' %}
                                 <a href="{{ url(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ru'})) }}">Рус</a>
                                 <a class="active">Кыр</a>

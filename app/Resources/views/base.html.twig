@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Официальный сайт компании {{ settings.webSite.siteName }} {% endblock %}</title>
+    <title>{% block title %}{{ settings.webSite.siteName }} - {% trans %}официальный сайт компании{% endtrans %}{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('energo/' ~ 'css/bootstrap/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('energo/' ~ 'css/font-awesome/font-awesome.css') }}">

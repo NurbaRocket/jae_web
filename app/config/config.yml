@@ -218,6 +218,7 @@ sonata_media:
         default:
             providers:
                 - sonata.media.provider.image
+                - sonata.media.provider.file
             formats:
                 small: { width: 180, height: 180, quality: 70}
                 middle: { width: 300, height: 300, quality: 70}
@@ -230,7 +231,9 @@ sonata_media:
                 small: { width: 150 , quality: 95}
                 box: { width: 150, height: 150, quality: 70}
                 big: { width: 700 , quality: 90}
-
+        files:
+            providers:
+                - sonata.media.provider.file
     cdn:
         server:
             path: /energo/web/uploads/media

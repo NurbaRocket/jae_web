@@ -11,7 +11,7 @@
          url: company-structure
          pageType: draw_io_page
          content: >
-            <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36\&quot; version=\&quot;7.4.9\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;google\&quot;&gt;&lt;diagram name=\&quot;Page-1\&quot; id=\&quot;2309ab02-6768-196a-c498-d5f5fa538c8f\&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+            <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36\&quot; version=\&quot;7.4.9\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;2309ab02-6768-196a-c498-d5f5fa538c8f\&quot; name=\&quot;Page-1\&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
          metaTitle: null
          metaKeywords: null
          metaDescription: null
@@ -80,19 +80,16 @@
             <p>жеке маселелер боюнча кабыл алат</p>
             <p>Жума 15:00 17:00</p>
             <p>Ишемби 15:00 17:00</p>
-            <p>&nbsp;</p>
             <h3>Паизов Азамат Мамазакирович</h3>
             <p>&ldquo;Жалалабатэлектро&rdquo; ААКнын башкы деректиринин 1-орун басары</p>
             <p>Жеке маселелер боюнча кабыл алат</p>
             <p>Шейшемби 15:00 17:00</p>
             <p>Бейшемби 15:00 17:00</p>
-            <p>&nbsp;</p>
             <h3>Алдосов Рысбай Шайбекович</h3>
             <p>&ldquo;Жалалабатэлектро&rdquo; ААКнын башкы деректиринин коммерциялык маселелер боюнча орун басары</p>
             <p>Жеке маселелер боюнча кабыл алат</p>
             <p>Шейшемби 15:00 17:00</p>
             <p>Бейшемби 15:00 17:00</p>
-            <p>&nbsp;</p>
             <h3>Раймахунов Кубаныч Джолчуевич</h3>
             <p>&ldquo;Жалалабатэлектро&rdquo; ААКнын башкы деректиринин экономика жана каржы боюнча орун басары</p>
             <p>Жеке маселелер боюнча кабыл алат</p>
@@ -109,7 +106,7 @@
             <p>Прием по личным вопросам</p>
             <p>Вторник 15:00 17:00</p>
             <p>Четверг 15:00 17:00</p>
-            <p>Алдосов Рысбай Шайбекович</p>
+            <h3>Алдосов Рысбай Шайбекович</h3>
             <p>Заместитель генерального директора ОАО &ldquo;Жалалабатэлектро&rdquo; по коммерческим вопросам</p>
             <p>Прием по личным вопросам</p>
             <p>Вторник 15:00 17:00</p>
@@ -150,12 +147,6 @@
          url: tolom-kabyl-aluu
          content: >
             Жалал-Абад шаары, Нагима Айтматова көчөсү №8 болжол "Бакыт" телеграфы. Жалал-Абад шаары, Нагима Айтматова көчөсү №3. Жалал-Абад шаа...
-         pageType: default_page
-      -
-         title: Телефоны
-         title_kg: Телефондор
-         url: phones
-         content: null
          pageType: default_page
 - 
    title: Акционеры
@@ -231,21 +222,127 @@
          title_kg: Байланыштар
          url: contacts
          pageType: default_page
-         content: null
+         content: >
+           <table class="table table-hover">
+             <thead><th>Районные подразделения</th><th>Телефоны</th></thead>
+             <tbody>
+               <tr><td>Чаткал РЭС></td><td>0 (3722) 6-03-52</td></tr>
+               <tr><td>Ала-Бука РЭС</td><td>0 (3741) 5-08-79</td></tr>
+               <tr><td>Аксы РЭС</td><td>0 (3742) 5-04-98, 5-19-83</td></tr>
+               <tr><td>Токтогул РЭС</td><td>0 (3747) 5-01-95, 5-05-53</td></tr>
+               <tr><td>Кара-Көл РЭС</td><td>0 (3746) 5-27-92, 0 (3722) 6-02-78</td></tr>
+               <tr><td>Таш-Көмүр РЭС</td><td>0 (3745) 5-10-21, 0 (3722) 6-03-60</td></tr>
+               <tr><td>Майлуу-Суу РЭС</td><td>0 (3744) 5-22-77</td></tr>
+               <tr><td>Кочкор-Ата УЭС</td><td>0 (3722) 6-03-59</td></tr>
+               <tr><td>Ноокен РЭС</td><td>0 (3734) 5-07-21, 0(3722) 6-01-76</td></tr>
+               <tr><td>Жалал-Абад РЭС</td><td>0 (3722) 5-63-76. 5-31-20</td></tr>
+               <tr><td>Сузак РЭС</td><td>0 (3748) 5-02-75. 0(3722) 6-03-56</td></tr>
+               <tr><td>Көк-Арт РЭС</td><td>0 (3722) 3-22-39, 6-03-53</td></tr>
+               <tr><td>Базар-Коргон РЭС</td><td>0 (3736) 5-00-18, 0(3722) 6-01-75</td></tr>
+             </tbody>
+           </table>
+         content_kg: >
+           <table class="table table-hover">
+             <thead><th>Райондук электр тармактары</th><th>Телефондор</th></thead>
+             <tbody>
+               <tr><td>Чаткал РЭС></td><td>0 (3722) 6-03-52</td></tr>
+               <tr><td>Ала-Бука РЭС</td><td>0 (3741) 5-08-79</td></tr>
+               <tr><td>Аксы РЭС</td><td>0 (3742) 5-04-98, 5-19-83</td></tr>
+               <tr><td>Токтогул РЭС</td><td>0 (3747) 5-01-95, 5-05-53</td></tr>
+               <tr><td>Кара-Көл РЭС</td><td>0 (3746) 5-27-92, 0 (3722) 6-02-78</td></tr>
+               <tr><td>Таш-Көмүр РЭС</td><td>0 (3745) 5-10-21, 0 (3722) 6-03-60</td></tr>
+               <tr><td>Майлуу-Суу РЭС</td><td>0 (3744) 5-22-77</td></tr>
+               <tr><td>Кочкор-Ата УЭС</td><td>0 (3722) 6-03-59</td></tr>
+               <tr><td>Ноокен РЭС</td><td>0 (3734) 5-07-21, 0(3722) 6-01-76</td></tr>
+               <tr><td>Жалал-Абад РЭС</td><td>0 (3722) 5-63-76. 5-31-20</td></tr>
+               <tr><td>Сузак РЭС</td><td>0 (3748) 5-02-75. 0(3722) 6-03-56</td></tr>
+               <tr><td>Көк-Арт РЭС</td><td>0 (3722) 3-22-39, 6-03-53</td></tr>
+               <tr><td>Базар-Коргон РЭС</td><td>0 (3736) 5-00-18, 0(3722) 6-01-75</td></tr>
+             </tbody>
+           </table>
       -
          title: О компании
          title_kg: Компания жөнүндө
          url: about-jae
          content: >
-            <p>Открытое Акционерное Общество «Жалалабатэлектро» было образовано 01.07.2001 году в результате реорганизации Жалал-Абад ПЭС. В настоящее время ОАО «Жалалабатэлектро» в условиях рыночной экономики компания на принципах самоокупаемости осуществляет распределение и продажу электроэнергии, ремонтно-эксплуатационное и оперативное обслуживание распределительных электрических сетей напряжением 35-10-6-0,4 кВ, находящиеся на границах Жалал-Абадской области, кроме Тогуз-Тороиского района.</p>
-            <p>ОАО «Жалалабатэлектро» обслуживает 202 554 физических и 4287 юридических лиц, 18 структурных подразделений находящиеся в области, которая осуществляет деятельность по эксплуатации воздушных, кабельных, низковольтных сетей и энергооборудования; деятельность по покупке, распределению, продаже электроэнергии. В составе ОАО «Жалал-АбадЭлектро» 12 районов электрических сетей (РЭС) и 2 предприятия реализации электроэнергии. Так же в составе ОАО «Жалал-АбадЭлектро» действуют производственные службы:</p>
-            <p>Cлужба СЭВО осуществляет ремонтно–эксплуатационное обслуживание подстанций напряжением 35/10-6 кВ и воздушных линий электропередачи напряжением 35 кВ;</p>
-            <p>Cлужба релейной защиты и автоматики осуществляет защиту эксплуатируемого оборудования и автоматизацию оборудования;служба изоляции, защиты от перенапряжения и испытания электрооборудования обеспечивает профилактические испытания и осуществляет эксплуатациюслужба надёжности и техники безопасности обеспечивает организацию работы по охране труда и технике безопасности; контроль по отказом и авариям электро оборудование 6-10-35 Кв оперативно-диспетчерская служба осуществляет оперативное обслуживание электрических сетей напряжением 04-6-10-35 Кв и обеспечивает надёжное и бесперебойное электроснабжение потребителей.метрологическая служба обеспечивает единство и требуемую точность измерений на ПС 35/6-10 кВ и средств измерений, АСКЕУ применяемых в ОАО „Жалал-АбадЭлектро“;предприятия по восстановлению трансформаторов осуществляет централизованного ремонта силовых трансформаторов;</p>
-            <p>Раз в два года распредкомпания проводит соревнования, на которых, помимо взаимного обучения и проверки профессиональных навыков, демонстрируются усовершенствованные механизмы и приспособления, облегчающие труд электромонтёра. Лучшие из них внедряются во всех РЭСах.</p>
-            <p>Особое внимание уделяется улучшению учёта электроэнергии. С этой целью производится вынос счётчиков, замена их на более точные и надёжные электрические счётчики класса точности 1.0.</p>
-            <p></p>
-            <p>КОНТАКТНАЯ ИНФОРМАЦИЯ</p>
-            <p>Кыргызская Республика,</p>
-            <p>г. Жалал-Абад, ул.Ленина 159</p>
-            <p>тел: 03722 5 01 23<p></p>
+            <h3>Открытое акционерное общество &laquo;Жалалабатэлектро&raquo;</h3>
+            <p>Основными функциями ОАО &laquo;Жалалабатэлектро&raquo; являются распределение и продажа электрической энергии по сетям 35-10-6-0,4 кВ, а также присоединение потребителей к электрическим сетям на территории Жалал-Абадской области кроме Тогуз-Тороуского района.</p>
+            <p>Открытое акционерное общество &laquo;Жалалабатэлектро&raquo; &ndash; одно из 4-х распределительных энергокомпаний компаний Кыргызской Республики, входящее в систему ОАО &ldquo;Национальная энергетическая холдинговая компания&rdquo;.</p>
+            <p>Свидетельство о государственной перерегистрации юридического лица выдано Министерством юстиции Кыргызской Республики 29.05.2009 года, серия ГПР №0087809.</p>
+            <p>Осуществляет свою деятельность на основании Лицензий, регистрационные номера 186 и 187 от 30.05.2005г., соответственно по распределению и продаже электрической энергии.</p>
+            <p>Уставной капитал общества составляет 212618,1 тыс.сомов, разделенный на 965237,2 тыс. простых именных акций номинальной стоимостью 0,22 сом.</p>
+            <p>Владельцами акций являются ОАО &laquo;Национальная энергетическая холдинговая компания&raquo; - 80,5%, Социальный фонд Кыргызской Республики &ndash; 13,2%, юридические лица &ndash; 3,9% и физические лица &ndash; 2,00%.</p>
+            <p>ОАО &laquo;Жалалабатэлектро&raquo; обслуживает территорию Жалал-Абадской области площадью 33,7 тыс. кв. км, где проживает 1,051 млн. человек (16,6% всего населения республики).</p>
+            <h3>Организационная структура и ключевые цифры</h3>
+            <p>В структуру ОАО &ldquo;Жалалабатэлектро&rdquo; входят 12 районов электрических сетей, 2 энергосбытовые организации, 7 производственных служб и 14 отделов.</p>
+            <p>Через указанные структурные подразделения эксплуатируя следующие электроустановки и сети:</p>
+            <p><em>- 68 ед. подстанций 35/10-6 кВ (354,86 МВА),</em></p>
+            <p><em>- 959,27 км воздушных линий электропередачи 35 кВ,</em></p>
+            <p><em>- 3588 ед. трансформаторных пунктов ТП, КТП-6-10/0,4 кВ (759,753 МВА),</em></p>
+            <p><em>- 3728,74 км воздушных линий электропередачи 6-10кВ,</em></p>
+            <p><em>- 4876,705 км воздушных линий электропередачи 0,4кВ,</em></p>
+            <p><em>- 89,69 км кабельных линий электропередачи 6-10,-0,4кВ снабжает электрической энергией население и отраслей экономики Жалал-Абадской области.</em></p>
+            <p>Всего на обслуживании у ОАО &laquo;ЖАЭ&raquo; находятся приборы учета в количестве 227760 шт., в т.ч.:</p>
+            <p>- у бытовых абонентов &ndash; 207106 шт., в т.ч. 1-фазных &ndash; 203731 шт., 3-х фазных &ndash; 3375 шт. и 2475 счетчиков АСКУЭ (1 и 3-ф.);</p>
+            <p>- у небытовых абонентов - 23747 шт. приборов учета;</p>
+            <p>- на ПС ОАО &laquo;ЖАЭ&raquo; установлены 282 прибора учета на стороне ВН, из них 141 шт. является счетчиками АСКУЭ.</p>
+            <p><strong>Стратегическая цель:</strong></p>
+            <ul>
+              <li>Полное и надежное энергоснабжение потребителей Жалал-Абадской области на основе подъема собственной инфраструктурной базы, внедрения инновационных технологий, существенного повышения эффективности функционирования и достижения качественно нового состояния компании.</li>
+              <li>Повышение качества оперативного, ремонтного и межремонтного обслуживания оборудования, снижение отказов и аварий в сетях 0,4-6-10-35 кВ, сокращение средней длительности ликвидации технологических нарушений.</li>
+            </ul>
+            <p><strong>Генеральная дирекция:</strong></p>
+            <p>Генеральный директор - Маматканов Кенешбек Апсалиевич, 23.01.1966г. рождения, по национальности - кыргыз, образование высшее, окончил 1988 году Фрунзенский политехнический институт, по специальности инженер-электрик. Общий трудовой стаж 34 года.</p>
+            <p><strong>Наименование предприятия:</strong></p>
+            <p><em>На государственном языке: &ldquo;Жалалабатэлектро&rdquo; ачык акционердик коому</em></p>
+            <p><em>На официальном языке: Открытое акционерное общество &laquo;Жалалабатэлектро&raquo;</em></p>
+            <p><strong>Юридический адрес и банковские реквизиты</strong></p>
+            <p><em>715600, Кыргызская Республика, Жалал-Абадская область, </em></p>
+            <p><em>г. Жалал-Абад, ул. Ленина, 159</em></p>
+            <p><em>тел. (03722) 5-08-00, факс (03722) 5-42-06</em></p>
+            <p><em>e-mail: jalalabatelectro@mail.ru</em></p>
+            <p><em>р/с 8274172000200170 МФО 330508827</em></p>
+            <p><em>ИНН 00506200110079</em></p>
+            <p><em>ОКПО 22829806</em></p>
+            <p><em>Регистрационный номер 106011-3300-АО</em></p>
+         content_kg: >
+            <h3>&laquo;Жалалабатэлектро&raquo; ачык акционердик коому</h3>
+            <p>&quot;Жалалабатэлектро&quot; ААКнын негизги иш-милдеттери 35-10-6-0,4 кВ электр тармактары аркылуу электр энергиясын бөлүштүрүү жана сатуу, ошондой Жалал-Абад областынын Тогуз-Toро районунан башка бардык аймактарындагы керектөөчүлөрдү электр тармактарына кошуу болуп саналат.</p>
+            <p>&quot;Жалалабатэлектро&quot; ачык акционердик коому - &quot;Улуттук энергетикалык холдинг компаниясы&quot; ААКнын курамына кирген Кыргыз Республикасындагы 4 бөлүштүрүүчү электр компаниялардын бири.</p>
+            <p>Кыргыз Республикасынын Адилет министрлиги тарбынан юридикалык жакты кайра каттоо жөнүндө ГПР сериясындагы №0087809 күбөлүк 29.05.2009-жылы берилген.</p>
+            <p>30.05.2005-жылы 186 жана 187 номерлери менен катталып берилген лицензиялардын негизинде электр энергиясын бөлүштүрүү жана сатуу боюнча ишмердүүлүгүн аткарат.</p>
+            <p>Коомдун уставдык капиталы номинал наркы 0,22 сомдук 965237,2 миң жөнөкөй катталган акцияларга бөлүштүрүлгөн 212618,1 миң сомдом турат.</p>
+            <p>Акциялардын 80,5%ына &quot;Улуттук энергетикалык холдинг компаниясы&quot; ААК, 13,2%ына Кыргыз Республикасынын Социалдык фонду, 3,9%ына юридикалык жактар жана 2,00%ына жеке жактар ээлик кылышат.</p>
+            <p>&quot;Жалалабатэлектро&quot; ААКсы 1,051 млн. калк жашаган Жалал-Абад областынын 33,7 миң чарчы метр аянтын тейлейт (жалпы калктын 16,6%).</p>
+            <p>&nbsp;</p>
+            <h4>Уюштуруу түзүмү жана негизги көрсөткүчтөр</h4>
+            <p>&quot;Жалалабатэлектр&quot; ААКсынын түзүмүнө 12 район электр тармактары, 2 электр электр энегиясын сатуу ишканалары, 7 өндүрүштүк кызматтар жана 14 бөлүмдөр кирет.</p>
+            <p>Коом көрсөтүлгөн түзүмдүк бөлүмдөр аркылуу төмөнкү электр орнотмолорун жана тармактарын:</p>
+            <p><em>- 68 даана 35/10-6 кВ көмөк чордондорун (354,86 МВА),</em></p>
+            <p><em>- 959,27 км 35 кВ чыңалуудагы аба электр чубалгыларын,</em></p>
+            <p><em>- 3588 даана трансформатордук пункттарын TП, КТП-6-10/0,4 кВ (759,753 МВА),</em></p>
+            <p><em>- 3728,74 км 6-10 кВ чыңалуудагы аба электр чубалгыларын,</em></p>
+            <p><em>- 4876,705 км 0,4 кВ чыңалуудагы аба электр чубалгыларын,</em></p>
+            <p><em>- 89,69 км 6-10,-0,4 кВ кабелдик чубалгыларын, пайдаланып Жалал-Абад областынын калкын жана экономика тармактарын электр энергиясы менен камсыз кылат.</em></p>
+            <p>&quot;ЖАЭ&quot; ААК тарабынан 227760 даана электр эсептегичтери тейленет, анын ичинен:</p>
+            <p>- тиричиликке керектөөчүлөрдө - 207106 даана орнотулган, анын ичинде 1 фазалуусу 203731 даана, 3 фазалуусу 3375 даана жана ЭКЭАТ тибиндегиси 2475 даана;</p>
+            <p>- тиричиликке эмес керектөөчүлөрдө - 23747 даана;</p>
+            <p>- &quot;ЖАЭ&quot; ААКнын көмөк чордондорунда, жогорку чыңалуу жагында 282 даана эсептегич орнотулган, анын ичинен 141 даана эсептегичтер ЭКЭАТ тибинде болуп саналат.</p>
+            <p><strong>Түпмаксат:</strong></p>
+            <p>&bull; өздүк инфраструктуралык базабызды өркүндөтүүнүн, жаңылануу технологияларды киргизип, компаниянын иштөө натыйжалуулугун жогорулатуунун негизинде компаниянын кыйла сапаттуу абалына жетишүү менен Жалал-Абад областында жайгашкан керектөөчүлөрдү толук жана ишенимдүү электр энергиясы менен камсыз кылуу.</p>
+            <p>&bull; ыкчам тейлөө, оңдоо жанан оңдоо аралыгындагы тейлөөлөрдүн сапатын жогорулатуу; 0,4-6-10-35 кВ тармактарындагы авариялык өчүүлөрдү, ийгиликсиздиктерди жана технологиялык бузулууларды түзөтүүнүн орточо узактыгын кыскартуу.</p>
+            <p><strong>Генералдык дирекция:</strong></p>
+            <p>Башкы деректир &ndash; Маматканов Кеңешбек Апсалиевич, 23.01.1966-жылы туулган, улуту - кыргыз, билими жогорку, 1988-жылы Фрунзедеги политехникалык институтту аяктаган, кесиби - инженер-электрик, иштеген жылдары 34 жыл.</p>
+            <p><strong>Ишкананын аталышы:</strong></p>
+            <p><em>Мамлекеттик тилде: &quot;Жалалабатэлектро&quot; ачык акционердик коому</em></p>
+            <p><em>Расмий тилде: Открытое акционерное общество &laquo;Жалалабатэлектро&raquo;</em></p>
+            <p><strong>Юридикалык дареги жана банктын реквизиттери</strong></p>
+            <p><em>715600, Кыргыз Республикасы, Жалал-Абадская областы,</em></p>
+            <p><em>Жалал-Абад ш., Ленин көчөсү, 159</em></p>
+            <p><em>тел. (03722) 5-08-00, факс (03722) 5-42-06</em></p>
+            <p><em>e-mail: jalalabatelectro@mail.ru</em></p>
+            <p><em>р/с 8274172000200170 МФО 330508827</em></p>
+            <p><em>ИНН 00506200110079</em></p>
+            <p><em>ОКПО 22829806</em></p>
+            <p><em>Катталган номери 106011-3300-АО</em></p>
          pageType: default_page

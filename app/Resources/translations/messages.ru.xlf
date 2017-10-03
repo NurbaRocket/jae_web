@@ -50,6 +50,22 @@
                 <source>Жалалабатэлектро в цифрах</source>
                 <target>Жалалабатэлектро в цифрах</target>
             </trans-unit>
+            <trans-unit id="13">
+                <source>Быстрые ссылки</source>
+                <target>Быстрые ссылки</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Как нас найти</source>
+                <target>Как нас найти</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Поворот рядом с бензозаправкой "ТОМАС"</source>
+                <target>Поворот рядом с бензозаправкой "ТОМАС"</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Программа правительства "Сорок шагов в будущее"</source>
+                <target>Программа правительства "Сорок шагов в будущее"</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

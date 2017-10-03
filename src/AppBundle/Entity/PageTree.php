@@ -106,10 +106,16 @@ class PageTree implements Translatable, \Serializable, TranslatableInterface
      */
     protected $translations;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PageFile", mappedBy="pageTree", cascade={"persist", "remove"})
+     */
+    private $files;
+
     public function __construct()
     {
         $this->translations = new ArrayCollection();
         $this->articles = new ArrayCollection();
+        $this->files = new ArrayCollection();
     }
 
     public function setTranslatableLocale($locale)

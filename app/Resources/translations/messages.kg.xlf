@@ -48,7 +48,23 @@
             </trans-unit>
             <trans-unit id="12">
                 <source>Жалалабатэлектро в цифрах</source>
-                <target>Жалалабатэлектро тамгалар менен</target>
+                <target>Жалалабатэлектро инфографикасы</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Быстрые ссылки</source>
+                <target>Тез шилтемелер</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Как нас найти</source>
+                <target>Кантип бизди табасыңар</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Поворот рядом с бензозаправкой "ТОМАС"</source>
+                <target>Болжол "Томас" май куюучу бекеттин жанында</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Программа правительства "Сорок шагов в будущее"</source>
+                <target>Өкмөт программасы "Жаңы доорго кырк кадам"</target>
             </trans-unit>
         </body>
     </file>

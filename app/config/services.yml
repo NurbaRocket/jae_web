@@ -46,9 +46,16 @@ services:
 
     energo.admin.article:
         class: AppBundle\Admin\BlogAdmin
-        arguments: [~, AppBundle\Entity\Article, AppBundle:BlogAdmin, 'title']
+        arguments: [~, AppBundle\Entity\Article, AppBundle:SonataAdmin, 'title']
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: Article }
+        public: true
+
+    energo.admin.pageFile:
+        class: AppBundle\Admin\PageFileAdmin
+        arguments: [~, AppBundle\Entity\PageFile, AppBundle:SonataAdmin, 'title']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: PageFile }
         public: true
 
     energo.settings:

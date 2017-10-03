@@ -10,8 +10,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use AppBundle\Entity\PageTree;
 use AppBundle\Entity\Translation\PageTreeTranslation;
 use Symfony\Component\Yaml\Parser;
+use Symfony\Component\HttpFoundation\File\File;
+use Application\Sonata\MediaBundle\Entity\Media;
 
-class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface
+class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
 
     /**
@@ -75,7 +77,25 @@ class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface
             }
         }
 
+        $mediaManager = $this->getMediaManager();
+        $fileName = 'kg_new_age_steps.doc';
+        $imageFile = new File(__DIR__ . '/../../../../web/uploads/media/' . $fileName);
+        $media = new Media();
+        $media->setBinaryContent($imageFile);
+        $media->setEnabled(true);
+        $media->setName($fileName);
+        $media->setContext('files');
+        $media->setProviderName('sonata.media.provider.file');
+        $mediaManager->save($media);
         $manager->flush();
+    }
+
+    /**
+     * @return \Sonata\MediaBundle\Model\MediaManagerInterface
+     */
+    public function getMediaManager()
+    {
+        return $this->container->get('sonata.media.manager.media');
     }
 
     /**

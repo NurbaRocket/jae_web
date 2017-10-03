@@ -20,6 +20,15 @@ class BlogAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+
+        $em = $this->modelManager->getEntityManager('AppBundle\Entity\PageTree');
+
+        $query = $em->createQueryBuilder('p')
+            ->select('p')
+            ->from('AppBundle:PageTree', 'p')
+            ->where('p.pageType = :type')
+            ->setParameter('type', 'news_page')
+        ;
         $formMapper
             ->with('Content', array('class' => 'col-md-9'))
                 ->add('title', null, array(
@@ -40,7 +49,8 @@ class BlogAdmin extends AbstractAdmin
                 ->add('pageTree', ModelType::class, array(
                     'label' => 'label.blog.admin.pageTree',
                     'required' => false,
-                    'class' => 'AppBundle\Entity\PageTree',
+                    'query' => $query,
+                    //'class' => 'AppBundle\Entity\PageTree',
                 ))
                 ->add('createTime', null, array(
                     'label' => 'label.blog.admin.create_time'

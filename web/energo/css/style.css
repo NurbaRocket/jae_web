@@ -1249,11 +1249,11 @@ ul.link-list li {
 }
 
 footer {
-    background: #171717;
+    background: #292929;
 }
 
 footer ul.link-list li a {
-    color: #8C8C8C;
+    color: #dcdcdc;
 }
 
 footer ul.link-list li a:hover {
@@ -1607,12 +1607,14 @@ footer h3,
 footer h4,
 footer h5,
 footer h6 {
-    color: #fff;
+    color: #007ec5;
+    font-size: large;
+    font-weight: bold;
 }
 
 footer address {
     line-height: 1.6em;
-    color: #797979;
+    color: #ccc;
 }
 
 footer h5 a:hover, footer a:hover {
@@ -1652,11 +1654,6 @@ ul.social-network li {
 
 #sub-footer span {
     color: #f5f5f5;
-}
-
-.copyright {
-    text-align: left;
-    font-size: 12px;
 }
 
 #sub-footer ul.social-network {

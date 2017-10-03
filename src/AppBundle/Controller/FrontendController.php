@@ -15,11 +15,11 @@ use AppBundle\Entity\Article;
 class FrontendController extends Controller
 {
     /**
-     * @Route("/{_locale}", name="main_page")
-     * @Route("/")
+     * Main Page
+     *
+     * @Route("/{_locale}", defaults={"_locale" = "ru"}, name="main_page")
      * @Template("energo/index.html.twig")
      */
-
     public function showAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -36,6 +36,8 @@ class FrontendController extends Controller
 
 
     /**
+     * Render menu
+     *
      * @Route("/category")
      * @Template("common/topmenu.html.twig")
      */
@@ -58,6 +60,8 @@ class FrontendController extends Controller
     }
 
     /**
+     * Render article sidebar
+     *
      * @Template("common/article_sidebar.html.twig")
      */
     public function articleSidebarAction()
@@ -70,6 +74,8 @@ class FrontendController extends Controller
     }
 
     /**
+     * PageTree Content
+     *
      * @Route("/{_locale}/page/{id}/", name="page_tree_show")
      * @Method("GET")
      * @Template("energo/page.html.twig")
@@ -83,8 +89,9 @@ class FrontendController extends Controller
             throw $this->createNotFoundException();
         }
         $params =  array(
-            'title'=> $page->getTitle(),
+            'repository' => $em->getRepository('AppBundle:PageTree'),
             'page' => $page,
+            'title' => $page->getTitle(),
         );
         if ($page->getPageType() == 'news_page') {
             $paginatorOptions = array(
@@ -110,6 +117,8 @@ class FrontendController extends Controller
     }
 
     /**
+     * Article content
+     *
      * @Route("/{_locale}/article/{id}/", name="article_show")
      * @Method("GET")
      * @Template("energo/article.html.twig")
@@ -132,6 +141,8 @@ class FrontendController extends Controller
 
 
     /**
+     * Process user friendly url
+     *
      * @Route("/{url}")
      * @Route("/{_locale}/{url}", name="url_show", requirements={"_locale": "[a-zA-Z]{2}"} )
      * @param $url

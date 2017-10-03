@@ -6,14 +6,14 @@
                     <img class="img-responsive" src="{{ asset('images/logo.png') }}" />
                 </div>
                 <div class="col-xs-9">
-                    <a href="{{ app.request.basePath() }}"><h5>{{ settings.website.siteName }}</h5></a>
+                    <a href="{{ url('main_page') }}"><h5>{{ settings.website.siteName }}</h5></a>
                     <address>
-                        <strong>{{ settings.website.siteName }}</strong><br>
-                        Жалал-Абад ш, ул Ленина 11 <br>
+                        {% trans %}г. Жалал-Абад, ул Ленина 159{% endtrans %}<br>
+                        <strong>{% trans %}Поворот рядом с бензозаправкой "ТОМАС"{% endtrans %}</strong>
                     </address>
                     <p>
                         <i class="icon-phone"></i> 03722 5 01 23 <br>
-                        <i class="icon-fax"></i> +39 0035 356 765 <br>
+                        <i class="icon-fax"></i> +996 771 111 111 <br>
                         <i class="icon-envelope-alt"></i> {{ settings.website.siteEmail }}
                     </p>
                 </div>
@@ -21,13 +21,26 @@
             <div class="col-lg-4">
                 <div class="widget">
                     <h5 class="widgetheading">{% trans %}Быстрые ссылки{% endtrans %}</h5>
+                    <ul class="link-list">
+                        <li><a href="{{ url('url_show', {url: 'janylyktar'}) }}">{% trans %}Новости{% endtrans %}</a></li>
+                        <li><a href="{{ url('url_show', {url: 'company-structure'}) }}">{% trans %}Структура{% endtrans %}</a></li>
+                        <li><a href="{{ url('url_show', {url: 'companies'}) }}">{% trans %}Энергокомпании{% endtrans %}</a></li>
+                        <li><a href="{{ url('url_show', {url: 'contacts'}) }}">{% trans %}Контакты{% endtrans %}</a></li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">{% trans %}Программа правительства "Сорок шагов в будущее"{% endtrans %}</h5>
+                    <ul class="link-list">
+                        <li><a href="{{ asset('uploads/media/default/0001/01/ru_new_age_steps.doc') }}">{% trans %}Скачать на русском{% endtrans %}</a></li>
+                        <li><a href="{{ asset('uploads/media/default/0001/01/kg_new_age_steps.doc') }}">{% trans %}Скачать на кыргызском{% endtrans %}</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="widget">
                     <h5 class="widgetheading">{% trans %}Как нас найти{% endtrans %}</h5>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d931.2839403955908!2d72.97226238480268!3d40.92338675681633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd608e87860f512e5!2z0J7QkNCeICLQltCw0LvQsNC70LDQsdCw0YLRjdC70LXQutGC0YDQviI!5e1!3m2!1sru!2sus!4v1506655258428" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1507.3233451477436!2d72.972103!3d40.923492!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd608e87860f512e5!2z0J7QkNCeICLQltCw0LvQsNC70LDQsdCw0YLRjdC70LXQutGC0YDQviI!5e0!3m2!1sru!2s!4v1506920399216" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

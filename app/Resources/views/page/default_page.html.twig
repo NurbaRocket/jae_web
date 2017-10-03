@@ -17,7 +17,23 @@
 <section id="content">
     <div class="container">
         <div class="row">
-            {{ page.content|raw }}
+            <div class="col-lg-9">
+                {{ page.content|raw }}
+            </div>
+            <div class="col-lg-3">
+
+            </div>
+        </div>
+        <div class="row">
+            {% for row in repository.getChildren(page) %}
+                <div class="col-sm-4 info-blocks">
+                    <a href="{{ url('url_show', {url: row.url}) }}"><i class="icon-info-blocks fa fa-bell-o"></i></a>
+                    <div class="info-blocks-in">
+                        <h3>{{ row.title }}</h3>
+                        <p>{{ row.content|striptags|truncate(100) }}</p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>
