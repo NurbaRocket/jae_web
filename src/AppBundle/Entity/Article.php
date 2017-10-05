@@ -17,7 +17,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleRepository")
  */
 
-class Article implements Translatable, TranslatableInterface
+class Article implements Translatable, TranslatableInterface, PageInterface
 {
     use PersonalTranslatableTrait;
 

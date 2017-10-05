@@ -37,7 +37,9 @@
     color: #fff;
 }
 
-
+#second-bar {
+    z-index: 900;
+}
 #second-bar .dropdown-menu,
 #second-bar {
     background-color: #03447b;
@@ -67,13 +69,15 @@
 }
 
 .breadcrumb {
-    background: none;
+    background-color: #223446;
+    background-size: contain;
     text-transform: uppercase;
+    opacity: 0.8;
 }
 
 .breadcrumb a {
     font-style: oblique;
-    color: #fff;
+    color: #4fb2ea;
 }
 
 .breadcrumb > .active {
@@ -85,7 +89,7 @@
 }
 
 #call-to-action-2 {
-    background-image: url(../img/banner.jpg);
+    background-image: url(../img/banner.png);
     background-size: cover;
 }
 
@@ -222,6 +226,13 @@
 }
 #news .more {
     margin: 10px 0;
+}
+
+.article-item {
+    margin-bottom: 40px;
+}
+.article-item .article-title {
+    height: 30px;
 }
 
 #companies .content{

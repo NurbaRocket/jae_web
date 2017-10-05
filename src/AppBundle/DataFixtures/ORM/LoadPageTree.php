@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use AppBundle\Entity\PageTree;
 use AppBundle\Entity\Translation\PageTreeTranslation;
@@ -15,11 +16,7 @@ use Application\Sonata\MediaBundle\Entity\Media;
 
 class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
+    use ContainerAwareTrait;
 
     /**
      * @param Array $item
@@ -51,14 +48,18 @@ class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface, 
         }
     }
 
-    /**
-     * Sets the container.
-     *
-     * @param ContainerInterface|null $container A ContainerInterface instance or null
-     */
-    public function setContainer(ContainerInterface $container = null)
+    private function registerPageFiles()
     {
-        $this->container = $container;
+        $mediaManager = $this->getMediaManager();
+        $fileName = 'kg_new_age_steps.doc';
+        $imageFile = new File(__DIR__ . '/../../../../web/uploads/media/' . $fileName);
+        $media = new Media();
+        $media->setBinaryContent($imageFile);
+        $media->setEnabled(true);
+        $media->setName($fileName);
+        $media->setContext('files');
+        $media->setProviderName('sonata.media.provider.file');
+        $mediaManager->save($media);
     }
 
     /**
@@ -77,16 +78,6 @@ class LoadPageTree extends  AbstractFixture implements OrderedFixtureInterface, 
             }
         }
 
-        $mediaManager = $this->getMediaManager();
-        $fileName = 'kg_new_age_steps.doc';
-        $imageFile = new File(__DIR__ . '/../../../../web/uploads/media/' . $fileName);
-        $media = new Media();
-        $media->setBinaryContent($imageFile);
-        $media->setEnabled(true);
-        $media->setName($fileName);
-        $media->setContext('files');
-        $media->setProviderName('sonata.media.provider.file');
-        $mediaManager->save($media);
         $manager->flush();
     }
 

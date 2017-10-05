@@ -3,27 +3,27 @@
     <file source-language="ru" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="1">
-                <source>Домой</source>
+                <source>website_main_page_title</source>
                 <target>Главная страница</target>
             </trans-unit>
             <trans-unit id="2">
-                <source>Найти на сайте...</source>
+                <source>website_search_placeholder</source>
                 <target>Найти на сайте...</target>
             </trans-unit>
             <trans-unit id="3">
-                <source>Будьте с нами всегда в свете!</source>
-                <target>Будьте с нами всегда в свете!</target>
+                <source>main_page_slogan_1</source>
+                <target>Свет и тепло для Вас!</target>
             </trans-unit>
             <trans-unit id="4">
-                <source>Только вместе мы добьемся поставленных целей</source>
-                <target>Только вместе мы добьемся поставленных целей</target>
+                <source>main_page_slogan_2</source>
+                <target>Сделаем мир светлее, а жизнь комфортнее!</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>Все новости</source>
                 <target>Все новости</target>
             </trans-unit>
             <trans-unit id="6">
-                <source>Подробнее...</source>
+                <source>read_more</source>
                 <target>Подробнее..</target>
             </trans-unit>
             <trans-unit id="7">

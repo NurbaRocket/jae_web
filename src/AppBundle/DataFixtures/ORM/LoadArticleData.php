@@ -7,25 +7,18 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Yaml\Parser;
 use AppBundle\Entity\Article;
 use AppBundle\Entity\Translation\ArticleTranslation;
+
 use Application\Sonata\MediaBundle\Entity\Media;
 
 class LoadArticleData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
-
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
+    use ContainerAwareTrait;
 
     /**
      * {@inheritDoc}
@@ -52,21 +45,26 @@ class LoadArticleData extends AbstractFixture implements FixtureInterface, Order
             foreach ($items as $item) {
 
                 try {
-                    $fileName = $item['img'];
-
+                    $mediaName = $item['youtube'] ?: $item['img'];
+                    
                     /** @var Media $media */
-                    if ($this->hasReference($fileName)) {
-                        $media = $this->getReference($fileName);
+                    if ($this->hasReference($mediaName)) {
+                        $media = $this->getReference($mediaName);
                     } else {
-                        $imageFile = new File(__DIR__ . '/../../../../web/uploads/media/' . $fileName);
                         $media = $mediaManager->create();
-                        $media->setBinaryContent($imageFile);
                         $media->setEnabled(true);
-                        $media->setName($fileName);
                         $media->setContext('news');
-                        $media->setProviderName('sonata.media.provider.image');
+                        $media->setName($mediaName);
+                        if ($item['youtube'] != null) {
+                            $media->setProviderName('sonata.media.provider.youtube');
+                            $media->setBinaryContent('https://www.youtube.com/watch?v=' . $mediaName);
+                        } else {
+                            $imageFile = new File(__DIR__ . '/../../../../web/uploads/media/' . $mediaName);
+                            $media->setProviderName('sonata.media.provider.image');
+                            $media->setBinaryContent($imageFile);
+                        }
                         $mediaManager->save($media);
-                        $this->setReference($fileName, $media);
+                        $this->setReference($mediaName, $media);
                     }
 
                     $pageTree = $this->getReference($item['category']);
@@ -82,9 +80,14 @@ class LoadArticleData extends AbstractFixture implements FixtureInterface, Order
                         ->setUpdateTime(new \DateTime($item['created_at']))
                         ->setTranslatableLocale('kg')
                     ;
-
+                    if (array_key_exists('title_ru', $item)) {
+                        $a->addTranslation(new ArticleTranslation('ru', 'title', $item['title_ru']));
+                    }
+                    if (array_key_exists('content_ru', $item)) {
+                        $a->addTranslation(new ArticleTranslation('ru', 'content', $item['content_ru']));
+                    }
                 } catch (\Exception $ex) {
-                    var_dump($item['title']);
+                    var_dump($item['url']);
                     throw $ex;
                 }
                 $manager->persist($a);

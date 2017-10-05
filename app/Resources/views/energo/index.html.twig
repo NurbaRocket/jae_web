@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-12 aligncenter">
                     <h4>ОАО "ЖАЛАЛАБАТЭЛЕКТРО"</h4>
-                    <h1>{% trans %}Будьте с нами всегда в свете!{% endtrans %}</h1>
-                    <p>{% trans %}Только вместе мы добьемся поставленных целей{% endtrans %}</p>
+                    <h1>{% trans %}main_page_slogan_1{% endtrans %}</h1>
+                    <p>{% trans %}main_page_slogan_2{% endtrans %}</p>
                     <a href="{{ url('url_show', {url: 'about-jae'}) }}" class="btn btn-lg btn-primary">{% trans %}О компании{% endtrans %}</a>
                 </div>
             </div>
@@ -18,24 +18,26 @@
         <div class="container">
             <div id="news" class="row">
                 <div class="service-v1 margin-bottom-40">
-                    {% for row in articles %}
-                        <div class="col-md-4 md-margin-bottom-40">
-                            <div class="article-box">
-                                <div class=" thumbnail">{% media row.media, 'big' with {'class': 'img-responsive'} %}</div>
-                                <div class="info-blocks-in">
-                                    <p>{% trans %}Опубликовано:{% endtrans %} {{ row.createTime|date("d.m.Y") }}</p>
-                                </div>
-                                <a href="{{ url('url_show', {url: row.url}) }}"> <h4>{{ row.title|truncate(50) }}</h4></a>
-                                {{ row.content|striptags|truncate(200)|raw }}
+                    {% for article in articles %}
+                        <div class="article-item col-md-4 md-margin-bottom-40">
+                            <div class=" thumbnail">{% media article.media, 'box' with {'class': 'img-responsive'} %}</div>
+                            <div class="info-blocks-in">
+                                <p>{% trans %}Опубликовано:{% endtrans %} {{ article.createTime|date("d.m.Y") }}</p>
+                            </div>
+                            <a href="{{ article|pageUrl }}">
+                                <h4 class="article-title">{{ article.title|truncate(60) }}</h4>
+                            </a>
+                            <div class="article-text">
+                                {{ article.content|striptags|truncate(200)|raw }}
                             </div>
                             <div class="more">
-                                <a href="{{ url('url_show', {url: row.url}) }}">{% trans %}Подробнее...{% endtrans %}</a>
+                                <a href="{{ article|pageUrl }}">{% trans %}read_more{% endtrans %}</a>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
                 <div class="col-md-12 aligncenter">
-                    <a id="all-news" href="{{ url('url_show', {url: 'janylyktar'}) }}" class="btn btn-default btn-lg">{% trans %}Все новости{% endtrans %}</a>
+                    <a id="all-news" href="{{ url('url_show', {url: 'kabarloo'}) }}" class="btn btn-default btn-lg">{% trans %}Все новости{% endtrans %}</a>
                 </div>
             </div>
         </div>

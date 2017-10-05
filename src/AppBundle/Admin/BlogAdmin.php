@@ -65,7 +65,7 @@ class BlogAdmin extends AbstractAdmin
     {
         $datagridMapper->add('title', TranslationFieldFilter::class, array(
             'label' => 'label.blog.admin.article_title'
-        ));
+        ))->add('pageTree');
     }
 
     protected function configureListFields(ListMapper $listMapper)

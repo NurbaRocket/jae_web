@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pagetree")
  * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\ClosureTreeRepository")
  */
-class PageTree implements Translatable, \Serializable, TranslatableInterface
+class PageTree implements Translatable, \Serializable, TranslatableInterface, PageInterface
 {
     use PersonalTranslatableTrait;
 

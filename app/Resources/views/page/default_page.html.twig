@@ -1,3 +1,5 @@
+{% import 'common/helper.html.twig' as helper %}
+
 <section id="inner-headline">
     <div class="container">
         <div class="row">
@@ -6,10 +8,7 @@
             </div>
         </div>
         <div class="row">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('main_page') }}">{% trans %}Домой{% endtrans %}</a></li>
-                <li class="breadcrumb-item active">{{ page.title }}</li>
-            </ol>
+            {{ page|breadcrumbs|raw }}
         </div>
     </div>
 </section>

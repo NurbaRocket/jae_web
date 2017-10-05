@@ -1,29 +1,3 @@
-
-{% macro pageUrl(item, forceHttp) %}
-{% spaceless %}
-    {% if item.url %}
-        {{ url('url_show', {'url': item.url}) }}
-    {% else %}
-        {{ url('page_tree_show', {'id': item.id}) }}
-    {% endif %}
-{% endspaceless %}
-{% endmacro %}
-
-{% macro articleUrl(item, forceHttp) %}
-    {% spaceless %}
-        {% if item.url %}
-            {{ url('url_show', {'url': item.url}) }}
-        {% else %}
-            {{ url('article_show', {'id': item.id}) }}
-        {% endif %}
-    {% endspaceless %}
-{% endmacro %}
-
-{% macro breadcrumb_pageTree(pageTree) %}
-    {% if pageTree.parent %}{{ _self.breadcrumb_pageTree(pageTree.parent) }}{% endif %}
-    <li><a href="{{ _self.pageUrl(pageTree) }}">{{ pageTree.tree }}</a></li>
-{% endmacro %}
-
 {% macro render_topmenu(page, repository) %}
 {% spaceless %}
     {% set content = '' %}
@@ -31,7 +5,7 @@
         {% set dropdown = _self.render_topmenu(subPage, repository) %}
         {% set itemContent %}
         <li {% if dropdown %}class="dropdown-submenu"{% endif %}>
-            <a {% if repository.childCount(subPage) %}tabindex="-1"{% endif %} href="{{ _self.pageUrl(subPage) }}">{{ subPage.title }}</a>
+            <a {% if repository.childCount(subPage) %}tabindex="-1"{% endif %} href="{{ subPage|pageUrl }}">{{ subPage.title }}</a>
             {{ dropdown }}
         </li>
         {% endset %}

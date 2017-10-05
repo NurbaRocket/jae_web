@@ -811,6 +811,7 @@ section.hero-text h1 {
 
 #inner-headline {
     background-color: #223446;
+    background-size: cover;
     position: relative;
     margin: 0;
     padding: 0;
@@ -1015,7 +1016,7 @@ form#commentform textarea {
 
 #call-to-action-2 p {
     color: #fff;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 #call-to-action-2 .btn-primary {
@@ -1607,7 +1608,7 @@ footer h3,
 footer h4,
 footer h5,
 footer h6 {
-    color: #007ec5;
+    color: #4fb2ea;
     font-size: large;
     font-weight: bold;
 }
