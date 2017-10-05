@@ -17,7 +17,11 @@ class FrontendController extends Controller
     /**
      * Main Page
      *
-     * @Route("/{_locale}", defaults={"_locale" = "ru"}, name="main_page")
+     * @Route("/{_locale}",
+     *    defaults={"_locale" = "ru"},
+     *    requirements={"_locale": "[a-zA-Z]{2}"},
+     *    name="main_page"
+     * )
      * @Template("energo/index.html.twig")
      */
     public function showAction()
@@ -78,7 +82,7 @@ class FrontendController extends Controller
      *
      * @Route("/{_locale}/page/{id}/", name="page_tree_show")
      * @Method("GET")
-     * @Template("energo/page.html.twig")
+     * @Template("page/page.html.twig")
      */
     public function pageAction(Request $request, $_locale, $id)
     {
@@ -106,12 +110,18 @@ class FrontendController extends Controller
             $pagination = $paginator->paginate(
                 $queryBuilder,
                 $request->query->get('page', 1),
-                15,
+                16,
                 $paginatorOptions
             );
             $params['pagination'] = $pagination;
 
         }
+        /** @var \AppBundle\Entity\User $u */
+        /*$u = $em->getRepository('AppBundle:User')->findOneBy(array('id' => 1));
+        $u->addRole(\AppBundle\Entity\User::ROLE_SUPER_ADMIN);
+        $u->addRole('ROLE_ADMIN');
+        $em->persist($u);
+        $em->flush();/**/
 
         return $params;
     }
@@ -121,7 +131,7 @@ class FrontendController extends Controller
      *
      * @Route("/{_locale}/article/{id}/", name="article_show")
      * @Method("GET")
-     * @Template("energo/article.html.twig")
+     * @Template("page/article.html.twig")
      */
     public function articleAction($id)
     {
@@ -143,8 +153,10 @@ class FrontendController extends Controller
     /**
      * Process user friendly url
      *
-     * @Route("/{url}")
-     * @Route("/{_locale}/{url}", name="url_show", requirements={"_locale": "[a-zA-Z]{2}"} )
+     * @Route("/{_locale}/{url}", name="url_show",
+     *    defaults={"_locale" = "ru"},
+     *    requirements={"_locale": "[a-zA-Z]{2}"}
+     * )
      * @param $url
      * @Method("GET")
      * @Template()
@@ -159,7 +171,7 @@ class FrontendController extends Controller
         $page = $em->getRepository('AppBundle:PageTree')->findOneBy(
             array(
                 'url' => $url,
-                //'active' => 1
+                'status' => 1
             )
         );
         if (!empty($page)) {

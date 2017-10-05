@@ -1,0 +1,16 @@
+{% macro breadcrumb_pageTree(pageTree) %}
+    {% if pageTree %}
+        {% if pageTree.parent %}{{ _self.breadcrumb_pageTree(pageTree.parent) }}{% endif %}
+        <li><a href="{{ pageTree|pageUrl }}">{{ pageTree.title }}</a></li>
+    {% endif %}
+{% endmacro %}
+
+<ol class="breadcrumb">
+    <li><a href="{{ url('main_page') }}">{% trans %}website_main_page_title{% endtrans %}</a></li>
+    {% if type == 'article' %}
+        {{ _self.breadcrumb_pageTree(page.pageTree) }}
+    {% else %}
+        {{ _self.breadcrumb_pageTree(page.parent) }}
+    {% endif %}
+    <li class="active">{{ page.title }}</li>
+</ol>

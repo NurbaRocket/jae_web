@@ -35,7 +35,22 @@ services:
     #         $someArgument: 'some_value'
     # Doctrine Extension listeners to handle behaviors
 
-    # Doctrine Extension listeners to handle behaviors
+    energo.twig.app_helper:
+        class: AppBundle\Twig\HelperExtension
+        tags:
+            - { name: twig.extension }
+        arguments: ['@service_container']
+
+    energo.settings:
+        class: AppBundle\Entity\Settings
+        arguments: ['@service_container']
+
+    energo.admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, AppBundle:SonataAdmin, 'title']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Security", label: User }
+        public: true
 
     energo.admin.pageTree:
         class: AppBundle\Admin\PageTreeAdmin
@@ -58,6 +73,3 @@ services:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: PageFile }
         public: true
 
-    energo.settings:
-        class: AppBundle\Entity\Settings
-        arguments: ['@service_container']
