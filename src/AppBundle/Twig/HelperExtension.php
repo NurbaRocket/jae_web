@@ -96,7 +96,7 @@ class HelperExtension extends \Twig_Extension
 
     /**
      *
-     * @param PageInterface $page
+     * @param PageInterface|String $page
      * @return String
      */
     public function breadcrumbs($page) {
@@ -104,6 +104,12 @@ class HelperExtension extends \Twig_Extension
         if ($page instanceof PageInterface) {
             $param = array(
                 'type' => $page instanceof Article ? 'article' : 'page',
+                'page' => $page
+            );
+        }
+        if (is_string($page)) {
+            $param = array(
+                'type' => 'string',
                 'page' => $page
             );
         }

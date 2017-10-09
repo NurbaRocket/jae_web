@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% import "common/helper.html.twig" as helper %}
+
+{% block title %}{{ title|trans }} - {{ settings.webSite.siteName }}{% endblock %}
+{% block content %}
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="pageTitle">{{ title|trans }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                {{ title|breadcrumbs|raw }}
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    {% include 'common/messages.html.twig' %}
+                    {{ form(form) }}
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        function onSubmit(token) {
+            document.getElementsByName("form")[0].submit();
+        }
+    </script>
+{% endblock %}

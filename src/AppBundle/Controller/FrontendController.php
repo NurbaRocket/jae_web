@@ -9,8 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Form\Extension\Core\Type as FormType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+use AppBundle\Form\FeedbackType;
 use AppBundle\Entity\PageTree;
 use AppBundle\Entity\Article;
+use ReCaptcha\ReCaptcha;
 
 class FrontendController extends Controller
 {
@@ -149,6 +153,44 @@ class FrontendController extends Controller
         );
     }
 
+    /**
+     * @Route("/{_locale}/feedback", name="feedback_show", defaults={"_locale" = "ru"})
+     * @Method("GET|POST")
+     * @Template("page/feedback.html.twig")
+     */
+    public function feedbackAction(Request $request, \Swift_Mailer $mailer)
+    {
+        $recaptcha = new ReCaptcha('6LcPuDMUAAAAAJCUeUKGq08RhI_dx7iQ_wq7C-rE');
+        $form = $this->getFeedbackForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $response = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
+            if ($response->isSuccess()) {
+                $feedback = $form->getData();
+                $message = (new \Swift_Message($feedback['stuff']. ' от ' . $feedback['firstName'] . ' ' . $feedback['familyName']))
+                    ->setFrom($feedback['email'])
+                    ->setTo('support@jae.kg')
+                    ->setBody($feedback['content'], 'text/html')
+                    ->addPart($feedback['content'], 'text/plain')
+                ;
+                $mailer->send($message);
+                $this->get('session')->getFlashBag()->add(
+                    'message',
+                    'Ваше письмо отправлено!'
+                );
+                return $this->redirectToRoute('feedback_show');
+            } else {
+                $this->get('session')->getFlashBag()->add(
+                    'error',
+                    "The reCAPTCHA wasn't entered correctly. Go back and try it again."
+                );
+            }
+        }
+        return array(
+            'form' => $form->createView(),
+            'title'=> 'Электронная приемная'
+        );
+    }
 
     /**
      * Process user friendly url
@@ -196,5 +238,56 @@ class FrontendController extends Controller
         }
 
         throw $this->createNotFoundException();
+    }
+
+    private function getFeedbackForm()
+    {
+        $form = $this->createFormBuilder()
+            ->add('firstName', FormType\TextType::class, array(
+                'label' => 'feedback_first_name_label'
+            ))
+            ->add('familyName', FormType\TextType::class, array(
+                'label' => 'feedback_family_name_label'
+            ))
+            ->add('email', FormType\EmailType::class, array(
+                'label' => 'feedback_email_label'
+            ))
+            ->add('city', FormType\TextType::class, array(
+                'label' => 'feedback_city_label'
+            ))
+            ->add('phone', FormType\TextType::class, array(
+                'label' => 'feedback_phone_label'
+            ))
+            ->add('stuff', FormType\ChoiceType::class, array(
+                'label' => 'feedback_type_label',
+                'choices' => array(
+                    'Обращение' => 'Обращение',
+                    'Заявление' => 'Заявление',
+                    'Предложение' => 'Предложение',
+                    'Жалоба' => 'Жалоба'
+                )
+            ))
+            ->add('content', CKEditorType::class, array(
+                'label' => 'feedback_content_label',
+                'config' => array(
+                    'toolbar' => array(
+                        array(
+                        )
+                    )
+                ),
+            ))
+            ->add('send', FormType\SubmitType::class,array(
+                'label' => 'feedback_button_label',
+                'attr' => array(
+                    'class' => 'g-recaptcha',
+                    'data-callback' => 'onSubmit',
+                    'data-sitekey' => '6LcPuDMUAAAAAFX1CN1vCLEcHfTCMZaLkQ_kU-c6',
+                )
+            ))
+            ->setAttributes(array('id', 'feedback_form'))
+            ->setAction($this->generateUrl('feedback_show'))
+            ->getForm()
+        ;
+        return $form;
     }
 }

@@ -9,8 +9,12 @@
     <li><a href="{{ url('main_page') }}">{% trans %}website_main_page_title{% endtrans %}</a></li>
     {% if type == 'article' %}
         {{ _self.breadcrumb_pageTree(page.pageTree) }}
-    {% else %}
+    {% elseif type == 'page' %}
         {{ _self.breadcrumb_pageTree(page.parent) }}
     {% endif %}
-    <li class="active">{{ page.title }}</li>
+    {% if type == 'string'%}
+        <li class="active">{{ page }}</li>
+    {% else %}
+        <li class="active">{{ page.title }}</li>
+    {% endif %}
 </ol>

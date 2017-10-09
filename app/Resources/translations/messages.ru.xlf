@@ -66,6 +66,58 @@
                 <source>Программа правительства "Сорок шагов в будущее"</source>
                 <target>Программа правительства "Сорок шагов в будущее"</target>
             </trans-unit>
+            <trans-unit id="17">
+                <source>feedback_first_name_label</source>
+                <target>Имя</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>feedback_family_name_label</source>
+                <target>Фамилия</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>feedback_middle_name_label</source>
+                <target>Отчество</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>feedback_city_label</source>
+                <target>Город,село</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>feedback_phone_label</source>
+                <target>Телефон</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>feedback_content_label</source>
+                <target>Содержимое</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>feedback_email_label</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>feedback_button_label</source>
+                <target>Послать</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>feedback_type_label</source>
+                <target>Вид обращения</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>Жалоба</source>
+                <target>Жалоба</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>Обращение</source>
+                <target>Обращение</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>Заявление</source>
+                <target>Заявление</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>Предложение</source>
+                <target>Предложение</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

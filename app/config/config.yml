@@ -42,6 +42,7 @@ twig:
     form_themes:
         - 'SonataFormatterBundle:Form:formatter.html.twig'
         - 'SonataMediaBundle:Form:media_widgets.html.twig'
+        - 'bootstrap_3_layout.html.twig'
 
     globals:
         settings: "@energo.settings"
