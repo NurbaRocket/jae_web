@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Form\Extension\Core\Type as FormType;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
-use AppBundle\Form\FeedbackType;
 use AppBundle\Entity\PageTree;
 use AppBundle\Entity\Article;
 use ReCaptcha\ReCaptcha;
