@@ -2,13 +2,14 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@EnergoBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: ru
     locales: [ru, kg]
-    router.class: KeenSteps\EcommerceBundle\Routing\Router
+    router.class: AppBundle\Routing\Router
 
 framework:
     #esi: ~
