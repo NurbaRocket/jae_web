@@ -6,7 +6,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Installation
 
-Установите зависимости и задайте настройки базы данных
+# Установите зависимости и задайте настройки базы данных
     composer update
 
 # Создание таблиц

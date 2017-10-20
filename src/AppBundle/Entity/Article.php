@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Gedmo\Translatable\Translatable;
 use Sonata\TranslationBundle\Model\Gedmo\TranslatableInterface;
 use Sonata\TranslationBundle\Traits\Gedmo\PersonalTranslatableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -16,8 +15,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translation\ArticleTranslation")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleRepository")
  */
-
-class Article implements Translatable, TranslatableInterface, PageInterface
+class Article implements TranslatableInterface, PageInterface
 {
     use PersonalTranslatableTrait;
 
