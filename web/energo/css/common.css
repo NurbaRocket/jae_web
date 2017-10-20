@@ -224,6 +224,9 @@
     padding-left: 0;
     padding-right: 0;
 }
+.media-preview {
+    margin-bottom: 20px;
+}
 #news {
     padding-top: 10px;
 }
@@ -308,4 +311,40 @@ footer #fish {
     background-color: #1c1c1c;
     color: #fff;
     height: 55px;
+}
+
+.loading {
+    background-color: #fff;
+    opacity: 0.6;
+    position: relative;
+}
+
+.loading .loading-indicator {
+    display: block;
+}
+
+.loading .alert {
+    display: none;
+}
+
+.loading-indicator {
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    height: 80px;
+    margin: auto;
+    background-image: url(../img/preloader-black.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.dl-horizontal dt {
+    text-align: left;
+}
+
+.dl-horizontal dd {
+    text-align: right;
 }

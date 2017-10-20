@@ -44,9 +44,6 @@ class Article implements Translatable, TranslatableInterface, PageInterface
 
     /**
      * @var \Application\Sonata\MediaBundle\Entity\Media
-     * <many-to-one field="image"  target-entity="Application\Sonata\MediaBundle\Entity\Media">
-     *   <cascade><cascade-all/></cascade>
-     * </many-to-one>
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
      * @ORM\JoinColumn(name="media_id", referencedColumnName="id", onDelete="CASCADE")
      */

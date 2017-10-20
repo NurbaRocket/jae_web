@@ -16,6 +16,18 @@
         <div class="row">
             <div class="col-lg-9">
                 {{ page.content|raw }}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="page-header">
+                            <h3>{% trans %}Прикрепленные файлы{% endtrans %}</h3>
+                        </div>
+                        <ul class="list-unstyled">
+                            {% for file in page.files %}
+                                <li><a href="{% path file.media, 'reference' %}"><i class="fa fa-file"></i> {{ file.media.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-3">
 

@@ -151,6 +151,11 @@ class PageTree implements Translatable, \Serializable, TranslatableInterface, Pa
         return $this->articles;
     }
 
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
     public function getId()
     {
         return $this->id;

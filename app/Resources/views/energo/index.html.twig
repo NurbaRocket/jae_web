@@ -20,7 +20,15 @@
                 <div class="service-v1 margin-bottom-40">
                     {% for article in articles %}
                         <div class="article-item col-md-4 md-margin-bottom-40">
-                            <div class=" thumbnail">{% media article.media, 'box' with {'class': 'img-responsive'} %}</div>
+                            {% if article.media.providerName == 'sonata.media.provider.youtube' %}
+                                <div class="embed-responsive embed-responsive-16by9  media-preview">
+                                    {% media article.media, 'video' with {'class': 'video'} %}
+                                </div>
+                            {% elseif article.media.providerName == 'sonata.media.provider.image' %}
+                                <div class="media-preview">
+                                    {% media article.media, 'box' with {'class': 'img-responsive'} %}
+                                </div>
+                            {% endif %}
                             <div class="info-blocks-in">
                                 <p>{% trans %}Опубликовано:{% endtrans %} {{ article.createTime|date("d.m.Y") }}</p>
                             </div>

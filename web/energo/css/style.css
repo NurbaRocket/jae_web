@@ -373,11 +373,6 @@ select.selectmenu {
     display: inline-block;
 }
 
-.panel-body {
-    color: #FFF;
-    background: #016db8;
-}
-
 .home-about h3 {
     color: #fff;
 }
@@ -1031,58 +1026,6 @@ section.section-padding.gray-bg {
     background: #ffffff;
     padding: 60px;
     color: #484848;
-}
-
-.panel-group .panel-heading {
-    border-bottom: 0;
-    padding: 0;
-}
-
-#accordion-alt3 .panel-heading h4 {
-    font-size: 14px;
-    color: #FFF;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 0 !important;
-    background: transparent;
-}
-
-.panel .panel-heading h4 {
-    font-weight: 400;
-}
-
-.panel-title > a {
-    color: inherit;
-    width: 100%;
-    padding: 15px;
-    font-size: 15px;
-    background: #016db8;
-    display: block;
-}
-
-.panel-title > a:hover {
-    text-decoration: none;
-}
-
-.panel-title {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 15px;
-    color: inherit;
-}
-
-.panel-group .panel {
-    margin-bottom: 0;
-    border-radius: 2px;
-}
-
-.panel {
-    margin-bottom: 18px;
-    background-color: #4b9ef1;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 #accordion-alt3 .panel-heading h4 a i {
