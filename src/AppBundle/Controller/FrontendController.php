@@ -36,16 +36,14 @@ class FrontendController extends Controller
             3
         );
         return array(
-            'articles' => $articles,
-            'title' => 'Добро пожаловать!'
+            'articles' => $articles
         );
     }
 
 
     /**
-     * Render menu
+     * Вызывается только в шаблоне, отрендерить top menu
      *
-     * @Route("/category")
      * @Template("common/topmenu.html.twig")
      */
     public function menuAction()
@@ -67,7 +65,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * Render article sidebar
+     * Вызывается только в шаблоне, отрендерить sidebar
      *
      * @Template("common/article_sidebar.html.twig")
      */
@@ -192,13 +190,39 @@ class FrontendController extends Controller
     }
 
     /**
+     * @Route("/{_locale}/calculate-taxes", name="calculate_tax_show", requirements={"_locale": "[a-zA-Z]{2}"})
+     * @Method("GET|POST")
+     * @Template("page/calculate_tax.html.twig")
+     */
+    public function calculateTaxAction(Request $request)
+    {
+
+        return array(
+            'title' => 'Калькулятор тарифов'
+        );
+    }
+
+    /**
+     * @Route("/{_locale}/my-balance", name="my_balance_show")
+     * @Method("GET")
+     * @Template("page/my_balance.html.twig")
+     */
+    public function myBalanceAction(Request $request)
+    {
+
+
+        return array(
+            'title' => 'Баланс абонента'
+        );
+    }
+
+    /**
      * Process user friendly url
      *
      * @Route("/{_locale}/{url}", name="url_show",
      *    defaults={"_locale" = "ru"},
      *    requirements={"_locale": "[a-zA-Z]{2}"}
      * )
-     * @param $url
      * @Method("GET")
      * @Template()
      * @return Response
@@ -215,6 +239,7 @@ class FrontendController extends Controller
                 'status' => 1
             )
         );
+        // Если урл принадлежит PageTree, то передаст обработку методу pageAction(), указав Id объекта
         if (!empty($page)) {
             $request->attributes->set('_controller', 'AppBundle:Frontend:page');
             $request->attributes->set('id', $page->getId());
@@ -229,6 +254,7 @@ class FrontendController extends Controller
                 'status' => 'public'
             )
         );
+        // Если урл принадлежит Article, то передаст обработку методу articleAction(), указав Id объекта
         if (!empty($article)) {
             $request->attributes->set('_controller', 'AppBundle:Frontend:article');
             $request->attributes->set('id', $article->getId());
@@ -239,6 +265,11 @@ class FrontendController extends Controller
         throw $this->createNotFoundException();
     }
 
+    /**
+     * Форма электронного приема
+     *
+     * @return \Symfony\Component\Form\Form
+     */
     private function getFeedbackForm()
     {
         $form = $this->createFormBuilder()
