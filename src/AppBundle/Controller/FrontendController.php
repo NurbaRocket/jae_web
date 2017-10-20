@@ -79,6 +79,24 @@ class FrontendController extends Controller
     }
 
     /**
+     * Вызывается только в шаблоне, отрендерить секцию "плановые отключения"
+     *
+     * @Template("common/posts.html.twig")
+     */
+    public function postSectionAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $posts = $em->getRepository('AppBundle:Post')->findBy(
+            array(),
+            array('createTime' => 'DESC'),
+            6
+        );
+        return array(
+            'posts' => $posts
+        );
+    }
+
+    /**
      * PageTree Content
      *
      * @Route("/{_locale}/page/{id}/", name="page_tree_show")
@@ -117,12 +135,6 @@ class FrontendController extends Controller
             $params['pagination'] = $pagination;
 
         }
-        /** @var \AppBundle\Entity\User $u */
-        /*$u = $em->getRepository('AppBundle:User')->findOneBy(array('id' => 1));
-        $u->addRole(\AppBundle\Entity\User::ROLE_SUPER_ADMIN);
-        $u->addRole('ROLE_ADMIN');
-        $em->persist($u);
-        $em->flush();/**/
 
         return $params;
     }
@@ -140,6 +152,29 @@ class FrontendController extends Controller
         /** @var  $page Article */
 
         $page = $em->getRepository('AppBundle:Article')->findOneBy(array('id' => $id));
+
+        if (!$page) {
+            throw $this->createNotFoundException();
+        }
+        return array(
+            'title'=> $page->getTitle(),
+            'page' => $page,
+        );
+    }
+
+    /**
+     * Article content
+     *
+     * @Route("/{_locale}/post/{id}/", name="post_show")
+     * @Method("GET")
+     * @Template("page/post.html.twig")
+     */
+    public function postAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        /** @var  $page Article */
+
+        $page = $em->getRepository('AppBundle:Post')->findOneBy(array('id' => $id));
 
         if (!$page) {
             throw $this->createNotFoundException();

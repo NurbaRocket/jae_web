@@ -4,8 +4,7 @@ namespace AppBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Intl\Intl;
-use AppBundle\Entity\Article;
-use AppBundle\Entity\PageTree;
+use AppBundle\Entity as Entity;
 use AppBundle\Entity\PageInterface;
 
 class HelperExtension extends \Twig_Extension
@@ -83,12 +82,15 @@ class HelperExtension extends \Twig_Extension
             if ($page->getUrl() != null) {
                 $params['url' ]= $page->getUrl();
                 $url = $router ->generate('url_show', $params);
-            } elseif ($page instanceof Article)  {
+            } elseif ($page instanceof Entity\Article)  {
                 $params['id' ]= $page->getId();
                 $url = $router ->generate('article_show', $params);
-            } elseif ($page instanceof PageTree)  {
+            } elseif ($page instanceof Entity\PageTree)  {
                 $params['id' ]= $page->getId();
                 $url = $router ->generate('page_tree_show', $params);
+            } elseif ($page instanceof Entity\Post)  {
+                $params['id' ]= $page->getId();
+                $url = $router ->generate('post_show', $params);
             }
         }
         return $url;
@@ -103,7 +105,7 @@ class HelperExtension extends \Twig_Extension
         $param = array();
         if ($page instanceof PageInterface) {
             $param = array(
-                'type' => $page instanceof Article ? 'article' : 'page',
+                'type' => strtolower(get_class($page)),
                 'page' => $page
             );
         }

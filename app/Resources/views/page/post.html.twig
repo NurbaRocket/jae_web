@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.title }} - {{ settings.webSite.siteName }}{% endblock %}
+{% block content %}
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="pageTitle">{{ page.title|trans }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                {{ page.title|breadcrumbs|raw }}
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="article-body">
+                        {{ page.content|raw }}
+                    </div>
+                    <div class="info-blocks-in">
+                        <p>{% trans %}Опубликовано:{% endtrans %} {{ page.createTime|date("d.m.Y") }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
