@@ -1,0 +1,54 @@
+-
+  name: льготный тариф кос ког
+      upperLimit: 999999999
+      upperCost: 0.66370
+      lowerLimit: 999999999
+      lowerCost: 0.66370
+-
+  name: Население с 1-фазным вводом
+      upperLimit: 999999999
+      upperCost: 2.16000
+      lowerLimit: 700.0
+      lowerCost: 0.77000
+-
+  name: Население с 3-х фазным вводом
+      upperLimit: 999999999
+      upperCost: 2.16000
+      lowerLimit: 700
+      lowerCost: 0.77
+-
+  name: Насосные станции для полива сельхоз. угодий
+      upperLimit: 999999999.0
+      upperCost: 0.77900
+      lowerLimit: 999999999.0
+      lowerCost: 0.77900
+-
+  name: Потребители финансируемые из местного и республика
+      upperLimit: 999999999.0
+      upperCost: 2.24000
+      lowerLimit: 999999999.0
+      lowerCost: 2.24000
+-
+  name: Промышленные потребители
+      upperLimit: 999999999
+      upperCost: 2.24
+      lowerLimit: 999999999
+      lowerCost: 2.24
+-
+  name: Прочие потребители
+      upperLimit: 999999999.0
+      upperCost: 2.24
+      lowerLimit: 999999999.0
+      lowerCost: 2.24
+-
+  name: Сельскохозяйственные потребители
+      upperLimit: 999999999.0
+      upperCost: 2.24
+      lowerLimit: 999999999.0
+      lowerCost: 2.24
+-
+  name: собнужда
+      upperLimit: 999999999.0
+      upperCost: 0.52
+      lowerLimit: 999999999.0
+      lowerCost: 0.52

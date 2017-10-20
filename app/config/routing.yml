@@ -1,3 +1,8 @@
+energo:
+    resource: "@EnergoBundle/Controller/"
+    type:     annotation
+    prefix:   /energo
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
@@ -44,4 +49,3 @@ fos_user_register:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
-

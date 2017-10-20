@@ -1,0 +1,159 @@
+{% extends 'base.html.twig' %}
+{% import "common/helper.html.twig" as helper %}
+
+{% block title %}{{ title|trans }} - {{ settings.webSite.siteName }}{% endblock %}
+{% block content %}
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="pageTitle">{{ title|trans }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                {{ title|breadcrumbs|raw }}
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="panel panel-default">
+                        <div id="subscriber-balance-widget" class="panel-body" style="min-height: 400px">
+                            <div class="loading-indicator"></div>
+                            <div class="col-xs-12">
+                                <p>{% trans %}Уважаемые абоненты! Здесь Вы можете узнать о вашем текущем долге.{% endtrans %} <b>{% trans %}Внимание!{% endtrans %}</b> {% trans %}Лицевой счет должен состоять из 11 цифр. Сервис работает только для населения.{% endtrans %}</p>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-size="invisible" data-callback="sendCode" data-sitekey="6LcPuDMUAAAAAFX1CN1vCLEcHfTCMZaLkQ_kU-c6"></div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="code" autocomplete="off" placeholder="{% trans %}Лицевой счет{% endtrans %}" />
+                                        <span class="input-group-btn">
+                                            <button type="button" id="send-code" class="btn btn-primary">{% trans %}OK{% endtrans %}</button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div id="error-message" class="hidden alert alert-danger" role="alert"></div>
+                            </div>
+                            <div id="result" class="col-md-12 hidden">
+                                <div class="col-md-6">
+                                    <dl class="dl-horizontal" style="font-size: 22px">
+                                        <dt>{% trans %}Ваш долг{% endtrans %}</dt>
+                                        <dd id="Balance">0</dd>
+                                    </dl>
+                                    <dl class="dl-horizontal">
+                                        <dt>{% trans %}За электроэнергию{% endtrans %}</dt>
+                                        <dd id="E">0</dd>
+                                    </dl>
+                                    <dl class="dl-horizontal">
+                                        <dt>{% trans %}По актам нарушения{% endtrans %}</dt>
+                                        <dd id="A">0</dd>
+                                    </dl>
+                                    <dl class="dl-horizontal">
+                                        <dt>{% trans %}За услуги подкл/откл{% endtrans %}</dt>
+                                        <dd id="O">0</dd>
+                                    </dl>
+                                    <dl class="dl-horizontal">
+                                        <dt>{% trans %}Пеня{% endtrans %}</dt>
+                                        <dd id="Fee">0</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-md-3">
+                                    <dl>
+                                        <dt>{% trans %}Наименование{% endtrans %}</dt>
+                                        <dd id="Name"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>{% trans %}Адрес{% endtrans %}</dt>
+                                        <dd>
+                                            <span id="Street"></span>
+                                            <span id="House"></span>
+                                            <span id="Apartment"></span>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>{% trans %}Счетчик{% endtrans %}</dt>
+                                        <dd id="Meter"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>{% trans %}Номер счетчика{% endtrans %}</dt>
+                                        <dd id="MeterNum"></dd>
+                                    </dl>
+                                </div>
+                                <div class="col-md-3">
+                                    <dl>
+                                        <dt>{% trans %}Дата последнего показания{% endtrans %}</dt>
+                                        <dd id="ReadDate"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>{% trans %}Последнее показание{% endtrans %}</dt>
+                                        <dd id="ReadValue"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        var url = "{{ url("get_my_balance", {code: "_code_"}) }}";
+        function sendCode() {
+            var code = $("#code").val();
+            var btn = $("#send-code");
+            var widget = $("#subscriber-balance-widget");
+            btn.attr("disabled", true);
+            widget.addClass("loading");
+            $.post(url.replace(/_code_/, code), {"g-recaptcha-response": grecaptcha.getResponse(btn.data("site-key"))},
+                function(data) {
+                    widget.removeClass("loading");
+                    btn.attr("disabled", false);
+                    if (data.message) {
+                        $("#error-message").removeClass("hidden").html(data.message);
+                        $("#result").addClass("hidden");
+                        grecaptcha.reset();
+                        return
+                    }
+
+                    for (var key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            var value;
+                            if (typeof data[key] == "number") {
+                                value =  data[key].toLocaleString();
+                            } else if (key == 'ReadDate') {
+                                value = new Date(data[key]).toLocaleDateString();
+                            } else {
+                                value = data[key]
+                            }
+
+                            $("#" + key).html(value);
+                        }
+                    }
+                    var balance = (data.Fee + data.E + data.A + data.O);
+                    $("#Balance").html(balance.toLocaleString());
+                    $("#error-message").addClass("hidden");
+                    $("#result").removeClass("hidden");
+                    grecaptcha.reset();
+                }
+            );
+        }
+
+        $(function() {
+            $("#send-code").click(function() {
+                grecaptcha.execute();
+            });
+        });
+    </script>
+{% endblock %}
