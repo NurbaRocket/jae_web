@@ -37,4 +37,30 @@ class EnergoController extends Controller
             'message' => "The reCAPTCHA wasn't entered correctly. Go back and try it again."
         ));
     }
+
+    /**
+     * @Route("/provider/{code}/balance", name="get_provider_balance")
+     * @Method("POST")
+     */
+    public function providerBalance($code, Request $request)
+    {
+        $recaptcha = new ReCaptcha('6LcPuDMUAAAAAJCUeUKGq08RhI_dx7iQ_wq7C-rE');
+        $response = $recaptcha->verify($request->get('g-recaptcha-response'), $request->getClientIp());
+        if ($response->isSuccess()) {
+            $browser = new \Buzz\Browser();
+            $browser->getClient()->setTimeout(5000);
+            try {
+                // 213.145.145.94
+                $data = $browser->get('http://213.145.145.94:3030/provider/' . $code);
+                return JsonResponse::fromJsonString($data->getContent());
+            } catch (\Exception $ex) {
+                return JsonResponse::create(array(
+                    'message' => 'Не удалось получить данные. Попробуйте еще раз'
+                ));
+            }/**/
+        }
+        return JsonResponse::create(array(
+            'message' => "The reCAPTCHA wasn't entered correctly. Go back and try it again."
+        ));
+    }
 }

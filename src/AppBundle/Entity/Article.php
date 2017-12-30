@@ -100,9 +100,19 @@ class Article implements TranslatableInterface, PageInterface
      */
     protected $translations;
 
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="AppBundle\Entity\ArticleFile",
+     *   mappedBy="article",
+     *   cascade={"persist", "remove"}
+     * )
+     */
+    protected $photoReports;
+
     public function __construct()
     {
         $this->translations = new ArrayCollection();
+        $this->photoReports = new ArrayCollection();
     }
 
     public function setTranslatableLocale($locale)
@@ -121,6 +131,37 @@ class Article implements TranslatableInterface, PageInterface
     {
         return $this->id;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPhotoReports()
+    {
+        return $this->photoReports;
+    }
+
+    /**
+     * @param ArrayCollection $photoReports
+     */
+    public function setPhotoReports($photoReports)
+    {
+        $this->photoReports = $photoReports;
+    }
+
+    /**
+     *
+     * @param ArticleFile $photoReport
+     * @return $this
+     */
+    public function addPhotoReport(ArticleFile $photoReport)
+    {
+        if (!$this->photoReports->contains($photoReport)) {
+            $photoReport->setArticle($this);
+            $this->photoReports->add($photoReport);
+        }
+        return $this;
+    }
+
 
     /**
      * Set title
@@ -308,5 +349,10 @@ class Article implements TranslatableInterface, PageInterface
     public function getPageTree()
     {
         return $this->pageTree;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle() ?: '';
     }
 }

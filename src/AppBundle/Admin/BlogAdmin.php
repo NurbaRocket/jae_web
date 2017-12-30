@@ -58,7 +58,31 @@ class BlogAdmin extends AbstractAdmin
                 ->add('updateTime', null, array(
                     'label' => 'label.blog.admin.update_time'
                 ))
-            ->end();
+            ->end()
+            ->with('Photo reports', array('class' => 'col-md-9'))
+                ->add('photoReports', 'sonata_type_collection', array(
+                    'by_reference' => false,
+                    'type_options' => array(
+                        // Prevents the "Delete" option from being displayed
+                        'delete' => false,
+                        'delete_options' => array(
+                            // You may otherwise choose to put the field but hide it
+                            'type'         => 'hidden',
+                            // In that case, you need to fill in the options as well
+                            'type_options' => array(
+                                'mapped'   => false,
+                                'required' => false,
+                            )
+                        )
+                    )
+                ), array(
+                    'link_parameters' => array('context' => 'news'),
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position'
+                ))
+            ->end()
+        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

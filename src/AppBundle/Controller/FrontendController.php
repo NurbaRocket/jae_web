@@ -165,7 +165,7 @@ class FrontendController extends Controller
     /**
      * Article content
      *
-     * @Route("/{_locale}/post/{id}/", name="post_show")
+     * @Route("/{_locale}/outage/{id}/", name="post_show")
      * @Method("GET")
      * @Template("page/post.html.twig")
      */
@@ -182,6 +182,35 @@ class FrontendController extends Controller
         return array(
             'title'=> $page->getTitle(),
             'page' => $page,
+        );
+    }
+
+    /**
+     * Post index
+     *
+     * @Route("/{_locale}/outages/", name="outage_index_show")
+     * @Method("GET")
+     * @Template("page/post_index.html.twig")
+     */
+    public function outagesAction(Request $request, $_locale)
+    {
+        $paginatorOptions = array(
+            'defaultSortFieldName' => 'p.createTime',
+            'defaultSortDirection' => 'desc'
+        );
+        $em = $this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository('AppBundle:Post')->createQueryBuilder('p');
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $queryBuilder,
+            $request->query->get('page', 1),
+            16,
+            $paginatorOptions
+        );
+
+        return array(
+            'title' => 'Плановые отключения',
+            'pagination' => $pagination
         );
     }
 
@@ -244,10 +273,20 @@ class FrontendController extends Controller
      */
     public function myBalanceAction(Request $request)
     {
-
-
         return array(
             'title' => 'Баланс абонента'
+        );
+    }
+
+    /**
+     * @Route("/provider-balance", name="provider_balance_show")
+     * @Method("GET")
+     * @Template("page/provider_balance.html.twig")
+     */
+    public function providerBalanceAction(Request $request)
+    {
+        return array(
+            'title' => 'Баланс провайдера'
         );
     }
 

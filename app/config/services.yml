@@ -70,7 +70,14 @@ services:
         class: AppBundle\Admin\PageFileAdmin
         arguments: [~, AppBundle\Entity\PageFile, AppBundle:SonataAdmin, 'title']
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: PageFile }
+            - { name: sonata.admin, manager_type: orm, group: "Media", label: PageFile }
+        public: true
+
+    energo.admin.articleFile:
+        class: AppBundle\Admin\ArticleFileAdmin
+        arguments: [~, AppBundle\Entity\ArticleFile, AppBundle:SonataAdmin, 'title']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Media", label: ArticleFile }
         public: true
 
     energo.admin.post:

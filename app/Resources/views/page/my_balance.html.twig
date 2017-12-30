@@ -117,7 +117,7 @@
             btn.attr("disabled", true);
             widget.addClass("loading");
             $.post(url.replace(/_code_/, code), {"g-recaptcha-response": grecaptcha.getResponse(btn.data("site-key"))},
-                function(data) {
+                function (data) {
                     widget.removeClass("loading");
                     btn.attr("disabled", false);
                     if (data.message) {
@@ -131,7 +131,7 @@
                         if (data.hasOwnProperty(key)) {
                             var value;
                             if (typeof data[key] == "number") {
-                                value =  data[key].toLocaleString();
+                                value = data[key].toLocaleString();
                             } else if (key == 'ReadDate') {
                                 value = new Date(data[key]).toLocaleDateString();
                             } else {
@@ -147,11 +147,15 @@
                     $("#result").removeClass("hidden");
                     grecaptcha.reset();
                 }
-            );
+            ).fail(function () {
+                $("#error-message").removeClass("hidden").html("Internal Server Error");
+                $("#result").addClass("hidden");
+                grecaptcha.reset();
+            });
         }
 
-        $(function() {
-            $("#send-code").click(function() {
+        $(function () {
+            $("#send-code").click(function () {
                 grecaptcha.execute();
             });
         });

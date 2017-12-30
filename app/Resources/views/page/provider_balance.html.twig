@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+{% import "common/helper.html.twig" as helper %}
+
+{% block title %}{{ title|trans }} - {{ settings.webSite.siteName }}{% endblock %}
+{% block content %}
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="pageTitle">{{ title|trans }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                {{ title|breadcrumbs|raw }}
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="panel panel-default">
+                        <div id="subscriber-balance-widget" class="panel-body" style="min-height: 400px">
+                            <div class="loading-indicator"></div>
+                            <div class="col-xs-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-size="invisible" data-callback="sendCode" data-sitekey="6LcPuDMUAAAAAFX1CN1vCLEcHfTCMZaLkQ_kU-c6"></div>
+                                        <input type="hidden" id="code" value="{{ app.user.username }}">
+                                        <button type="button" id="send-code" class="btn btn-primary">{% trans %}Получить{% endtrans %}</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div id="error-message" class="hidden alert alert-danger" role="alert"></div>
+                            </div>
+                            <div id="result" class="col-md-12 hidden">
+                                <div class="col-md-6">
+                                    <dl>
+                                        <dt>{% trans %}Наименование{% endtrans %}</dt>
+                                        <dd id="Name"></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>{% trans %}Баланс{% endtrans %}</dt>
+                                        <dd id="Balance"></dd>
+                                    </dl>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        var url = "{{ url("get_provider_balance", {code: "_code_"}) }}";
+        function sendCode() {
+            var code = $("#code").val();
+            var btn = $("#send-code");
+            var widget = $("#subscriber-balance-widget");
+            btn.attr("disabled", true);
+            widget.addClass("loading");
+            $.post(url.replace(/_code_/, code), {"g-recaptcha-response": grecaptcha.getResponse(btn.data("site-key"))},
+                function(data) {
+                    widget.removeClass("loading");
+                    btn.attr("disabled", false);
+                    if (data.message) {
+                        $("#error-message").removeClass("hidden").html(data.message);
+                        $("#result").addClass("hidden");
+                        grecaptcha.reset();
+                        return
+                    }
+                    for (var key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            var value;
+                            if (typeof data[key] == "number") {
+                                value =  data[key].toLocaleString();
+                            } else if (key == 'ReadDate') {
+                                value = new Date(data[key]).toLocaleDateString();
+                            } else {
+                                value = data[key]
+                            }
+
+                            $("#" + key).html(value);
+                        }
+                    }
+                    $("#error-message").addClass("hidden");
+                    $("#result").removeClass("hidden");
+                    grecaptcha.reset();
+                }
+            );
+        }
+
+        $(function() {
+            $("#send-code").click(function() {
+                grecaptcha.execute();
+            });
+        });
+    </script>
+{% endblock %}

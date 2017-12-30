@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -20,6 +21,7 @@ class UserAdmin extends AbstractAdmin
         $formMapper
             ->add('username', TextType::class)
             ->add('email', EmailType::class)
+            ->add('enabled', CheckboxType::class)
             ->add('plainPassword', PasswordType::class, array(
                 'required' => false,
             ))
@@ -27,6 +29,7 @@ class UserAdmin extends AbstractAdmin
                 'multiple' => true,
                 'required' => false,
                 'choices' => array(
+                    'ROLE_PROVIDER' => 'ROLE_PROVIDER',
                     'ROLE_ADMIN' => 'ROLE_ADMIN',
                     'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN',
                     'ROLE_USER' => 'ROLE_USER',
