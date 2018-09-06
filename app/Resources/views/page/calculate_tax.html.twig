@@ -19,43 +19,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="col-xs-12">
-                        <h2></h2>
-                        <strong>Среднесуточная норма потребления э/э по соцнорме для населения</strong>
-                        <p>700кВтч*12мес/365дн = 23.0137 кВтч</p>
-                        <div class="form-group">
-                            <label for="tax">{% trans %}Тариф{% endtrans %}</label>
-                            <select  class="form-control" id="tax">
-                                <option value="null">{% trans %}Выберите тариф{% endtrans %}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <label for="consumption">{% trans %}Расход{% endtrans %}</label>
-                            <input type="number" class="form-control" id="consumption" placeholder="0" />
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <label for="days">{% trans %}Дни потребления{% endtrans %}</label>
-                            <input type="number" class="form-control" id="days" placeholder="0" />
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <h3 id="result">0.0</h3>
-                        <p>* Без учета замены счетчика, НДС и НсП</p>
-                    </div>
-                    <div class="col-xs-8">
-                        <div class="form-group pull-right">
-                            <button class="btn btn-primary">{% trans %}Вычислить{% endtrans %}</button>
-                        </div>
-                    </div>
-                </div>
+                    <div id="app" class="col-xs-12">
+
                 <div class="col-lg-3">
 
                 </div>
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset("dist/app/bundle.js") }}"></script>
 {% endblock %}

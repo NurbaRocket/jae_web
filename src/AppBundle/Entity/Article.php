@@ -162,6 +162,19 @@ class Article implements TranslatableInterface, PageInterface
         return $this;
     }
 
+    /**
+     *
+     * @param ArticleFile $photoReport
+     * @return $this
+     */
+    public function removePhotoReport(ArticleFile $photoReport)
+    {
+        if ($this->photoReports->contains($photoReport)) {
+            $this->photoReports->remove($photoReport->getId());
+        }
+        return $this;
+    }
+
 
     /**
      * Set title
@@ -354,5 +367,26 @@ class Article implements TranslatableInterface, PageInterface
     public function __toString()
     {
         return $this->getTitle() ?: '';
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            'id' => $this->id,
+            'title' => $this->title,
+            'url' => $this->url,
+            'status' => $this->status,
+            'content' => $this->content
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        $values = unserialize($serialized);
+        $this->id = $values['id'];
+        $this->title = $values['title'];
+        $this->url = $values['url'];
+        $this->status = $values['status'];
+        $this->content = $values['content'];
     }
 }
