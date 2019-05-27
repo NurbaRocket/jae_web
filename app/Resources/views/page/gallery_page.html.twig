@@ -15,6 +15,27 @@
     <div class="container">
         <div class="row">
             {{ page.content|raw }}
+            <div class="service-v1 margin-bottom-40">
+                <ul class="list-unstyled">
+                    {% for gallery in pagination %}
+                    <div class="col-xs-12">
+                        <h4>{{ gallery.name }}</h4>
+                        {% for art in gallery.GalleryHasMedias %}
+                            <div class="col-xs-6 col-md-3">
+                                <a href="{% path art.media, 'reference' %}" class="thumbnail photo-gallery">
+                                    {% media art.media, 'big' with {'class': 'img-responsive'} %}
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    </div>
+                </ul>
+            </div>
+            {{ knp_pagination_render(pagination) }}
         </div>
     </div>
 </section>
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('energo/css/fancybox/jquery.fancybox.css') }}">
+{% endblock %}

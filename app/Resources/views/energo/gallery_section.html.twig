@@ -1,0 +1,39 @@
+<section id="galleries" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-9">
+                <div class="row">
+                    <div class="section-title">
+                        <h3>{% trans %}Фотогалерея{% endtrans %}</h3>
+                    </div>
+                </div>
+                <ul class="list-unstyled">
+                    {% for gallery in galleries %}
+                        {% for art in gallery.GalleryHasMedias %}
+                            <div class="col-xs-4">
+                                <a href="{% path art.media, 'reference' %}" title="{{ art.media.name }}" class="thumbnail photo-gallery">
+                                    {% media art.media, 'big' with {'class': 'img-responsive'} %}
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                <div class="row">
+                    <div class="section-title">
+                        <h3>{% trans %}Видеогалерея{% endtrans %}</h3>
+                    </div>
+                </div>
+                <ul class="list-unstyled">
+                    {% for media in videos %}
+                        <div class="thumbnail embed-responsive embed-responsive-16by9">
+                            {% media media, 'video' with {'class': 'video'} %}
+                        </div>
+                        <h5>{{ media.name|truncate(60) }}</h5>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -3,3 +3,23 @@
 {% block content %}
     {% include 'page/' ~ page.pageType ~ '.html.twig' %}
 {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if page.pageType == 'gallery_page' %}
+        <link rel="stylesheet" href="{{ asset('energo/css/fancybox/jquery.fancybox.css') }}">
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% if page.pageType == 'gallery_page' %}
+    <script src="{{ asset("energo/js/jquery.fancybox.pack.js") }}"></script>
+    <script src="{{ asset("energo/js/jquery.fancybox-media.js") }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("a.photo-gallery").fancybox();
+        });
+    </script>
+    {% endif %}
+{% endblock %}

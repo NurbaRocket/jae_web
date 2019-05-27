@@ -96,6 +96,31 @@ class FrontendController extends Controller
         );
     }
 
+
+    /**
+     * Вызывается только в шаблоне, отрендерить секцию "фото галерея"
+     *
+     * @Template("energo/gallery_section.html.twig")
+     */
+    public function gallerySectionAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $g = $em->getRepository('ApplicationSonataMediaBundle:Gallery')->findBy(
+            array("enabled" => true),
+            array('createdAt' => 'DESC'),
+            1
+        );
+        $м = $em->getRepository('ApplicationSonataMediaBundle:Media')->findBy(
+            array('providerName' => 'sonata.media.provider.youtube'),
+            array('createdAt' => 'DESC'),
+            3
+        );
+        return array(
+            'videos' => $м,
+            'galleries' => $g
+        );
+    }
+
     /**
      * PageTree Content
      *
@@ -111,20 +136,30 @@ class FrontendController extends Controller
         if (!$page) {
             throw $this->createNotFoundException();
         }
-        $params =  array(
+        $params = array(
             'repository' => $em->getRepository('AppBundle:PageTree'),
             'page' => $page,
             'title' => $page->getTitle(),
         );
+        $paginatorOptions = null;
         if ($page->getPageType() == 'news_page') {
+            $queryBuilder = $em->getRepository('AppBundle:Article')->createQueryBuilder('a')
+                ->where('a.pageTree = :pid')
+                ->setParameter('pid', $page);
             $paginatorOptions = array(
                 'defaultSortFieldName' => 'a.createTime',
                 'defaultSortDirection' => 'desc'
             );
-            $queryBuilder = $em->getRepository('AppBundle:Article')->createQueryBuilder('a')
-                ->where('a.pageTree = :pid')
-                ->setParameter('pid', $page)
-            ;
+        } else if ($page->getPageType() == 'gallery_page') {
+            $queryBuilder = $em->getRepository('ApplicationSonataMediaBundle:Gallery')->createQueryBuilder('a')
+                ->where('a.enabled = :state')
+                ->setParameter('state', true);
+            $paginatorOptions = array(
+                'defaultSortFieldName' => 'a.createdAt',
+                'defaultSortDirection' => 'desc'
+            );
+        }
+        if ($paginatorOptions != null) {
             $paginator = $this->get('knp_paginator');
             $pagination = $paginator->paginate(
                 $queryBuilder,
@@ -133,7 +168,6 @@ class FrontendController extends Controller
                 $paginatorOptions
             );
             $params['pagination'] = $pagination;
-
         }
 
         return $params;
@@ -157,7 +191,7 @@ class FrontendController extends Controller
             throw $this->createNotFoundException();
         }
         return array(
-            'title'=> $page->getTitle(),
+            'title' => $page->getTitle(),
             'page' => $page,
         );
     }
@@ -180,7 +214,7 @@ class FrontendController extends Controller
             throw $this->createNotFoundException();
         }
         return array(
-            'title'=> $page->getTitle(),
+            'title' => $page->getTitle(),
             'page' => $page,
         );
     }
@@ -228,12 +262,11 @@ class FrontendController extends Controller
             $response = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
             if ($response->isSuccess()) {
                 $feedback = $form->getData();
-                $message = (new \Swift_Message($feedback['stuff']. ' от ' . $feedback['firstName'] . ' ' . $feedback['familyName']))
+                $message = (new \Swift_Message($feedback['stuff'] . ' от ' . $feedback['firstName'] . ' ' . $feedback['familyName']))
                     ->setFrom($feedback['email'])
                     ->setTo('support@jae.kg')
                     ->setBody($feedback['content'], 'text/html')
-                    ->addPart($feedback['content'], 'text/plain')
-                ;
+                    ->addPart($feedback['content'], 'text/plain');
                 $mailer->send($message);
                 $this->get('session')->getFlashBag()->add(
                     'message',
@@ -249,7 +282,7 @@ class FrontendController extends Controller
         }
         return array(
             'form' => $form->createView(),
-            'title'=> 'Электронная приемная'
+            'title' => 'Электронная приемная'
         );
     }
 
@@ -305,7 +338,7 @@ class FrontendController extends Controller
     public function fallbackAction($_locale, $url, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $url =  trim(urldecode($url), '/');
+        $url = trim(urldecode($url), '/');
         /** @var $page PageTree */
         $page = $em->getRepository('AppBundle:PageTree')->findOneBy(
             array(
@@ -375,12 +408,11 @@ class FrontendController extends Controller
                 'label' => 'feedback_content_label',
                 'config' => array(
                     'toolbar' => array(
-                        array(
-                        )
+                        array()
                     )
                 ),
             ))
-            ->add('send', FormType\SubmitType::class,array(
+            ->add('send', FormType\SubmitType::class, array(
                 'label' => 'feedback_button_label',
                 'attr' => array(
                     'class' => 'g-recaptcha',
@@ -390,8 +422,7 @@ class FrontendController extends Controller
             ))
             ->setAttributes(array('id', 'feedback_form'))
             ->setAction($this->generateUrl('feedback_show'))
-            ->getForm()
-        ;
+            ->getForm();
         return $form;
     }
 }
