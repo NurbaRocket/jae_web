@@ -7,11 +7,14 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: ru
+    locale: kg
     locales: [ru, kg]
     router.class: AppBundle\Routing\Router
 
 framework:
+    profiler:
+        collect: false
+        matcher: { ip: 192.168.0.0/30 }
     #esi: ~
     translator: { fallbacks: [ru, kg] }
     secret: '%secret%'

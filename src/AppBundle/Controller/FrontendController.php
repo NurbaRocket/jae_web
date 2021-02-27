@@ -21,7 +21,7 @@ class FrontendController extends Controller
      * Main Page
      *
      * @Route("/{_locale}",
-     *    defaults={"_locale" = "ru"},
+     *    defaults={"_locale" = "kg"},
      *    requirements={"_locale": "[a-zA-Z]{2}"},
      *    name="main_page"
      * )
