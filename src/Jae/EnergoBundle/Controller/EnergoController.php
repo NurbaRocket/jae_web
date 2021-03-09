@@ -24,14 +24,13 @@ class EnergoController extends Controller
             $browser = new \Buzz\Browser();
             $browser->getClient()->setTimeout(5000);
             try {
-                // 213.145.145.94
                 $data = $browser->get('http://213.145.145.94:3030/subscriber/' . $code);
                 return JsonResponse::fromJsonString($data->getContent());
             } catch (\Exception $ex) {
                 return JsonResponse::create(array(
                     'message' => 'Не удалось получить данные. Попробуйте еще раз'
                 ));
-            }/**/
+            }
         }
         return JsonResponse::create(array(
             'message' => "The reCAPTCHA wasn't entered correctly. Go back and try it again."
@@ -50,14 +49,13 @@ class EnergoController extends Controller
             $browser = new \Buzz\Browser();
             $browser->getClient()->setTimeout(5000);
             try {
-                // 213.145.145.94
                 $data = $browser->get('http://213.145.145.94:3030/provider/' . $code);
                 return JsonResponse::fromJsonString($data->getContent());
             } catch (\Exception $ex) {
                 return JsonResponse::create(array(
                     'message' => 'Не удалось получить данные. Попробуйте еще раз'
                 ));
-            }/**/
+            }
         }
         return JsonResponse::create(array(
             'message' => "The reCAPTCHA wasn't entered correctly. Go back and try it again."
